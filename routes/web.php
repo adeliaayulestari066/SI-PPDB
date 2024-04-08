@@ -45,3 +45,7 @@ Route::get('/formulir', function () {
 Route::get('/ppdb', function () {
     return view('ppdb.index');
 });
+
+Route::get('/pembayaran', function () {
+    return view('pembayaran.index');
+});

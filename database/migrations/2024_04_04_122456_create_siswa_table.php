@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('foto_kk');
             $table->string('foto_akte');
             $table->string('no_hp_ortu');
-            $table->foreignIdFor(Pendaftaran::class);
+            $table->foreignId('pendaftaran_id')->constrained('pendaftaran')->cascadeOnDelete();
             $table->timestamps();
         });
     }

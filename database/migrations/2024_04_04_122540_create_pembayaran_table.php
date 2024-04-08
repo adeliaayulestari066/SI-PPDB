@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('bukti_pembayaran');
             $table->string('tgl_pembayaran');
-            $table->foreignIdFor(Siswa::class);
+            $table->foreignId('siswa_id')->constrained('siswa')->cascadeOnDelete();
             $table->timestamps();
         });
     }
