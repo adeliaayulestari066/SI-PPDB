@@ -104,6 +104,6 @@
             </div>
         </div>
     </div>
-    <a class="btn btn-primary py-3 px-5 text-center" href="">Daftar<i class="fa fa-arrow-right ms-2"></i></a>
+    <a href="/formulir" class="btn btn-primary btn-block">Daftar</a>
     {{-- hhh --}}
 @endsection

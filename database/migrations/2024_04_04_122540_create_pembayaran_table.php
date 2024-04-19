@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
             $table->string('bukti_pembayaran');
-            $table->string('tgl_pembayaran');
+            $table->date('tgl_pembayaran');
             $table->foreignId('siswa_id')->constrained('siswa')->cascadeOnDelete();
             $table->timestamps();
         });

@@ -38,14 +38,18 @@ Route::get('/sejarah', function () {
     return view('sejarah.index');
 });
 
+// route formulir siswa
 Route::get('/formulir', function () {
     return view('formulir.index');
 });
+Route::post('/formulir', [FormulirController::class, 'store'])->name('formulir.store');
 
 Route::get('/ppdb', function () {
     return view('ppdb.index');
 });
 
+// route pembayaran
 Route::get('/pembayaran', function () {
     return view('pembayaran.index');
 });
+Route::post('/pembayaran/sukses',[PesananController::class, 'buktiTransaksi'])->name('pembayaran.sukses');
