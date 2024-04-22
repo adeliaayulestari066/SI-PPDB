@@ -9,6 +9,7 @@ use App\Models\Pendaftaran;
 class Siswa extends Model
 {
     use HasFactory;
+    protected $table = 'siswa';
 }
 
 

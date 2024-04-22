@@ -7,76 +7,20 @@
         </div>
     </div>
 </div>
-  <style>
-    .portfolio {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .item {
-      width: 283px;
-      margin: 10px;
-    }
-
-    .item img {
-      width: 100%;
-      height: auto;
-    }
-
-    .description {
-      background-color: #f4f4f4;
-      padding: 10px;
-      text-align: center;
-    }
-
-    .description h2 {
-      margin-top: 0;
-    }
-
-    .description p {
-      margin-bottom: 0;
-    }
-  </style>
-
-<body>
-  <div class="portfolio">
-    <div class="item">
-      <img src="gambar1.jpg" alt="Deskripsi Gambar 1">
-      <div class="description">
-        <h2>Proyek 1</h2>
-        <p>Deskripsi proyek 1.</p>
-      </div>
-    </div>
-    <div class="item">
-      <img src="gambar2.jpg" alt="Deskripsi Gambar 2">
-      <div class="description">
-        <h2>Proyek 2</h2>
-        <p>Deskripsi proyek 2.</p>
-      </div>
-    </div>
-    <div class="item">
-        <img src="gambar2.jpg" alt="Deskripsi Gambar 2">
-        <div class="description">
-          <h2>Proyek 3</h2>
-          <p>Deskripsi proyek 3.</p>
-        </div>
-    </div>
-    <div class="item">
-        <img src="gambar2.jpg" alt="Deskripsi Gambar 2">
-        <div class="description">
-          <h2>Proyek 4</h2>
-          <p>Deskripsi proyek 4.</p>
-        </div>
-    </div>
-    <div class="item">
-        <img src="gambar2.jpg" alt="Deskripsi Gambar 2">
-        <div class="description">
-          <h2>Proyek 5</h2>
-          <p>Deskripsi proyek 5.</p>
-        </div>
-    </div>
-    <!-- Tambahkan item portofolio lainnya sesuai kebutuhan -->
+<section id="projects" class="projects">
+  <div class="row row-cols-3">
+      @foreach($galeri as $item)
+          <div class="col">
+              <div class="card">
+                  <img src="{{ $item->gambar }}" class="card-img-top" alt="{{ $item->gambar }}" style="max-width: 100%; height: auto;">
+                  <div class="card-body">
+                      <p class="card-text">{{ $item->deskripsi }}</p>
+                  </div>
+              </div>
+          </div>
+      @endforeach
   </div>
-</body>
+</section>
+
 
 @endsection
