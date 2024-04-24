@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
-            $table->string('bukti_pembayaran');
+            $table->string('bukti');
             $table->date('tgl_pembayaran');
+            $table->enum('status', ['diterima', 'ditolak', 'menunggu konfirmasi'])->default('menunggu konfirmasi');
             $table->foreignId('siswa_id')->constrained('siswa')->cascadeOnDelete();
             $table->timestamps();
         });

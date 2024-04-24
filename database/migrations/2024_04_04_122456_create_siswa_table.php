@@ -3,7 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Pendaftaran;
+use App\Models\User;
+
 return new class extends Migration
 {
     /**
@@ -26,7 +27,7 @@ return new class extends Migration
             $table->string('foto_kk');
             $table->string('foto_akte');
             $table->string('no_hp_ortu');
-            $table->foreignId('pendaftaran_id')->constrained('pendaftaran')->cascadeOnDelete();
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

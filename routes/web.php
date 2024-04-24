@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\BayarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\SiswaController;
 
 /*
@@ -17,9 +19,10 @@ use App\Http\Controllers\SiswaController;
 */
 
 // user
+// beranda
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 // visi misi
 Route::get('/visimisi', function () {
@@ -31,7 +34,7 @@ Route::get('/kontak', function () {
     return view('kontak.index');
 });
 
-// route pengurus
+// route pengurus dan guru
 Route::get('/pengurus', function () {
     return view('pengurus.index');
 });
@@ -49,10 +52,10 @@ Route::get('/sejarah', function () {
 });
 
 // route formulir siswa
-Route::get('/formulir', function () {
+Route::get('/formulir/', function () {
     return view('formulir.index');
 });
-Route::post('/formulir', [FormulirController::class, 'store'])->name('formulir.store');
+Route::post('/formulir/store', [\App\Http\Controllers\SiswaController::class, 'store'])->name('formulir.simpan');
 
 // route ppdb
 Route::get('/ppdb', function () {
@@ -60,36 +63,18 @@ Route::get('/ppdb', function () {
 });
 
 // route pembayaran
-Route::get('/pembayaran', function () {
-    return view('pembayaran.index');
-});
-Route::post('/pembayaran/sukses',[PesananController::class, 'buktiTransaksi'])->name('pembayaran.sukses');
-
-// admin
-// manajemen data pendaftar
-Route::prefix('admin')->group(function () {
-    Route::get('/', [ManajemanDataPendaftarController::class, 'index'])->name('index');
-    Route::get('/create', [ManajemanDataPendaftarController::class, 'create'])->name('create');
-    Route::post('/', [ManajemanDataPendaftarController::class, 'store'])->name('store');
-    Route::get('/{id}', [ManajemanDataPendaftarController::class, 'show'])->name('show');
-    Route::get('/{id}/edit', [ManajemanDataPendaftarController::class, 'edit'])->name('edit');
-    Route::put('/{id}', [ManajemanDataPendaftarController::class, 'update'])->name('update');
-    Route::delete('/{id}', [ManajemanDataPendaftarController::class, 'destroy'])->name('destroy');
-});
-
-// manajemen data galeri
-// use App\Http\Controllers\Admin\ManajemenDataGaleriController;
-// Route::prefix('admin')->group(function () {
-//     Route::get('manajemen_data_galeri/create', [GaleriController::class, 'create'])->name('admin.manajemen_data_galeri.create');
-//     Route::post('manajemen_data_galeri', [GaleriController::class, 'store'])->name('admin.manajemen_data_galeri.store');
-//     Route::get('manajemen_data_galeri/{galeri}/edit', [GaleriController::class, 'edit'])->name('admin.manajemen_data_galeri.edit');
-//     Route::put('manajemen_data_galeri/{galeri}', [GaleriController::class, 'update'])->name('admin.manajemen_data_galeri.update');
-//     Route::get('manajemen_data_galeri/{galeri}', [GaleriController::class, 'show'])->name('admin.manajemen_data_galeri.show');
-//     Route::get('manajemen_data_galeri', [GaleriController::class, 'index'])->name('admin.manajemen_data_galeri.index');
+// Route::get('/pembayaran', function () {
+//     return view('transaksi.index');
 // });
+// Route::post('/pembayaran/store',[PembayaranController::class, 'store'])->name('pembayaran.simpan');
 
-// manajemen data guru
+// route bayar
+Route::get('/bayar', function () {
+    return view('bayar.index');
+})->name('bayar');
+Route::post('/bayar/store',[BayarController::class, 'store'])->name('bayar.simpan');
 
-// manajemen data siswa
-
-// manajemen data pembayaran
+// route terima kasih
+Route::get('/terimakasih', function () {
+    return view('terimakasih.index');
+})->name('terimakasih');

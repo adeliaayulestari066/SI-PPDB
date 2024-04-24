@@ -12,19 +12,19 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
-    {{-- <!-- Nav Item - Dashboard -->
+    <!-- Nav Item - Dashboard -->
     <li class="nav-item @if(request()->routeIs('home')) active @endif">
         <a class="nav-link" href="{{ route('home') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>{{ __('Dashboard') }}</span></a>
-    </li> --}}
+    </li>
 
-    <!-- Nav Item - Tables -->
-    <li class="nav-item @if(request()->routeIs('manajeman_data_pendaftar.index')) active @endif">
-        <a class="nav-link" href="{{ route('manajeman_data_pendaftar.index') }}">
+    {{-- <!-- Nav Item - Tables -->
+    <li class="nav-item @if(request()->routeIs('manajeman_data_siswa.index')) active @endif">
+        <a class="nav-link" href="{{ route('manajeman_data_siswa.index') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>{{ __('Manajeman Data Pendaftar') }}</span></a>
-    </li>
+    </li> --}}
 
     {{-- <li class="nav-item @if(request()->routeIs('manajeman_data_siswa.index')) active @endif">
         <a class="nav-link" href="{{ route('manajeman_data_siswa.index') }}">

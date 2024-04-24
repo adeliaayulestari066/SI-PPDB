@@ -3,9 +3,13 @@
 <div class="container">
   <h1 class="text-center">Pendaftaran Peserta Didik Baru TK</h1>
   {{-- ini bagian form --}}
-  <form action="{{ route('formulir.store')}}" method="POST">
+  <form action="{{ route('formulir.simpan')}}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="row">
+        <div class="mb-3">
+          <label for="user_id">Pendaftaran ID</label>
+          <input type="number" class="form-control" name="user_id" id="user_id" placeholder="Pendaftaran" required>
+        </div>
           <div class="mb-3">
               <label for="nama_siswa">Nama Siswa</label>
               <input type="text" class="form-control" name="nama_siswa" id="nama_siswa" placeholder="Nama Siswa" required>
@@ -52,17 +56,16 @@
       </div>
       <div class="mb-3">
         <label for="foto_kk">Foto Kartu Keluarga</label>
-        <input type="file" class="form-control" name="foto_kk" id="foto_kk" required>
+        <input type="file" class="form-control" name="foto_kk" id="foto_kk" >
       </div>
       <div class="mb-3">
         <label for="foto_akte">Foto Akte Kelahiran</label>
-        <input type="file" class="form-control" name="foto_akte" id="foto_akte" required>
+        <input type="file" class="form-control" name="foto_akte" id="foto_akte">
       </div>
-          <!-- Pastikan juga untuk menambahkan field untuk pendaftaran ID -->
       </div>
 
       <hr class="mb-4">
-      <a href="/pembayaran" class="btn btn-primary btn-block">Daftar</a>
+      <button type="submit" class="btn btn-primary btn-block">Daftar</button>
   </form>
 </div>
 
