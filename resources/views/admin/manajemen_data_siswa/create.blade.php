@@ -1,65 +1,116 @@
 @extends('layouts.admin')
 
-@section('content')
-    <div class="container">
-        <h1>Tambah Siswa</h1>
-        <form action="{{ route('manajemen_siswa.store') }}" method="post" enctype="multipart/form-data">
-            @csrf
-            <div class="form-group">
-                <label for="nama_siswa">Nama Siswa:</label>
-                <input type="text" class="form-control" name="nama_siswa" id="nama_siswa" required>
+@section('title', 'Tambah Data Siswa')
+
+@section('main')
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Data Siswa/</span> Tambah Data Siswa</h4>
+    <!-- Basic Layout -->
+
+    <div class="col-xl mx-auto" style="max-width: 700px">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Form Pengisian Data Siswa</h5>
             </div>
-            <div class="form-group">
-                <label for="umur">Umur:</label>
-                <input type="number" class="form-control" name="umur" id="umur" required>
+            <div class="card-body">
+                <form method="post" action="{{ route('data.simpan')}}" enctype="multipart/form-data"> 
+                    @csrf
+                    @method('post')
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="nama_siswa" type="text" class="form-control" id="floatingInput" placeholder="John Doe"
+                                aria-describedby="floatingInputHelp" />
+                            <label for="floatingInput">Nama Siswa</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="umur" type="number" class="form-control" id="floatingInput" placeholder="Umur"
+                                aria-describedby="floatingInputHelp" />
+                            <label for="floatingInput">Umur</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="tmpt_lhr" type="text" class="form-control" id="floatingInput" placeholder="Tempat Lahir"
+                                aria-describedby="floatingInputHelp" />
+                            <label for="floatingInput">Tempat Lahir</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="tgl_lhr" type="date" class="form-control" id="floatingInput" placeholder="Tanggal Lahir"
+                                aria-describedby="floatingInputHelp" />
+                            <label for="floatingInput">Tanggal Lahir</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="alamat" type="text" class="form-control" id="floatingInput" placeholder="Alamat"
+                                aria-describedby="floatingInputHelp" />
+                            <label for="floatingInput">Alamat</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="agama" type="text" class="form-control" id="floatingInput" placeholder="Agama"
+                                aria-describedby="floatingInputHelp" />
+                            <label for="floatingInput">Agama</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="nama_ayah" type="text" class="form-control" id="floatingInput" placeholder="Nama Ayah"
+                                aria-describedby="floatingInputHelp" />
+                            <label for="floatingInput">Nama Ayah</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="pekerjaan_ayah" type="text" class="form-control" id="floatingInput" placeholder="Pekerjaan Ayah"
+                                aria-describedby="floatingInputHelp" />
+                            <label for="floatingInput">Pekerjaan Ayah</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="nama_ibu" type="text" class="form-control" id="floatingInput" placeholder="Nama Ibu"
+                                aria-describedby="floatingInputHelp" />
+                            <label for="floatingInput">Nama Ibu</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="pekerjaan_ibu" type="text" class="form-control" id="floatingInput" placeholder="Pekerjaan Ibu"
+                                aria-describedby="floatingInputHelp" />
+                            <label for="floatingInput">Pekerjaan Ibu</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="no_hp_ortu" type="text" class="form-control" id="floatingInput" placeholder="No HP Orang Tua"
+                                aria-describedby="floatingInputHelp" />
+                            <label for="floatingInput">No HP Orang Tua</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="foto_kk" type="file" class="form-control" id="floatingInput" placeholder="Foto KK"
+                                aria-describedby="floatingInputHelp" />
+                            <label for="floatingInput">Foto KK</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="foto_akte" type="file" class="form-control" id="floatingInput" placeholder="Foto Akte"
+                                aria-describedby="floatingInputHelp" />
+                            <label for="floatingInput">Foto Akte</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="tmpt_lhr">Tempat Lahir:</label>
-                <input type="text" class="form-control" name="tmpt_lhr" id="tmpt_lhr" required>
-            </div>
-            <div class="form-group">
-                <label for="tgl_lhr">Tanggal Lahir:</label>
-                <input type="date" class="form-control" name="tgl_lhr" id="tgl_lhr" required>
-            </div>
-            <div class="form-group">
-                <label for="alamat">Alamat:</label>
-                <input type="text" class="form-control" name="alamat" id="alamat" required>
-            </div>
-            <div class="form-group">
-                <label for="agama">Agama:</label>
-                <input type="text" class="form-control" name="agama" id="agama" required>
-            </div>
-            <div class="form-group">
-                <label for="nama_ayah">Nama Ayah:</label>
-                <input type="text" class="form-control" name="nama_ayah" id="nama_ayah" required>
-            </div>
-            <div class="form-group">
-                <label for="pekerjaan_ayah">Pekerjaan Ayah:</label>
-                <input type="text" class="form-control" name="pekerjaan_ayah" id="pekerjaan_ayah" required>
-            </div>
-            <div class="form-group">
-                <label for="nama_ibu">Nama Ibu:</label>
-                <input type="text" class="form-control" name="nama_ibu" id="nama_ibu" required>
-            </div>
-            <div class="form-group">
-                <label for="pekerjaan_ibu">Pekerjaan Ibu:</label>
-                <input type="text" class="form-control" name="pekerjaan_ibu" id="pekerjaan_ibu" required>
-            </div>
-            <div class="form-group">
-                <label for="foto_kk">Foto KK:</label>
-                <input type="file" class="form-control" name="foto_kk" id="foto_kk" required>
-            </div>
-            <div class="form-group">
-                <label for="foto_akte">Foto Akte:</label>
-                <input type="file" class="form-control" name="foto_akte" id="foto_akte" required>
-            </div>
-            <div class="form-group">
-                <label for="no_hp_ortu">Nomor HP Orang Tua:</label>
-                <input type="text" class="form-control" name="no_hp_ortu" id="no_hp_ortu" required>
-            </div>
-            <!-- You might need to adjust the pendaftaran_id field according to your application logic -->
-            <input type="hidden" name="pendaftaran_id" value="1">
-            <button type="submit" class="btn btn-primary">Tambah</button>
-        </form>
+        </div>
     </div>
 @endsection

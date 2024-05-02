@@ -73,4 +73,11 @@ return [
         public_path('storage') => storage_path('app/public'),
     ],
 
+    // 'local' => [
+    //     'driver' => 'local',
+    //     'root' => storage_path('app/public'), // Lokasi root untuk penyimpanan lokal
+    //     'url' => env('APP_URL').'/storage', // URL untuk mengakses penyimpanan lokal
+    //     'visibility' => 'public', // Visibilitas default
+    // ],
+    
 ];
