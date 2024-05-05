@@ -48,6 +48,7 @@ Route::get('/pengurus', [GuruController::class, 'index'])->name('pengurus.index'
 Route::get('/foto', function () {
     return view('galeri.index');
 });
+
 Route::get('/foto', [GaleriController::class, 'index'])->name('galeri.index');
 
 // route sejarah

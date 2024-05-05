@@ -11,7 +11,7 @@
     <div class="col-xl-4 col-md-6">
         <div class="post-item position-relative h-100">
             <div class="post-img position-relative overflow-hidden">
-                <img src="{{ $teacher->gambar }}" class="card-img-top" alt="{{ $teacher->nama_guru }}" style="max-width: 100%; height: auto;">
+                <img src="{{asset($teacher->gambar)}}" class="card-img-top" alt="{{ $teacher->nama_guru }}" style="max-width: 100%; height: auto;">
             </div>
             <div class="post-content d-flex flex-column">
                 <h3 class="post-title">{{ $teacher->nama_guru }}</h3>
