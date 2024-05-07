@@ -35,8 +35,16 @@ class DataguruController extends Controller
 
     // Upload gambar
     $gambar = $request->file('gambar');
-    $gambar_nama = $gambar->getClientOriginalName(); // Ambil nama asli gambar
-    $gambar->move(public_path('assets/img/elements'), $gambar_nama);
+    if ($gambar) {
+        $gambar_ekstensi = $gambar->getClientOriginalExtension();
+        $namaguru = Str::slug($validatedData['nama_guru']);
+        $gambar_nama = $namaguru . "-Guru." . $gambar_ekstensi;
+        $gambar->move(public_path('Foto Guru'), $gambar_nama);
+
+        $validatedData['nama_guru'] = $gambar_nama;
+    } else {
+        $validatedData['nama_guru'] = null;
+    }
 
     // Simpan data guru baru
     $newGuru = Guru::create([
@@ -50,7 +58,7 @@ class DataguruController extends Controller
     ]);
 
     // Redirect ke halaman manajemen data guru
-    return redirect()->route('data-guru');
+    return redirect()->route('data-guru')->with('success', 'Data guru berhasil disimpan');
 
     }
 
@@ -92,21 +100,13 @@ class DataguruController extends Controller
         // Update data guru dengan data yang sudah divalidasi
         $guru->update($validatedData);
 
-        return redirect()->route('data-guru');
+        return redirect()->route('data-guru')->with('success', 'Data guru berhasil diperbarui');
     }
-
-    // public function update($id, Request $request)
-    // {
-    //     $guru = Guru::find($id);
-    //     $guru->fill($request->except(['_token', 'submit']));
-    //     $guru->save();
-    //     return redirect('data-guru');
-    // }
 
     public function hapus(Guru $guru)
     {
         $guru->delete();
-        return redirect('data-guru')->with('success', 'Data berhasil dihapus');
+        return redirect('data-guru')->with('success', 'Data guru berhasil dihapus');
     }
 
     public function cetak(Guru $guru)

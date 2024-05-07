@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DataguruController as AdminDataguruController;
+use App\Http\Controllers\Admin\DatagaleriController as AdminDatagaleriController;
 use App\Http\Controllers\admin\DatasiswaController;
 use App\Http\Controllers\BayarController;
 use App\Http\Controllers\DataguruController;
@@ -95,7 +96,7 @@ Route::get('/data-siswa', [DatasiswaController::class, 'index'])->name('data-sis
 Route::get('/siswa/{id}/edit', [\App\Http\Controllers\Admin\DatasiswaController::class, 'edit']);
 Route::put('/siswa/{id}', [\App\Http\Controllers\Admin\DatasiswaController::class, 'update']);
 Route::get('/data-siswa/tambah', [DatasiswaController::class, 'tambah']);
-Route::post('/data/simpan', [DatasiswaController::class, 'store'])->name('data.simpan');
+Route::post('/data-siswa/simpan', [DatasiswaController::class, 'store'])->name('data-siswa-simpan');
 Route::delete('/data-siswa/{siswa}/hapus', [DatasiswaController::class, 'hapus'])
         ->name('data-siswa.hapus');
 Route::get('/data-siswa/{siswa_id}/cetak', [DatasiswaController::class, 'cetak'])->name('data-siswa.cetak');
@@ -106,9 +107,16 @@ Route::get('/data-guru', [AdminDataguruController::class, 'index'])->name('data-
 Route::get('/guru/{id}/edit', [AdminDataguruController::class, 'edit']);
 Route::put('/guru/{id}', [AdminDataguruController::class, 'update']);
 Route::get('/data-guru/tambah', [AdminDataguruController::class, 'tambah']);
-Route::post('/data/simpan', [AdminDataguruController::class, 'store'])->name('data-guru-simpan');
+Route::post('/data-guru/simpan', [AdminDataguruController::class, 'store'])->name('data-guru-simpan');
 Route::delete('/data-guru/{guru}/hapus', [AdminDataguruController::class, 'hapus'])->name('data-guru.hapus');
 Route::get('/data-guru/{guru}/cetak', [AdminDataguruController::class, 'cetak'])->name('data-guru.cetak');
 Route::get('/data-guru/{guru}/lihat', [AdminDataguruController::class, 'show'])->name('data-guru.lihat');
 
 // route manajemen galeri
+Route::get('/data-galeri', [AdminDatagaleriController::class, 'index'])->name('data-galeri.index');
+Route::get('/galeri/{id}/edit', [AdminDatagaleriController::class, 'edit']);
+Route::put('/galeri/{id}', [AdminDatagaleriController::class, 'update']);
+Route::get('/data-galeri/tambah', [AdminDatagaleriController::class, 'tambah']);
+Route::post('/data/simpan', [AdminDatagaleriController::class, 'store'])->name('data-galeri-simpan');
+Route::delete('/data-galeri/{galeri}/hapus', [AdminDatagaleriController::class, 'hapus'])->name('data-galeri.hapus');
+Route::get('/data-galeri/{galeri}/lihat', [AdminDatagaleriController::class, 'show'])->name('data-galeri.lihat');

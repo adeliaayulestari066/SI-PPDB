@@ -12,7 +12,7 @@
                 <h5 class="mb-0">Form Pengisian Data Guru</h5>
             </div>
             <div class="card-body">
-                <form method="post" action="{{ route('data-guru-simpan')}}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('data-guru-simpan') }}" enctype="multipart/form-data"> 
                     @csrf
                     @method('POST')
                     <div class="mb-3">

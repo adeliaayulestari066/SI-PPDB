@@ -1,30 +1,47 @@
 @extends('layouts.admin')
 
-@section('content')
-    <div class="container">
-        <h1>Tambah Pembayaran</h1>
-        <form action="{{ route('manajemen_pembayaran.store') }}" method="post" enctype="multipart/form-data">
-            @csrf
-            <div class="form-group">
-                <label for="siswa_id">Siswa:</label>
-                <select class="form-control" name="siswa_id" id="siswa_id" required>
-                    @foreach($siswa as $data)
-                        <option value="{{ $data->id }}">{{ $data->nama_siswa }}</option>
-                    @endforeach
-                </select>
-            </div>
+@section('title', 'Tambah Data Pembayaran')
 
-            <div class="form-group">
-                <label for="tgl_pembayaran">Tanggal Pembayaran:</label>
-                <input type="date" class="form-control" name="tgl_pembayaran" id="tgl_pembayaran" required>
-            </div>
+@section('main')
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Data Pembayaran/</span> Tambah Data Pembayaran</h4>
+    <!-- Basic Layout -->
 
-            <div class="form-group">
-                <label for="bukti_pembayaran">Bukti Pembayaran:</label>
-                <input type="file" class="form-control" name="bukti_pembayaran" id="bukti_pembayaran" required>
+    <div class="col-xl mx-auto" style="max-width: 700px">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Form Pengisian Data Pembayaran</h5>
             </div>
-
-            <button type="submit" class="btn btn-primary">Tambah</button>
-        </form>
+            <div class="card-body">
+                <form method="post" action="{{ route('data-pembayaran-simpan')}}" enctype="multipart/form-data">
+                    @csrf
+                    @method('POST')
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="bukti" type="file" class="form-control" id="bukti" placeholder="Bukti Pembayaran"
+                                aria-describedby="floatingInputHelp" />
+                            <label for="bukti">Bukti Pembayaran</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="tgl_pembayaran" type="date" class="form-control" id="tgl_pembayaran" placeholder="Tanggal Pembayaran"
+                                aria-describedby="floatingInputHelp" />
+                            <label for="tgl_pembayaran">Tanggal Pembayaran</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <select name="status" class="form-select" id="status">
+                                <option value="diterima">Diterima</option>
+                                <option value="ditolak">Ditolak</option>
+                                <option value="menunggu konfirmasi" selected>Menunggu Konfirmasi</option>
+                            </select>
+                            <label for="status">Status</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
+            </div>
+        </div>
     </div>
 @endsection

@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/logo_tkina.png') }}" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,9 +49,16 @@
 
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
-            <a href="index.html" class="navbar-brand">
+            {{-- <a href="index.html" class="navbar-brand">
                 <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>TK Al-Muchlis</h1>
-            </a>
+            </a> --}}
+            <a href="index.html" class="navbar-brand">
+                <div class="d-flex align-items-center">
+                    <img src="{{ asset('assets/img/favicon/logo_tkina.png') }}" alt="TK Al-Muchlis" class="me-2" width="60" height="60">
+                    <h1 class="m-0 text-primary">TK Al-Muchlis</h1>
+                </div>
+            </a>            
+            
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>

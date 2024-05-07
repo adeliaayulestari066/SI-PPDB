@@ -128,13 +128,13 @@
         </div>
         <!-- Tampilkan Foto KK -->
         <div class="data-item">
-            <label>Foto KK:</label>
-            <img class="photo" src="{{ asset($siswa->foto_kk) }}" alt="Foto KK">
+            <label>Foto Kartu Keluarga:</label>
+            <img src="/Foto KK/{{($siswa->foto_kk) }}" alt="Foto Kartu Keluarga" class="img-fluid rounded mb-3" style="max-width: 300px;">
         </div>
         <!-- Tampilkan Foto Akte -->
         <div class="data-item">
-            <label>Foto Akte:</label>
-            <img class="photo" src="{{ asset($siswa->foto_akte) }}" alt="Foto Akte">
+            <label>Foto Akte Kelahiran:</label>
+            <img src="/Foto Akte/{{($siswa->foto_akte) }}" alt="Foto Akte Kelahiran" class="img-fluid rounded mb-3" style="max-width: 300px;">
         </div>
         <!-- Button for printing -->
         <div class="button-container">
@@ -163,8 +163,8 @@
                 `<div class="data-item"><label>Pekerjaan Ayah:</label><span>{{ $siswa->pekerjaan_ayah }}</span></div>` +
                 `<div class="data-item"><label>Nama Ibu:</label><span>{{ $siswa->nama_ibu }}</span></div>` +
                 `<div class="data-item"><label>Pekerjaan Ibu:</label><span>{{ $siswa->pekerjaan_ibu }}</span></div>` +
-                `<div class="data-item"><label>Foto KK:</label><img class="photo" src="{{ asset($siswa->foto_kk) }}" alt="Foto KK"></div>` +
-                `<div class="data-item"><label>Foto Akte:</label><img class="photo" src="{{ asset($siswa->foto_akte) }}" alt="Foto Akte"></div>`;
+                `<div class="data-item"><label>Foto Kartu Keluarga:</label><img class="photo" src="{{ asset('Foto KK/' . $siswa->foto_kk) }}" alt="Foto KK"></div>` +
+                `<div class="data-item"><label>Foto Akte Kelahiran:</label><img class="photo" src="{{ asset('Foto Akte/' . $siswa->foto_akte) }}" alt="Foto KK"></div>`;
 
             var originalContent = document.body.innerHTML;
             document.body.innerHTML = printContent;

@@ -12,7 +12,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/logo_tkina.png') }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -56,8 +56,11 @@
                     {{-- <a href="{{ route('landing-page') }}" class="app-brand-link"> --}}
                         {{-- Logo --}}
                         <span class="app-brand-logo demo">
+                            <img src="{{ asset('assets/img/favicon/logo_tkina.png') }}" alt="">
+                        </span>                        
+                        {{-- <span class="app-brand-logo demo">
                             <img src="{{ asset('assets/img/favicon/favicon.ico') }}" alt="">
-                        </span>
+                        </span>                         --}}
                         {{-- Nama Web --}}
                         <span class="app-brand-text demo menu-text fw-bold ms-2">TK Al-Muchlis</span>
                     </a>
@@ -100,7 +103,7 @@
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
                     <li class="menu-item">
-                        <a href="/dashboard" class="menu-link">
+                        <a href="/admin" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
@@ -128,7 +131,7 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="/progres-skripsi" class="menu-link">
+                        <a href="/data-galeri" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-dock-top"></i>
                             <div data-i18n="Basic">Manajemen Data Galeri</div>
                         </a>

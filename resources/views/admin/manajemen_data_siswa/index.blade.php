@@ -55,6 +55,7 @@
                     <th>No HP Orang Tua</th>
                     <th>Foto KK</th>
                     <th>Foto Akte</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">

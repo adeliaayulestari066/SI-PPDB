@@ -12,7 +12,7 @@
       @foreach($galeri as $item)
           <div class="col">
               <div class="card">
-                  <img src="{{ $item->gambar }}" class="card-img-top" alt="{{ $item->gambar }}" style="max-width: 100%; height: auto;">
+                  <img src="/Foto Galeri/{{ $item->gambar }}" alt="Foto Guru" class="img-fluid rounded mb-3" style="max-width: 300px;">
                   <div class="card-body">
                       <p class="card-text">{{ $item->deskripsi }}</p>
                   </div>

@@ -2,20 +2,33 @@
 
 @section('title', 'Detail Pembayaran')
 
-@section('content')
+@section('main')
 <div class="container mt-4">
-    <h1>Detail Pembayaran</h1>
     <div class="card">
+        <h5 class="card-header bg-primary text-white">Detail Pembayaran</h5>
         <div class="card-body">
-            <p class="card-text"><strong>ID:</strong> {{ $pembayaran->id }}</p>
-            <p class="card-text"><strong>Bukti Pembayaran:</strong></p>
-            <img src="{{ Storage::url($pembayaran->bukti_pembayaran) }}" width="200" alt="bukti_pembayaran">
-            <p class="card-text"><strong>Tanggal Pembayaran:</strong> {{ $pembayaran->tgl_pembayaran }}</p>
-            <p class="card-text"><strong>Siswa:</strong> {{ $pembayaran->siswa->nama_siswa }}</p>
-            <p class="card-text"><strong>Created At:</strong> {{ $pembayaran->created_at }}</p>
-            <p class="card-text"><strong>Updated At:</strong> {{ $pembayaran->updated_at }}</p>
-            <a href="{{ route('admin.manajemen_pembayaran.edit', $pembayaran->id) }}" class="btn btn-warning">Edit</a>
-            <a href="{{ route('admin.manajemen_pembayaran.index') }}" class="btn btn-primary">Kembali ke Daftar Pembayaran</a>
+            <h5 class="card-title mt-4">Informasi Pembayaran</h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Tanggal Pembayaran:</strong> {{ $pembayaran->tgl_pembayaran }}</li>
+                        <li class="list-group-item"><strong>Status Pembayaran:</strong> {{ $pembayaran->status }}</li>
+                    </ul>
+                </div>
+                <!-- Bukti Pembayaran -->
+                <div class="col-md-6">
+                    <h5 class="card-title">Bukti Pembayaran</h5>
+                    <div class="text-center">
+                        <!-- Gambar Bukti Pembayaran -->
+                        <img src="{{ asset('path/to/your/images/' . $pembayaran->bukti) }}" alt="Bukti Pembayaran" class="img-fluid rounded mb-3" style="max-width: 300px;">
+                        <p class="text-muted">Bukti Pembayaran</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Tombol Kembali -->
+            <div class="text-center mt-4">
+                <a href="{{ route('data-pembayaran.index') }}" class="btn btn-primary">Kembali ke Daftar Pembayaran</a>
+            </div>
         </div>
     </div>
 </div>

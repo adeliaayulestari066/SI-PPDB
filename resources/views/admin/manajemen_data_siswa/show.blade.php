@@ -27,10 +27,10 @@
                     <h5 class="card-title">Foto</h5>
                     <div class="text-center">
                         <!-- Foto KK -->
-                        <img src="{{ Storage::url($siswa->foto_kk) }}" alt="Foto Kartu Keluarga" class="img-fluid rounded mb-3" style="max-width: 300px;">
+                        <img src="/Foto KK/{{($siswa->foto_kk) }}" alt="Foto Kartu Keluarga" class="img-fluid rounded mb-3" style="max-width: 300px;">
                         <p class="text-muted">Foto Kartu Keluarga</p>
                         <!-- Foto Akte -->
-                        <img src="{{ Storage::url($siswa->foto_akte) }}" alt="Foto Akte Kelahiran" class="img-fluid rounded" style="max-width: 300px;">
+                        <img src="/Foto Akte/{{($siswa->foto_akte) }}" alt="Foto Akte Kelahiran" class="img-fluid rounded" style="max-width: 300px;">
                         <p class="text-muted">Foto Akte Kelahiran</p>
                     </div>
                 </div>

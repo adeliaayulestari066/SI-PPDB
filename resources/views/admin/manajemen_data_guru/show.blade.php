@@ -23,7 +23,7 @@
                     <h5 class="card-title">Foto</h5>
                     <div class="text-center">
                         <!-- Foto Guru -->
-                        <img src="{{ Storage::url($guru->gambar) }}" alt="Foto Guru" class="img-fluid rounded mb-3" style="max-width: 300px;">
+                        <img src="/Foto Guru/{{($guru->gambar) }}" alt="Foto Guru" class="img-fluid rounded mb-3" style="max-width: 300px;">
                         <p class="text-muted">Foto Guru</p>
                     </div>
                 </div>

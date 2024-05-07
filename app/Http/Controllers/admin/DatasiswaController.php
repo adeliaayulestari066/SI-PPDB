@@ -73,7 +73,7 @@ class DatasiswaController extends Controller
         $newSiswa = Siswa::create($validatedData);
 
         // Redirect ke halaman manajemen data siswa index
-        return redirect()->route('data-siswa');
+        return redirect()->route('data-siswa')->with('success', 'Data siswa berhasil disimpan');
     }
 
     public function edit($id){
@@ -127,14 +127,14 @@ class DatasiswaController extends Controller
         // Update data siswa dengan data yang sudah divalidasi
         $siswa->update($validatedData);
 
-        return redirect('data-siswa');
+        return redirect('data-siswa')->with('success', 'Data siswa berhasil diperbarui');
     }
 
     public function hapus(Siswa $siswa)
     {
         $siswa->delete();
 
-        return redirect('data-siswa')->with('success', 'Data berhasil dihapus');;
+        return redirect('data-siswa')->with('success', 'Data siswa berhasil dihapus');;
     }
 
     public function cetak($siswa_id)

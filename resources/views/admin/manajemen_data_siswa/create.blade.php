@@ -12,12 +12,12 @@
                 <h5 class="mb-0">Form Pengisian Data Siswa</h5>
             </div>
             <div class="card-body">
-                <form method="post" action="{{ route('data.simpan')}}" enctype="multipart/form-data"> 
+                <form method="post" action="{{ route('data-siswa-simpan') }}" enctype="multipart/form-data"> 
                     @csrf
                     @method('post')
                     <div class="mb-3">
                         <div class="form-floating">
-                            <input name="nama_siswa" type="text" class="form-control" id="floatingInput" placeholder="John Doe"
+                            <input name="nama_siswa" type="text" class="form-control" id="floatingInput" placeholder="Nama Siswa"
                                 aria-describedby="floatingInputHelp" />
                             <label for="floatingInput">Nama Siswa</label>
                         </div>
