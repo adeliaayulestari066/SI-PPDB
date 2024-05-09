@@ -26,25 +26,25 @@ class DataguruController extends Controller
     $validatedData = $request->validate([
         'nama_guru' => 'required|string',
         'jabatan' => 'required|string',
-        'nip_nuptk' => 'required|integer',
+        'nip_nuptk' => 'nullable|string',
         'alamat' => 'required|string',
         'no_hp' => 'required|string',
         'status_kepegawaian' => 'required|string',
         'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi gambar
     ]);
 
-    // Upload gambar
-    $gambar = $request->file('gambar');
-    if ($gambar) {
-        $gambar_ekstensi = $gambar->getClientOriginalExtension();
-        $namaguru = Str::slug($validatedData['nama_guru']);
-        $gambar_nama = $namaguru . "-Guru." . $gambar_ekstensi;
-        $gambar->move(public_path('Foto Guru'), $gambar_nama);
+        // Upload gambar
+$gambar = $request->file('gambar');
+if ($gambar) {
+    $gambar_ekstensi = $gambar->getClientOriginalExtension();
+    $namaguru = Str::slug($validatedData['nama_guru']);
+    $gambar_nama = $namaguru . "-Guru." . $gambar_ekstensi;
+    $gambar->move(public_path('Foto Guru'), $gambar_nama);
 
-        $validatedData['nama_guru'] = $gambar_nama;
-    } else {
-        $validatedData['nama_guru'] = null;
-    }
+    $validatedData['gambar'] = $namaguru; // Menggunakan nama guru sebagai nama file
+} else {
+    $validatedData['gambar'] = null;
+}
 
     // Simpan data guru baru
     $newGuru = Guru::create([
@@ -68,40 +68,40 @@ class DataguruController extends Controller
         return view('admin.manajemen_data_guru.edit', compact('guru'));
     }
 
-    // Fungsi update untuk menyimpan perubahan data guru
     public function update(Request $request, $id)
-    {
-        $guru = Guru::findOrFail($id);
+{
+    $guru = Guru::findOrFail($id);
 
-        // Validasi data formulir
-        $validatedData = $request->validate([
-            'nama_guru' => 'required|string',
-            'jabatan' => 'required|string',
-            'nip_nuptk' => 'required|integer',
-            'alamat' => 'required|string',
-            'no_hp' => 'required|string',
-            'status_kepegawaian' => 'required|string',
-            'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ubah sesuai kebutuhan
-        ]);
+    // Validasi data formulir
+    $validatedData = $request->validate([
+        'nama_guru' => 'required|string',
+        'jabatan' => 'required|string',
+        'nip_nuptk' => 'required|integer',
+        'alamat' => 'required|string',
+        'no_hp' => 'required|string',
+        'status_kepegawaian' => 'required|string',
+        'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ubah sesuai kebutuhan
+    ]);
 
-        // Proses penyimpanan gambar jika ada
+    // Proses penyimpanan gambar jika ada
+    if ($request->hasFile('gambar')) {
         $gambar = $request->file('gambar');
-        if ($gambar) {
-            $gambar_ekstensi = $gambar->getClientOriginalExtension();
-            $namaguru = Str::slug($validatedData['nama_guru']);
-            $gambar_nama = $namaguru . "-gambar." . $gambar_ekstensi;
-            $gambar->move(public_path('Foto Guru'), $gambar_nama);
+        $gambar_ekstensi = $gambar->getClientOriginalExtension();
+        $namaguru = Str::slug($validatedData['nama_guru']);
+        $gambar_nama = $namaguru . "-gambar." . $gambar_ekstensi;
+        $gambar->move(public_path('Foto Guru'), $gambar_nama);
 
-            $validatedData['gambar'] = $gambar_nama;
-        } else {
-            $validatedData['gambar'] = null;
-        }
-
-        // Update data guru dengan data yang sudah divalidasi
-        $guru->update($validatedData);
-
-        return redirect()->route('data-guru')->with('success', 'Data guru berhasil diperbarui');
+        $validatedData['gambar'] = $gambar_nama;
+    } else {
+        // Jika tidak ada file gambar dikirim, gunakan gambar yang sudah ada sebelumnya
+        $validatedData['gambar'] = $guru->gambar;
     }
+
+    // Update data guru dengan data yang sudah divalidasi
+    $guru->update($validatedData);
+
+    return redirect()->route('data-guru')->with('success', 'Data guru berhasil diperbarui');
+}
 
     public function hapus(Guru $guru)
     {

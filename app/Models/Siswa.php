@@ -26,7 +26,14 @@ class Siswa extends Model
         'no_hp_ortu',
         'user_id'
     ];
+
+    public function pembayarans()
+    {
+        return $this->hasMany(Pembayaran::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
-
-
-

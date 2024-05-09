@@ -14,7 +14,7 @@
     <div class="container-fluid p-0 mb-5">
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-1.jpg" alt="">
+                <img class="img-fluid" src="/assets/img/favicon/ppdbbaru.png" alt="PPDB Baru Image">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
                     style="background: rgba(0, 0, 0, .2);">
                     <div class="container">
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-2.jpg" alt="">
+                <img class="img-fluid" src="/assets/img/favicon/formulir.png" alt="Formulir PPDB">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
                     style="background: rgba(0, 0, 0, .2);">
                     <div class="container">
@@ -41,10 +41,10 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-4">
-                <div class="col-sm-8">
-                    <img class="img-fluid" src="img/carousel-1.jpg" alt="">
+                <div class="col-sm-6">
+                    <img class="img-fluid" src="/assets/img/favicon/ppdbbaruhd.png" alt="PPDB Image">
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <h3 class="text-bold">Beragam Fitur Unggulan dimiliki
                         <span class="text-primary">SIAP PPDB Online</span>
                     </h3>
@@ -100,10 +100,14 @@
                             </div>
                         </li>
                     </ul>
+                    <br>
+                    <div style="text-align: center;">
+                        <a href="/formulir" class="btn btn-primary btn-lg" style="display: inline-block; width: 400px;">Daftar</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <a href="/formulir" class="btn btn-primary btn-block">Daftar</a>
+    
     {{-- hhh --}}
 @endsection

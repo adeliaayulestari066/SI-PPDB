@@ -51,7 +51,7 @@
                 @foreach ($galeris as $index => $galeri)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td><img src="{{ asset('path/to/your/images/' . $galeri->gambar) }}" alt="{{ $galeri->gambar }}" style="max-width: 100px;"></td>
+                        <td><img src="{{ asset('Foto Galeri/' . $galeri->gambar) }}" alt="{{ $galeri->gambar }}" style="max-width: 50px;"></td>
                         <td>{{ $galeri->deskripsi }}</td>
                         <td>
                             <div class="dropdown">

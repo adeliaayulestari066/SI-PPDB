@@ -157,7 +157,7 @@
                 `<div class="data-item"><label>Umur:</label><span>${umur}</span></div>` +
                 `<div class="data-item"><label>Tempat Lahir:</label><span>${tempat_lahir}</span></div>` +
                 `<div class="data-item"><label>Tanggal Lahir:</label><span>${tanggal_lahir}</span></div>` +
-                `<div class="data-item"><label>Alamat:</label><span>{{ $siswa->alamat }}</span></div>` +
+                `<div class="data-item"><label->Alamat:</label-><span>{{ $siswa->alamat }}</span></div>` +
                 `<div class="data-item"><label>Agama:</label><span>{{ $siswa->agama }}</span></div>` +
                 `<div class="data-item"><label>Nama Ayah:</label><span>{{ $siswa->nama_ayah }}</span></div>` +
                 `<div class="data-item"><label>Pekerjaan Ayah:</label><span>{{ $siswa->pekerjaan_ayah }}</span></div>` +

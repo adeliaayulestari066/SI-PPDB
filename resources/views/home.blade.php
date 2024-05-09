@@ -5,7 +5,7 @@
     <div class="container-fluid p-0 mb-5">
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-1.jpg" alt="">
+                <img class="img-fluid" src="/assets/img/favicon/paud.jpg" alt="" style="width: 100%;">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
                     <div class="container">
                         <div class="row justify-content-start">
@@ -109,12 +109,12 @@
         <div class="container">
             <div class="bg-light rounded">
                 <div class="row g-0">
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s" style="height: 510px;">
                         <div class="position-relative h-100">
-                            <img class="position-absolute w-100 h-100 rounded" src="img/call-to-action.jpg" style="object-fit: cover;">
+                            <img class="position-absolute w-100 h-100 rounded" src="/assets/img/favicon/homeppdb.jpg" style="object-fit: cover;" alt="Home PPDB Image">
                         </div>
                     </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
                         <div class="h-100 d-flex flex-column justify-content-center p-5">
                             <h1 class="mb-4">Daftar PPDB TK Al-Muchlis</h1>
                             <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
@@ -123,7 +123,7 @@
                             <a href="/ppdb" class="btn btn-primary btn-block">Daftar</a>
                         </div>
                     </div>
-                </div>
+                </div>                
             </div>
         </div>
     </div>

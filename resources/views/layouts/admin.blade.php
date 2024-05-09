@@ -74,26 +74,24 @@
                 <!-- User -->
                 <ul class="menu-item navbar-dropdown dropdown-user dropdown">
                     <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                        <div class="d-flex">
+                        <div class="d-flex align-items-center">
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar avatar-online">
-                                    <span class="avatar-initial rounded-circle bg-label-dark">
-                                        {{-- {{ generateInitials($user->name) }} --}}
-                                    </span>
+                                    <img src="{{ asset('assets/img/favicon/admin.png') }}" alt="Admin Avatar">
                                 </div>
                             </div>
-                            <div class="flex-grow-1">
-                                {{-- <span class="fw-semibold d-block">{{ $user->name }}</span> --}}
-                                <small class="text-muted">Admin</small>
+                            <div class="flex-grow-1 d-flex align-items-center">
+                                <big class="text-muted ms-2">Admin</big>
                             </div>
                         </div>
-                    </a>
+                    </a>                    
+                    
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
-                            <a class="dropdown-item" href="/logout">
-                                <i class="bx bx-power-off me-2"></i>
-                                <span class="align-middle">Log Out</span>
-                            </a>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                                </form>
                         </li>
                     </ul>
                 </ul>
@@ -125,7 +123,7 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="/progres-skripsi" class="menu-link">
+                        <a href="/data-pembayaran" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-dock-top"></i>
                             <div data-i18n="Basic">Manajemen Data Pembayaran</div>
                         </a>

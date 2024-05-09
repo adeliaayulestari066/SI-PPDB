@@ -5,52 +5,110 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Welcome, TK Al-Muchlis</h1>
-        <p class="mb-4">For more information about DataTables and use It here, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+        <h1 class="h3 mb-2 text-gray-800">Selamat Datang Admin</h1>
+        <p class="mb-4">Informasi pendaftaran TK Al-Muchlis</a>.</p>
+    </div>
 
-        {{-- <!-- DataTales Example -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Users Table</h6>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email Address</th>
-                            <th>Created at</th>
-                            <th>Updated in</th>
-                        </tr>
-                        </thead>
-                        <tfoot>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email Address</th>
-                            <th>Created at</th>
-                            <th>Updated in</th>
-                        </tr>
-                        </tfoot>
-                        <tbody>
-                        @foreach($users as $user)
-                            <tr>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->created_at }}</td>
-                                <td>{{ $user->updated_at->diffForhumans() }}</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-
-                    {{ $users->links() }}
-
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-8 order-1">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12 mb-4">
+                    <div class="card">
+                        <div class="card-body" style="height: max-content; min-height: 200px;">
+                            <div class="card-title d-flex align-items-start justify-content-between mb-2">
+                                <div class="d-flex align-items-center justify-content">
+                                    <div class="avatar d-flex align-items-center justify-content-center rounded me-2"
+                                        style="background-color: #9a5ffa23;">
+                                        <i class="menu-icon tf-icons bx bx-user me-0" style="color: #6610f2;"></i>
+                                    </div>
+                                    <h5 class="fw-semibold d-block mb-0">Siswa Baru</h5>
+                                </div>
+                            </div>
+                            <div class="my-2">
+                                <div class="d-flex align-items-end justify-content-center">
+                                    <h3 class="card-title text-nowrap mb-0 me-2">{{ $jumlahSiswa }}</h3>
+                                </div>
+                                <p class="mb-2">jumlah pendaftar saat ini</p>
+                            </div>
+                            <div class="mt-2">
+                                {{-- <a href="{{ route('data-mahasiswa.index') }}" class="btn btn-sm btn-outline-purlpe">Lihat
+                                    Mahasiswa</a> --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6  col-12 mb-4">
+                    <div class="card">
+                        <div class="card-body" style="height: max-content; min-height: 200px;">
+                            <div class="card-title d-flex align-items-start justify-content-between mb-2">
+                                <div class="d-flex align-items-center justify-content">
+                                    <div class="avatar d-flex align-items-center justify-content-center rounded me-2"
+                                        style="background-color: rgba(154, 247, 104, 0.2);">
+                                        <i class="menu-icon tf-icons bx bx-book-bookmark text-success me-0"></i>
+                                    </div>
+                                    <h5 class="fw-semibold d-block mb-0">Konfirmasi pembayaran</h5>
+                                </div>
+                                {{-- <div class="dropdown">
+                                    <button class="btn p-0" type="button" id="cardOpt4" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
+                                        <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                    </div>
+                                </div> --}}
+                            </div>
+                            <div class="my-2">
+                                <div class="d-flex align-items-end justify-content-center">
+                                    <h3 class="card-title text-nowrap mb-0 me-2">{{ $jumlahPembayaran }}</h3>
+                                </div>
+                                <p class="mb-2">cek konfirmasi pembayaran</p>
+                            </div>
+                            <div class="mt-2">
+                                {{-- <a href="{{ route('progres-skripsi.index') }}" class="btn btn-sm btn-outline-success">Lihat
+                                    Skripsi</a> --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6  col-12 mb-4">
+                    <div class="card">
+                        <div class="card-body" style="height: max-content; min-height: 200px;">
+                            <div class="card-title d-flex align-items-start justify-content-between mb-2">
+                                <div class="d-flex align-items-center justify-content">
+                                    <div class="avatar d-flex align-items-center justify-content-center rounded me-2"
+                                        style="background-color: rgba(3,195,236, 0.1);">
+                                        <i class="menu-icon tf-icons bx bx-calendar text-info me-0"></i>
+                                    </div>
+                                    <h5 class="fw-semibold d-block mb-0">pembayaran done</h5>
+                                </div>
+                                {{-- <div class="dropdown">
+                                    <button class="btn p-0" type="button" id="cardOpt4" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
+                                        <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                    </div>
+                                </div> --}}
+                            </div>
+                            <div class="my-2 mr-2">
+                                <div class="d-flex align-items-end justify-content-center">
+                                    <h3 class="card-title text-nowrap mb-0 me-2">{{ $jumlahPembayaranDiterima }}</h3>
+                                </div>
+                                <p class="mb-2">jumlah pembayaran yang diterima</p>
+                            </div>
+                            <div class="mt-2">
+                                {{-- <a href="{{ route('jadwal-sidang.index') }}" class="btn btn-sm btn-outline-info">Lihat
+                                    Jadwal</a> --}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-    </div> --}}
-    <!-- /.container-fluid -->
+    </div>
 @endsection
 

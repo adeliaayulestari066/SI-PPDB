@@ -1,17 +1,21 @@
 <?php
 
+
+use App\Http\Controllers\Admin\DatapembayaranController as AdminDatapembayaranController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DataguruController as AdminDataguruController;
 use App\Http\Controllers\Admin\DatagaleriController as AdminDatagaleriController;
 use App\Http\Controllers\admin\DatasiswaController;
 use App\Http\Controllers\BayarController;
 use App\Http\Controllers\DataguruController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RiwayatController;
 use App\Models\Siswa;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,8 +27,30 @@ use App\Models\Siswa;
 |
 */
 
+Route::get('/', [HomeController::class, 'index']);
+
+// Route::get('/adminpage', function () {
+//     return view('admin.loginadmin');
+// });
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::get('/formulir/', function () {
+    return view('formulir.index');
+})->middleware(['auth', 'verified']);
+Route::post('/formulir/store', [\App\Http\Controllers\SiswaController::class, 'store'])->name('formulir.simpan');
+
+require __DIR__.'/auth.php';
+
 // user
 // beranda
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -58,10 +84,10 @@ Route::get('/sejarah', function () {
 });
 
 // route formulir siswa
-Route::get('/formulir/', function () {
-    return view('formulir.index');
-});
-Route::post('/formulir/store', [\App\Http\Controllers\SiswaController::class, 'store'])->name('formulir.simpan');
+// Route::get('/formulir/', function () {
+//     return view('formulir.index');
+// });
+// Route::post('/formulir/store', [\App\Http\Controllers\SiswaController::class, 'store'])->name('formulir.simpan');
 
 // route ppdb
 Route::get('/ppdb', function () {
@@ -85,11 +111,16 @@ Route::get('/terimakasih', function () {
     return view('terimakasih.index');
 })->name('terimakasih');
 
+// route Riwayat Transakasi
+Route::get('/riwayat-transaksi', [RiwayatController::class, 'index'])->name('riwayat-transaksi');
+
 // route admin
 // route dashboard
-Route::get('/admin', function () {
-    return view('admin.index');
-    });   
+// Route::get('/admin', function () {
+//     return view('admin.index');
+//     })->middleware(['auth', 'verified']);   
+    
+Route::get('/admin', [HomeController::class, 'adminindex'])->name('admin')->middleware(['auth', 'verified']);
 
 // route manajemen data siswa
 Route::get('/data-siswa', [DatasiswaController::class, 'index'])->name('data-siswa');
@@ -120,3 +151,12 @@ Route::get('/data-galeri/tambah', [AdminDatagaleriController::class, 'tambah']);
 Route::post('/data/simpan', [AdminDatagaleriController::class, 'store'])->name('data-galeri-simpan');
 Route::delete('/data-galeri/{galeri}/hapus', [AdminDatagaleriController::class, 'hapus'])->name('data-galeri.hapus');
 Route::get('/data-galeri/{galeri}/lihat', [AdminDatagaleriController::class, 'show'])->name('data-galeri.lihat');
+
+// route manajemen pembayaran
+Route::get('/data-pembayaran', [AdminDatapembayaranController::class, 'index'])->name('data-pembayaran.index');
+Route::get('/pembayaran/{id}/edit', [AdminDatapembayaranController::class, 'edit']);
+Route::put('/pembayaran/{id}', [AdminDatapembayaranController::class, 'update']);
+Route::get('/data-pembayaran/tambah', [AdminDatapembayaranController::class, 'tambah']);
+Route::post('/data-pembayaran/simpan', [AdminDatapembayaranController::class, 'store'])->name('data-pembayaran-simpan');
+Route::get('/data-pembayaran/{pembayaran}/lihat', [AdminDatapembayaranController::class, 'show'])->name('data-pembayaran.lihat');
+Route::get('/data-pembayaran/{pembayaran}/cetak', [AdminDatapembayaranController::class, 'cetak'])->name('data-pembayaran.cetak');

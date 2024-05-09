@@ -80,55 +80,56 @@ class DatasiswaController extends Controller
         $siswa = Siswa::find($id);
         return view('admin.manajemen_data_siswa.edit', compact(['siswa']));
         }
-        public function update($id, Request $request){
-            $siswa = Siswa::findOrFail($id);
+        public function update($id, Request $request)
+{
+    $siswa = Siswa::findOrFail($id);
 
-        // Validasi data formulir
-        $validatedData = $request->validate([
-            'nama_siswa' => 'required|string',
-            'umur' => 'required|integer',
-            'tmpt_lhr' => 'required|string',
-            'tgl_lhr' => 'required|date',
-            'alamat' => 'required|string',
-            'agama' => 'required|string',
-            'nama_ayah' => 'required|string',
-            'pekerjaan_ayah' => 'required|string',
-            'nama_ibu' => 'required|string',
-            'pekerjaan_ibu' => 'required|string',
-            'no_hp_ortu' => 'required|string',
-            'foto_kk' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ubah sesuai kebutuhan
-            'foto_akte' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ubah sesuai kebutuhan
-        ]);
+    // Validasi data formulir
+    $validatedData = $request->validate([
+        'nama_siswa' => 'required|string',
+        'umur' => 'required|integer',
+        'tmpt_lhr' => 'required|string',
+        'tgl_lhr' => 'required|date',
+        'alamat' => 'required|string',
+        'agama' => 'required|string',
+        'nama_ayah' => 'required|string',
+        'pekerjaan_ayah' => 'required|string',
+        'nama_ibu' => 'required|string',
+        'pekerjaan_ibu' => 'required|string',
+        'no_hp_ortu' => 'required|string',
+        'foto_kk' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ubah sesuai kebutuhan
+        'foto_akte' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ubah sesuai kebutuhan
+    ]);
 
+    // Periksa apakah ada file foto KK diunggah
+    if ($request->hasFile('foto_kk')) {
         $foto_kk = $request->file('foto_kk');
-        if ($foto_kk) {
-            $fotokk_ekstensi = $foto_kk->getClientOriginalExtension();
-            $namasiswa = Str::slug($validatedData['nama_siswa']);
-            $fotokk_nama = $namasiswa . "-KK." . $fotokk_ekstensi;
-            $foto_kk->move(public_path('Foto KK'), $fotokk_nama);
+        $fotokk_ekstensi = $foto_kk->getClientOriginalExtension();
+        $namasiswa = Str::slug($validatedData['nama_siswa']);
+        $fotokk_nama = $namasiswa . "-KK." . $fotokk_ekstensi;
+        $foto_kk->move(public_path('Foto KK'), $fotokk_nama);
 
-            $validatedData['foto_kk'] = $fotokk_nama;
-        } else {
-            $validatedData['foto_kk'] = null;
-        }
-
-        $foto_akte = $request->file('foto_akte');
-        if ($foto_akte) {
-            $fotoakte_ekstensi = $foto_akte->getClientOriginalExtension();
-            $namasiswa = Str::slug($validatedData['nama_siswa']);
-            $fotoakte_nama = $namasiswa . "-AKTE." . $fotoakte_ekstensi;
-            $foto_akte->move(public_path('Foto Akte'), $fotoakte_nama);
-
-            $validatedData['foto_akte'] = $fotoakte_nama;
-        } else {
-            $validatedData['foto_akte'] = null;
-        }
-
-        // Update data siswa dengan data yang sudah divalidasi
-        $siswa->update($validatedData);
-
-        return redirect('data-siswa')->with('success', 'Data siswa berhasil diperbarui');
+        // Update nama file foto KK
+        $validatedData['foto_kk'] = $fotokk_nama;
     }
+
+    // Periksa apakah ada file foto akte diunggah
+    if ($request->hasFile('foto_akte')) {
+        $foto_akte = $request->file('foto_akte');
+        $fotoakte_ekstensi = $foto_akte->getClientOriginalExtension();
+        $namasiswa = Str::slug($validatedData['nama_siswa']);
+        $fotoakte_nama = $namasiswa . "-AKTE." . $fotoakte_ekstensi;
+        $foto_akte->move(public_path('Foto Akte'), $fotoakte_nama);
+
+        // Update nama file foto akte
+        $validatedData['foto_akte'] = $fotoakte_nama;
+    }
+
+    // Update data siswa dengan data yang sudah divalidasi
+    $siswa->update($validatedData);
+
+    return redirect('data-siswa')->with('success', 'Data siswa berhasil diperbarui');
+}
 
     public function hapus(Siswa $siswa)
     {

@@ -11,6 +11,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <ul class="list-group">
+                        <li class="list-group-item"><strong>Nama Siswa:</strong> {{ $pembayaran->siswa->nama_siswa }}</li>
                         <li class="list-group-item"><strong>Tanggal Pembayaran:</strong> {{ $pembayaran->tgl_pembayaran }}</li>
                         <li class="list-group-item"><strong>Status Pembayaran:</strong> {{ $pembayaran->status }}</li>
                     </ul>
@@ -20,7 +21,7 @@
                     <h5 class="card-title">Bukti Pembayaran</h5>
                     <div class="text-center">
                         <!-- Gambar Bukti Pembayaran -->
-                        <img src="{{ asset('path/to/your/images/' . $pembayaran->bukti) }}" alt="Bukti Pembayaran" class="img-fluid rounded mb-3" style="max-width: 300px;">
+                        <img src="/bukti/{{($pembayaran->bukti) }}" alt="Bukti Pembayaran" class="img-fluid rounded mb-3" style="max-width: 300px;">
                         <p class="text-muted">Bukti Pembayaran</p>
                     </div>
                 </div>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_guru');
             $table->string('jabatan');
-            $table->integer('nip_nuptk');
+            $table->string('nip_nuptk')->nullable();
             $table->string('alamat');
             $table->string('no_hp');
             $table->string('status_kepegawaian');

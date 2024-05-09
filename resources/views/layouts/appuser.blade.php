@@ -76,6 +76,38 @@
                     </div>
                     <a href="/foto" class="nav-item nav-link {{ request()->is('foto') ? 'active' : '' }}">Galeri</a>
                     <a href="/ppdb" class="nav-item nav-link {{ request()->is('ppdb') ? 'active' : '' }}">PPDB</a>
+                    {{-- <a href="{{ route('login') }}" class="nav-item nav-link {{ request()->is('login') ? 'active' : '' }}">Login</a>
+                    @if (Route::has('login'))
+                        @auth
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ Auth::user()->name }}</a>
+                                <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+                                    <a href="/riwayat-transaksi" class="dropdown-item">Riwayat Transaksi</a>
+                                    <form id="logoutForm" method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">Logout</a>
+                                    </form>
+                                </div>
+                            </div>
+                        @endauth
+                    @endif --}}
+                    @if (Route::has('login'))
+    @auth
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ Auth::user()->name }}</a>
+            <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+                <a href="/riwayat-transaksi" class="dropdown-item">Riwayat Transaksi</a>
+                <form id="logoutForm" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">Logout</a>
+                </form>
+            </div>
+        </div>
+    @else
+        <a href="{{ route('login') }}" class="nav-item nav-link {{ request()->is('login') ? 'active' : '' }}">Login</a>
+    @endauth
+@endif
+
                 </div>
             </div>
         </nav>

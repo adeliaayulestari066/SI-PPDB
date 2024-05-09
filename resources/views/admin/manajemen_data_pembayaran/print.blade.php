@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,6 +37,12 @@
             color: #666;
         }
 
+        .photo {
+            max-width: 300px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
         button {
             margin-top: 20px;
             padding: 10px 20px;
@@ -61,68 +66,28 @@
             color: #000; /* Ubah warna menjadi hitam */
         }
 
-        .subtitle {
-            text-align: center;
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: #666; /* Ubah warna menjadi abu-abu */
-        }
-
         .button-container {
             text-align: center;
             margin-top: 10px; /* Mengurangi margin atas agar lebih dekat dengan konten */
         }
-
-        .photo {
-            max-width: 300px;
-            margin-top: 10px;
-            border-radius: 5px;
-        }
-
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        .table th,
-        .table td {
-            border: 1px solid #dee2e6;
-            padding: 8px;
-            text-align: left;
-        }
-
-        .table th {
-            background-color: #007bff;
-            color: #fff;
-        }
     </style>
 </head>
-
 <body>
     <div class="container" id="print-content">
         <div class="title">Cetak Data Pembayaran</div>
-        <div class="subtitle">TK Al-Muchlis</div> <!-- Tambahkan tulisan TK Al-Muchlis sebagai subjudul -->
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Bukti Pembayaran</th>
-                    <th>Tanggal Pembayaran</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($pembayarans as $index => $pembayaran)
-                <tr>
-                    <td>{{ $index + 1 }}</td>
-                    <td><img src="{{ asset('path/to/your/images/' . $pembayaran->bukti) }}" alt="{{ $pembayaran->bukti }}" class="photo"></td>
-                    <td>{{ $pembayaran->tgl_pembayaran }}</td>
-                    <td>{{ $pembayaran->status }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <!-- Data pembayaran dari variabel $pembayaran -->
+        <div class="data-item">
+            <label>Nama siswa:</label>
+            <span id="siswa">{{ $pembayaran->siswa->nama_siswa }}</span>
+        </div>
+        <div class="data-item">
+            <label>Bukti Pembayaran:</label>
+            <img id="bukti_pembayaran" src="{{ asset('bukti/' . $pembayaran->bukti) }}" alt="Bukti Pembayaran" class="photo">
+        </div>
+        <div class="data-item">
+            <label>Tanggal Pembayaran:</label>
+            <span id="tanggal">{{ $pembayaran->tgl_pembayaran }}</span>
+        </div>
         <!-- Button for printing -->
         <div class="button-container">
             <button onclick="printData()">Cetak Data</button>
@@ -132,13 +97,27 @@
     <!-- JavaScript untuk mencetak data -->
     <script>
         function printData() {
+            var siswa = document.getElementById('siswa').textContent;
+            var tanggal = document.getElementById('tanggal').textContent;
+
+            var printContent =
+                `<div class="title">Cetak Data Siswa Baru</div>` +
+                `<div class="subtitle">TK Al-Muchlis</div>` +
+                `<div class="data-item"><label>Nama Siswa:</label><span>${siswa}</span></div>` +
+                `<div class="data-item"><label>Bukti Pembayaran:</label><img class="photo" src="{{ asset('bukti/' . $pembayaran->bukti) }}" alt="Bukti Pembayaran"></div>`+
+                `<div class="data-item"><label>Tanggal Pembayaran:</label><span>${tanggal}</span></div>` ;
             var originalContent = document.body.innerHTML;
-            var printContent = document.getElementById('print-content').innerHTML;
             document.body.innerHTML = printContent;
             window.print();
             document.body.innerHTML = originalContent;
         }
+        // function printData() {
+        //     var originalContent = document.body.innerHTML;
+        //     var printContent = document.getElementById('print-content').innerHTML;
+        //     document.body.innerHTML = printContent;
+        //     window.print();
+        //     document.body.innerHTML = originalContent;
+        // }
     </script>
 </body>
-
 </html>

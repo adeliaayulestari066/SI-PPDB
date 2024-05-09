@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pembayaran extends Model
 {
     use HasFactory;
-    protected $table = 'pembayaran'; 
+    protected $table = 'pembayaran';
     protected $fillable = [
         'bukti',
         'tgl_pembayaran',
@@ -16,4 +16,8 @@ class Pembayaran extends Model
         'siswa_id',
     ];
 
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class);
+    }
 }

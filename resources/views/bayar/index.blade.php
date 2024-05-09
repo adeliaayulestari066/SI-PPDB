@@ -18,7 +18,7 @@
             <input type="file" class="form-control" name="bukti" id="bukti" >
         </div>
 
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="tgl_pembayaran">Tanggal Bayar</label>
             <input type="date" class="form-control" name="tgl_pembayaran" id="tgl_pembayaran" placeholder="Tanggal Pembayaran" required>
         </div>
@@ -36,7 +36,7 @@
             <label for="siswa_id">siswa id</label>
             <input type="number" class="form-control" name="siswa_id" id="siswa_id" placeholder="ID Siswa" required>
         </div>
-    </div>
+    </div> --}}
 
       <hr class="mb-4">
       <button type="submit" class="btn btn-primary btn-block">Kirim Bukti</button>

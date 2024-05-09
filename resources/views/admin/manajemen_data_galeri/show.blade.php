@@ -19,7 +19,6 @@
                     <h5 class="card-title">Gambar</h5>
                     <div class="text-center">
                         <!-- Foto Galeri -->
-                        {{-- <img src="{{ asset('path/to/your/images/' . $galeri->gambar) }}" alt="Foto Galeri" class="img-fluid rounded mb-3" style="max-width: 300px;"> --}}
                         <img src="/Foto Galeri/{{($galeri->gambar) }}" alt="Foto Galeri" class="img-fluid rounded mb-3" style="max-width: 300px;">
                         <p class="text-muted">Gambar Galeri</p>
                     </div>
