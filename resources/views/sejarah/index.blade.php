@@ -13,11 +13,13 @@
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                         <div class="h-100 d-flex flex-column justify-content-center p-5">
                             <h1 class="mb-4">Sejarah TK Al-Muchlis</h1>
-                            <p class="mb-4">TK Al-Muchlis berdiri sejak tahun 2018 dibawah binaan yayasan Muchlis Pratama Mandiri. TK Al-Muchlis berdiri
+                            <p class="mb-4 text-justify" style="text-align: justify;">
+                                TK Al-Muchlis berdiri sejak tahun 2018 dibawah binaan yayasan Muchlis Pratama Mandiri. TK Al-Muchlis berdiri
                                 sesuai dengan keputusan Pendidikan dan Kebudayaan Provinsi Bengkulu dengan Nomor: 421.75/1006186276/TK/DPMPTSP/VII/2021
-                                dengan Nomor Pokok Sekolah Nasional (NPSN) yaitu 69986882
-                            </p>
-                        </div>
+                                dengan Nomor Pokok Sekolah Nasional (NPSN) yaitu 69986882.
+                            </p>                            
+                        </div>                        
+                        
                     </div>
                 </div>
             </div>

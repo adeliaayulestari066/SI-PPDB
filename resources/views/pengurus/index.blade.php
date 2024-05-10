@@ -4,8 +4,8 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3">Popular Teachers</h1>
-                <p class="text-center">Ini guru terkenal di Bengkulu</p>
+                <h1 class="mb-3">Pengajar TK Al-Muchlis</h1>
+                <p class="text-center">Para pengajar ???</p>
             </div>
             <div class="row">
                 @php $count = 0; @endphp

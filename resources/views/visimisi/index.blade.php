@@ -6,14 +6,16 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp mb-0" data-wow-delay="0.1s">
                     <h1 class="mb-4">Visi Misi TK Al-Muchlis</h1>
-                    <p class="mb-0">Visi</p>
+                    <p class="mb-0"><strong>Visi</strong></p>
                     <p class="mb-0">Mewujudkan anak usia dini yang unggul dalam prestasi akademik, berwawasan, religi, dan lingkungan</p>
                     <br>
-                    <p class="mb-0">Misi</p>
+                    <p class="mb-0"><strong>Misi</strong></p>
                     <p class="mb-0">1. Membentuk perilaku berakidah dan berakhlak sesuai dengan nilai-nilai agama</p>
-                    <p class="mb-0">2. ndsajndjassajk</p>
+                    <p class="mb-0">2. Mewujudkan lingkungan sekolah yang sehat dan aman</p>
+                    <p class="mb-0">3. Membangun prestasi akademik sesuai dengan minat dan potensi anak didik</p>
                     <p> </p>
                 </div>
+                
                 <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
                     <div class="row">
                         <div class="col-12 text-center">
