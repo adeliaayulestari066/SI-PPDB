@@ -32,7 +32,7 @@
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-    
+
 </head>
 
 <body>
@@ -54,18 +54,20 @@
             </a> --}}
             <a href="index.html" class="navbar-brand">
                 <div class="d-flex align-items-center">
-                    <img src="{{ asset('assets/img/favicon/logo_tkina.png') }}" alt="TK Al-Muchlis" class="me-2" width="60" height="60">
+                    <img src="{{ asset('assets/img/favicon/logo_tkina.png') }}" alt="TK Al-Muchlis" class="me-2"
+                        width="60" height="60">
                     <h1 class="m-0 text-primary">TK Al-Muchlis</h1>
                 </div>
-            </a>            
-            
+            </a>
+
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
                     <a href="/" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Beranda</a>
-                    <a href="/visimisi" class="nav-item nav-link {{ request()->is('visimisi') ? 'active' : '' }}">Visi Misi</a>
+                    <a href="/visimisi" class="nav-item nav-link {{ request()->is('visimisi') ? 'active' : '' }}">Visi
+                        Misi</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profil</a>
                         <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
@@ -92,21 +94,24 @@
                         @endauth
                     @endif --}}
                     @if (Route::has('login'))
-    @auth
-        <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ Auth::user()->name }}</a>
-            <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-                <a href="/riwayat-transaksi" class="dropdown-item">Riwayat Transaksi</a>
-                <form id="logoutForm" method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">Logout</a>
-                </form>
-            </div>
-        </div>
-    @else
-        <a href="{{ route('login') }}" class="nav-item nav-link {{ request()->is('login') ? 'active' : '' }}">Login</a>
-    @endauth
-@endif
+                        @auth
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle"
+                                    data-bs-toggle="dropdown">{{ Auth::user()->name }}</a>
+                                <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+                                    <a href="/riwayat-transaksi" class="dropdown-item">Riwayat Transaksi</a>
+                                    <form id="logoutForm" method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a href="#" class="dropdown-item"
+                                            onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">Logout</a>
+                                    </form>
+                                </div>
+                            </div>
+                        @else
+                            <a href="{{ route('login') }}"
+                                class="nav-item nav-link {{ request()->is('login') ? 'active' : '' }}">Login</a>
+                        @endauth
+                    @endif
 
                 </div>
             </div>
@@ -124,7 +129,8 @@
                         <h3 class="text-white mb-4">TK Al-Muchlis</h3>
                         <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Jalan Irian, Kel. Tanjung Jaya</p>
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>081367922207</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="mailto:paudalmuchlis@gmail.com">paudalmuchlis@gmail.com</a></p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i><a
+                                href="mailto:paudalmuchlis@gmail.com">paudalmuchlis@gmail.com</a></p>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h3 class="text-white mb-4">Klik Link</h3>
@@ -148,7 +154,8 @@
                                 <img class="img-fluid rounded bg-light p-1" src="img/paud.jpg" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/kegiatan_puskes.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="img/kegiatan_puskes.jpg"
+                                    alt="">
                             </div>
                             <div class="col-4">
                                 <img class="img-fluid rounded bg-light p-1" src="img/sosialisasi.jpg" alt="">

@@ -32,8 +32,8 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="nip_nuptk" type="text" class="form-control" id="nip_nuptk"
-                                placeholder="NIP/NUPTK" aria-describedby="floatingInputHelp" minlength="16"
-                                maxlength="18" nullable/>
+                                placeholder="NIP/NUPTK" aria-describedby="floatingInputHelp" minlength="16" maxlength="18"
+                                nullable />
                             <label for="floatingInput">NIP/NUPTK</label>
                         </div>
                     </div>
@@ -46,8 +46,8 @@
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
-                            <input name="no_hp" type="text" class="form-control" id="no_hp"
-                                placeholder="Nomor HP" aria-describedby="floatingInputHelp" minlength="10" maxlength="13" />
+                            <input name="no_hp" type="text" class="form-control" id="no_hp" placeholder="Nomor HP"
+                                aria-describedby="floatingInputHelp" minlength="10" maxlength="13" />
                             <label for="floatingInput">Nomor HP</label>
                         </div>
                     </div>
@@ -81,8 +81,31 @@
     <script>
         document.getElementById("no_hp").addEventListener("input", function(event) {
             let value = this.value;
-            let numericValue = value.replace(/\D/g, ""); 
+            let numericValue = value.replace(/\D/g, "");
             this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
         });
     </script>
+
+    {{-- <script>
+        function validateForm(event) {
+            let inputs = document.querySelectorAll('.form-control');
+            let isValid = true;
+            inputs.forEach(input => {
+                if (!input.value && input.getAttribute('name') !== 'nip_nuptk') {
+                    input.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    input.classList.remove('is-invalid');
+                }
+            });
+            if (!isValid) {
+                event.preventDefault(); // Mencegah pengiriman formulir jika ada input yang kosong
+                alert('Mohon lengkapi semua data yang kosong');
+            }
+        }
+
+        document.getElementById('formTambahDataGuru').addEventListener('submit', validateForm);
+    </script> --}}
+
+
 @endsection

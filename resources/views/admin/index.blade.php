@@ -28,7 +28,7 @@
                                 <div class="d-flex align-items-end justify-content-center">
                                     <h3 class="card-title text-nowrap mb-0 me-2">{{ $jumlahSiswa }}</h3>
                                 </div>
-                                <p class="mb-2">jumlah pendaftar saat ini</p>
+                                <p class="mb-2">Jumlah pendaftar saat ini</p>
                             </div>
                             <div class="mt-2">
                                 {{-- <a href="{{ route('data-mahasiswa.index') }}" class="btn btn-sm btn-outline-purlpe">Lihat
@@ -46,7 +46,7 @@
                                         style="background-color: rgba(154, 247, 104, 0.2);">
                                         <i class="menu-icon tf-icons bx bx-book-bookmark text-success me-0"></i>
                                     </div>
-                                    <h5 class="fw-semibold d-block mb-0">Konfirmasi pembayaran</h5>
+                                    <h5 class="fw-semibold d-block mb-0">Konfirmasi Pembayaran</h5>
                                 </div>
                                 {{-- <div class="dropdown">
                                     <button class="btn p-0" type="button" id="cardOpt4" data-bs-toggle="dropdown"
@@ -63,7 +63,7 @@
                                 <div class="d-flex align-items-end justify-content-center">
                                     <h3 class="card-title text-nowrap mb-0 me-2">{{ $jumlahPembayaran }}</h3>
                                 </div>
-                                <p class="mb-2">cek konfirmasi pembayaran</p>
+                                <p class="mb-2">Jumlah pembayaran yang perlu dilakukan konfirmasi</p>
                             </div>
                             <div class="mt-2">
                                 {{-- <a href="{{ route('progres-skripsi.index') }}" class="btn btn-sm btn-outline-success">Lihat
@@ -81,7 +81,7 @@
                                         style="background-color: rgba(3,195,236, 0.1);">
                                         <i class="menu-icon tf-icons bx bx-calendar text-info me-0"></i>
                                     </div>
-                                    <h5 class="fw-semibold d-block mb-0">pembayaran done</h5>
+                                    <h5 class="fw-semibold d-block mb-0">Pembayaran Diterima</h5>
                                 </div>
                                 {{-- <div class="dropdown">
                                     <button class="btn p-0" type="button" id="cardOpt4" data-bs-toggle="dropdown"
@@ -98,7 +98,7 @@
                                 <div class="d-flex align-items-end justify-content-center">
                                     <h3 class="card-title text-nowrap mb-0 me-2">{{ $jumlahPembayaranDiterima }}</h3>
                                 </div>
-                                <p class="mb-2">jumlah pembayaran yang diterima</p>
+                                <p class="mb-2">Jumlah pembayaran yang diterima</p>
                             </div>
                             <div class="mt-2">
                                 {{-- <a href="{{ route('jadwal-sidang.index') }}" class="btn btn-sm btn-outline-info">Lihat

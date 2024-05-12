@@ -10,10 +10,11 @@
                     <p class="mb-0">Mewujudkan anak usia dini yang unggul dalam prestasi akademik, berwawasan, religi, dan lingkungan</p>
                     <br>
                     <p class="mb-0"><strong>Misi</strong></p>
-                    <p class="mb-0">1. Membentuk perilaku berakidah dan berakhlak sesuai dengan nilai-nilai agama</p>
-                    <p class="mb-0">2. Mewujudkan lingkungan sekolah yang sehat dan aman</p>
-                    <p class="mb-0">3. Membangun prestasi akademik sesuai dengan minat dan potensi anak didik</p>
-                    <p> </p>
+                    <ol class="px-3">
+                        <li>Membentuk perilaku berakidah dan berakhlak sesuai dengan nilai-nilai agama</li>
+                        <li>Mewujudkan lingkungan sekolah yang sehat dan aman</li>
+                        <li>Membangun prestasi akademik sesuai dengan minat dan potensi anak didik</li>
+                    </ol>
                 </div>
                 
                 <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">

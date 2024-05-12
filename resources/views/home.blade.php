@@ -9,26 +9,24 @@
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
                     <div class="container">
                         <div class="row justify-content-start">
-                            <div class="col-10 col-lg-8">
-                                <h1 class="display-2 text-white animated slideInDown mb-4">The Best Kindergarten School For Your Child</h1>
-                                <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
-                                <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a>
-                                <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our Classes</a>
+                            <div class="col-1 col-lg-8">
+                                <h1 class="display-2 text-white animated slideInDown mb-100">TK Al-Muchlis</h1>
+                                <p class="fs-5 fw-medium text-white mb-2 pb-1">Selamat datang di TK Al-Muchlis! Di sini, kami menginspirasi anak-anak untuk belajar dan berkembang dengan penuh semangat. Temukan petualangan belajar yang menyenangkan dan membantu mereka tumbuh menjadi pribadi yang tangguh dan cerdas</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-2.jpg" alt="">
+                <img class="img-fluid" src="/assets/img/favicon/depan.jpg" alt="" style="width: 100%;">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-10 col-lg-8">
-                                <h1 class="display-2 text-white animated slideInDown mb-4">Make A Brighter Future For Your Child</h1>
-                                <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
-                                <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a>
-                                <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our Classes</a>
+                                <h1 class="display-2 text-white animated slideInDown mb-100">TK Al-Muchlis</h1>
+                                <p class="fs-5 fw-medium text-white mb-2 pb-1">Selamat datang di TK Al-Muchlis, tempat belajar yang menyenangkan dan inspiratif bagi anak-anak. Bersama, kita jelajahi dunia pengetahuan dengan keceriaan dan rasa ingin tahu yang tak terbatas</p>
+                                {{-- <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a> --}}
+                                {{-- <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our Classes</a> --}}
                             </div>
                         </div>
                     </div>
@@ -42,9 +40,9 @@
     <!-- Facilities Start -->
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                 <h1 class="mb-3">Fasilitas TK Al-Muchlis</h1>
-                <p>TK Al-Muchlis memberikan fasilitas yang aman dan lengkap kepada peserta didik</p>
+                <p>Dengan berbagai fasilitas lengkap yang kami sediakan, kami memastikan bahwa anak-anak dapat belajar dan tumbuh dengan baik dalam suasana yang menyenangkan dan inspiratif</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">

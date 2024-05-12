@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pembayaran;
 use App\Models\Siswa;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -13,18 +14,29 @@ use Illuminate\Support\Str;
 
 class BayarController extends Controller
 {
+    public function index()
+    {
+        $userId = Auth::id();
+
+        // Ambil siswa yang dimiliki oleh user
+        $siswas = User::find($userId)->siswas;
+// dd($siswas);
+        // Mengirimkan data siswa ke tampilan form
+        return view('bayar.index', compact('siswas'));
+    }
     public function store(Request $request)
     {
         $validatedData = $request->validate([
             'bukti' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ubah sesuai kebutuhan
+            'siswa_id' => 'required|exists:siswa,id' 
         ]);
-        
+
         $today = Carbon::today();
 
         $userId = Auth::id();
 
-        $siswaId = Siswa::where('user_id', $userId)->value('id');
-        $namaSiswa = Siswa::where('user_id', $userId)->value('nama_siswa');
+        $siswaId = $request->siswa_id;
+        $namaSiswa = Siswa::findOrFail($siswaId)->nama_siswa;
 
         $validatedData = [
             'tgl_pembayaran' => $today,
@@ -33,7 +45,7 @@ class BayarController extends Controller
         ];
         // dd($validatedData);
         // dd($request);
-        
+
 
         // Upload bukti pembayaran
         $bukti_pembayaran = $request->file('bukti');

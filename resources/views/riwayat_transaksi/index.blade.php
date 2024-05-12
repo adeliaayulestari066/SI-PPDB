@@ -30,6 +30,10 @@
                                             {{ ucwords($pembayaran->status) }}
                                         </span>
                                     </p>
+                                    @if ($pembayaran->status == 'ditolak')
+                                        <a href="{{ route('bayar') }}" class="btn btn-primary">Lakukan Pembayaran Ulang</a>
+                                    @endif
+
                                 </div>
                             </div>
                         </div>

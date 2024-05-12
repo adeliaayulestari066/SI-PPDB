@@ -23,9 +23,9 @@ class User extends Authenticatable
         'password',
     ];
     public function siswas()
-{
-    return $this->hasMany(Siswa::class);
-}
+    {
+        return $this->hasMany(Siswa::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

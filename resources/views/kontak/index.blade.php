@@ -18,7 +18,7 @@
                     <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 75px; height: 75px;">
                         <i class="fa fa-envelope-open fa-2x text-primary"></i>
                     </div>
-                    <h6>paudalmuchlis@gmail.com</h6>
+                    <a href="mailto:paudalmuchlis@gmail.com"><h6>paudalmuchlis@gmail.com</h6></a>
                 </div>
                 <div class="col-md-6 col-lg-4 text-center wow fadeInUp" data-wow-delay="0.5s">
                     <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 75px; height: 75px;">

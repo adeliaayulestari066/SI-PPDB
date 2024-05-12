@@ -101,9 +101,7 @@ Route::get('/ppdb', function () {
 // Route::post('/pembayaran/store',[PembayaranController::class, 'store'])->name('pembayaran.simpan');
 
 // route bayar
-Route::get('/bayar', function () {
-    return view('bayar.index');
-})->name('bayar');
+Route::get('/bayar',[BayarController::class, 'index'])->name('bayar');
 Route::post('/bayar/store',[BayarController::class, 'store'])->name('bayar.simpan');
 
 // route terima kasih
