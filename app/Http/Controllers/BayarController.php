@@ -14,21 +14,50 @@ use Illuminate\Support\Str;
 
 class BayarController extends Controller
 {
+    // use App\Models\Pembayaran;
+
     public function index()
     {
         $userId = Auth::id();
 
         // Ambil siswa yang dimiliki oleh user
         $siswas = User::find($userId)->siswas;
-// dd($siswas);
-        // Mengirimkan data siswa ke tampilan form
-        return view('bayar.index', compact('siswas'));
+
+        // Ambil data pembayaran yang ditolak untuk setiap siswa
+        $pembayaranDitolak = [];
+
+        // Memeriksa siswa yang tidak memiliki entri pembayaran
+        foreach ($siswas as $siswa) {
+            $pembayaran = Pembayaran::where('siswa_id', $siswa->id)->first();
+
+            // Jika siswa tidak memiliki entri pembayaran, tambahkan ke dalam array
+            if (!$pembayaran) {
+                $pembayaranDitolak[$siswa->id] = $siswa->nama_siswa . ' (belum melakukan pembayaran)';
+            }
+        }
+
+        // Memeriksa siswa yang memiliki entri pembayaran dengan status selain 'diterima', 'menunggu konfirmasi'
+        $pembayaranLainnya = Pembayaran::whereNotIn('status', ['diterima', 'menunggu konfirmasi'])->get();
+
+        foreach ($pembayaranLainnya as $pembayaran) {
+            $siswa = Siswa::find($pembayaran->siswa_id);
+
+            // Pastikan siswa belum ditambahkan sebelumnya
+            if (!isset($pembayaranDitolak[$siswa->id])) {
+                $pembayaranDitolak[$siswa->id] = $siswa->nama_siswa;
+            }
+        }
+
+        // Mengirimkan data siswa dan nama siswa yang memiliki pembayaran ditolak ke tampilan form
+        return view('bayar.index', compact('pembayaranDitolak'));
     }
+
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
             'bukti' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ubah sesuai kebutuhan
-            'siswa_id' => 'required|exists:siswa,id' 
+            'siswa_id' => 'required|exists:siswa,id'
         ]);
 
         $today = Carbon::today();

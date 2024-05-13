@@ -29,6 +29,10 @@
                             <label for="floatingInput">Umur</label>
                         </div>
                     </div>
+                    {{-- <input type="hidden" name="user_id" value="{{$user = $request->user();}}"> --}}
+                    {{-- <input type="hidden" name="user_id" value="{{ $request->user()->id }}"> --}}
+                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="tmpt_lhr" type="text" class="form-control" id="floatingInput" placeholder="Tempat Lahir"

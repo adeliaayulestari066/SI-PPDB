@@ -5,16 +5,17 @@
             <h1 class="text-center mb-4">Pembayaran</h1>
             <style>
                 .center {
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  height: 60vh; /* Mengatur tinggi agar sesuai dengan tampilan */
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 60vh;
+                    /* Mengatur tinggi agar sesuai dengan tampilan */
                 }
-              </style>
-              
-              <div class="center">
+            </style>
+
+            <div class="center">
                 <img src="/assets/img/favicon/Bayar Disini.gif" alt="GIF" width="300" height="300">
-              </div>
+            </div>
 
             <p class="mb-4">Silakan lakukan pembayaran ke nomor rekening berikut untuk menyelesaikan proses pendaftaran
                 Anda lalu kirim bukti pembayaran ke form di bawah ini:</p>
@@ -43,10 +44,15 @@
                     </div> --}}
                     {{-- @dd($siswa) --}}
                     <div class="mb-3">
-                        <label for="siswa_id">Pilih Siswa</label>
-                        <select class="form-select" name="siswa_id" id="siswa_id" required>
-                            @foreach ($siswas as $s)
-                                <option value="{{ $s->id }}">{{ $s->nama_siswa }}</option>
+                        <label for="siswa_id">Nama Siswa</label>
+                        <!-- bayar.index.blade.php -->
+                        {{-- <input type="text" class="form-control" readonly
+                            value="@foreach ($pembayaranDitolak as $siswaId => $namaSiswa)
+                    {{ $namaSiswa }} @endforeach"> --}}
+                        <select name="siswa_id" class="form-control">
+                            <option value="">Pilih Siswa</option>
+                            @foreach ($pembayaranDitolak as $siswaId => $namaSiswa)
+                                <option value="{{ $siswaId }}">{{ $namaSiswa }}</option>
                             @endforeach
                         </select>
                     </div>

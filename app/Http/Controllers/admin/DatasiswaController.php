@@ -26,7 +26,7 @@ class DatasiswaController extends Controller
         // dd($request);
         $validatedData = $request->validate([
                 'nama_siswa' => 'required|string',
-                #'user_id' => 'required',
+                'user_id' => 'required',
                 'umur' => 'required|integer',
                 'tmpt_lhr' => 'required|string',
                 'tgl_lhr' => 'required|date',
@@ -41,7 +41,7 @@ class DatasiswaController extends Controller
                 'foto_akte' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ubah sesuai kebutuhan
             ]);
         
-        // dd($validatedData);
+        // dd($request);
 
         // Upload foto_kk dan foto_akte
         $foto_kk = $request->file('foto_kk');
@@ -68,7 +68,7 @@ class DatasiswaController extends Controller
             $validatedData['foto_akte'] = null;
         }
 
-        // dd($validatedData);
+        // // dd($validatedData);
 
         $newSiswa = Siswa::create($validatedData);
 
@@ -80,7 +80,7 @@ class DatasiswaController extends Controller
         $siswa = Siswa::find($id);
         return view('admin.manajemen_data_siswa.edit', compact(['siswa']));
         }
-        public function update($id, Request $request)
+    public function update($id, Request $request)
 {
     $siswa = Siswa::findOrFail($id);
 

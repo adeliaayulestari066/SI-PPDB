@@ -49,12 +49,14 @@
                     <div class="facility-item">
                         <div class="facility-icon bg-primary">
                             <span class="bg-primary"></span>
-                            <i class="fa fa-bus-alt fa-3x text-primary"></i>
+                            <i class="fa fa-bus-alt fa-3x text-primary">
+                                {{-- <img src="{{ asset('assets/img/favicon/apel.png') }}" alt="Apel" style="font-size: 3em; color: primary;" /> --}}
+                            </i>                            
                             <span class="bg-primary"></span>
                         </div>
                         <div class="facility-text bg-primary">
-                            <h3 class="text-primary mb-3">School Bus</h3>
-                            <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
+                            <h3 class="text-primary mb-3">UKS</h3>
+                            <p class="mb-0">UKS di TK Al-Muchlis bertujuan untuk memastikan kesejahteraan dan kesehatan holistik siswa</p>
                         </div>
                     </div>
                 </div>
@@ -66,8 +68,8 @@
                             <span class="bg-success"></span>
                         </div>
                         <div class="facility-text bg-success">
-                            <h3 class="text-success mb-3">Playground</h3>
-                            <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
+                            <h3 class="text-success mb-3">Area Bermain</h3>
+                            <p class="mb-0">Arena Bermain TK Al-Muchlis tempat di mana keceriaan dan pembelajaran bergabung dalam harmoni</p>
                         </div>
                     </div>
                 </div>
@@ -79,8 +81,8 @@
                             <span class="bg-warning"></span>
                         </div>
                         <div class="facility-text bg-warning">
-                            <h3 class="text-warning mb-3">Healthy Canteen</h3>
-                            <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
+                            <h3 class="text-warning mb-3">Perpustakaan Mini</h3>
+                            <p class="mb-0">Perpustakaan Mini di TK Al-Muchlis tempat para siswa petualangan literasi dimulai untuk para penjelajah kecil</p>
                         </div>
                     </div>
                 </div>
@@ -115,8 +117,8 @@
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
                         <div class="h-100 d-flex flex-column justify-content-center p-5">
                             <h1 class="mb-4">Daftar PPDB TK Al-Muchlis</h1>
-                            <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
-                                Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
+                            <p class="mb-4">Bergabunglah dengan kami di TK Al-Muchlis! Kami membuka pintu untuk menerima peserta didik baru melalui PPDB kami. Dengan fokus pada pendidikan yang holistik,
+                                kami menawarkan lingkungan belajar yang merangsang dan mendukung bagi anak-anak usia dini.
                             </p>
                             <a href="/ppdb" class="btn btn-primary btn-block">Daftar</a>
                         </div>
@@ -132,8 +134,8 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3">School Classes</h1>
-                <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                <h1 class="mb-3">Materi TK Al-Muchlis</h1>
+                <p>Materi di TK Al-Muchlis dirancang dengan cermat untuk menyediakan fondasi yang kokoh dalam pembelajaran anak-anak usia dini.</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -142,8 +144,8 @@
                             <img class="img-fluid rounded-circle" src="img/classes-1.jpg" alt="">
                         </div>
                         <div class="bg-light rounded p-4 pt-5 mt-n5">
-                            <a class="d-block text-center h3 mt-3 mb-4" href="">Art & Drawing</a>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
+                            <a class="d-block text-center h3 mt-3 mb-4" href="">Gambar dan Menulis</a>
+                            {{-- <div class="d-flex align-items-center justify-content-between mb-4">
                                 <div class="d-flex align-items-center">
                                     <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
                                     <div class="ms-3">
@@ -172,18 +174,18 @@
                                         <small>30 Kids</small>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="classes-item">
                         <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                            <img class="img-fluid rounded-circle" src="img/classes-2.jpg" alt="">
+                            <img class="img-fluid rounded-circle" src="img/classes-4.jpg" alt="">
                         </div>
                         <div class="bg-light rounded p-4 pt-5 mt-n5">
-                            <a class="d-block text-center h3 mt-3 mb-4" href="">Color Management</a>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
+                            <a class="d-block text-center h3 mt-3 mb-4" href="">Membaca</a>
+                            {{-- <div class="d-flex align-items-center justify-content-between mb-4">
                                 <div class="d-flex align-items-center">
                                     <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
                                     <div class="ms-3">
@@ -212,7 +214,7 @@
                                         <small>30 Kids</small>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -222,8 +224,8 @@
                             <img class="img-fluid rounded-circle" src="img/classes-3.jpg" alt="">
                         </div>
                         <div class="bg-light rounded p-4 pt-5 mt-n5">
-                            <a class="d-block text-center h3 mt-3 mb-4" href="">Athletic & Dance</a>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
+                            <a class="d-block text-center h3 mt-3 mb-4" href="">Hafalan Surah</a>
+                            {{-- <div class="d-flex align-items-center justify-content-between mb-4">
                                 <div class="d-flex align-items-center">
                                     <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
                                     <div class="ms-3">
@@ -252,11 +254,11 @@
                                         <small>30 Kids</small>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                {{-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="classes-item">
                         <div class="bg-light rounded-circle w-75 mx-auto p-3">
                             <img class="img-fluid rounded-circle" src="img/classes-4.jpg" alt="">
@@ -295,8 +297,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                </div> --}}
+                {{-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="classes-item">
                         <div class="bg-light rounded-circle w-75 mx-auto p-3">
                             <img class="img-fluid rounded-circle" src="img/classes-5.jpg" alt="">
@@ -335,8 +337,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                </div> --}}
+                {{-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="classes-item">
                         <div class="bg-light rounded-circle w-75 mx-auto p-3">
                             <img class="img-fluid rounded-circle" src="img/classes-6.jpg" alt="">
@@ -375,7 +377,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -384,40 +386,40 @@
     <!-- Testimonial Start -->
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3">Our Clients Say!</h1>
-                <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                <h1 class="mb-3">Testi Orang Tua</h1>
+                <p> Temukan testimoni inspiratif mereka tentang pendidikan berkualitas, lingkungan yang hangat, dan perkembangan holistik yang didukung oleh TK Al-Muchlis.</p>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
                 <div class="testimonial-item bg-light rounded p-5">
-                    <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
+                    <p class="fs-6">TK Al-Muchlis tidak hanya memberikan pendidikan yang berkualitas, tetapi juga menciptakan lingkungan yang hangat dan mendukung.</p>
                     <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
                         <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 90px; height: 90px;">
                         <div class="ps-3">
-                            <h3 class="mb-1">Client Name</h3>
-                            <span>Profession</span>
+                            <h3 class="mb-1">Riana</h3>
+                            <span>Orang Tua Fakhri</span>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
                     </div>
                 </div>
                 <div class="testimonial-item bg-light rounded p-5">
-                    <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
+                    <p class="fs-6">Guru-guru di TK Al-Muchlis sangat peduli dan berdedikasi, mereka membantu anak saya tumbuh</p>
                     <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
                         <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 90px; height: 90px;">
                         <div class="ps-3">
-                            <h3 class="mb-1">Client Name</h3>
-                            <span>Profession</span>
+                            <h3 class="mb-1">Budi</h3>
+                            <span>Orang Tua Alif</span>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
                     </div>
                 </div>
                 <div class="testimonial-item bg-light rounded p-5">
-                    <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
+                    <p class="fs-6">Saya sangat bersyukur telah memilih TK Al-Muchlis untuk pendidikan awal anak saya.</p>
                     <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
                         <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg" style="width: 90px; height: 90px;">
                         <div class="ps-3">
-                            <h3 class="mb-1">Client Name</h3>
-                            <span>Profession</span>
+                            <h3 class="mb-1">Rudi</h3>
+                            <span>Orang Tua Keysa</span>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
                     </div>

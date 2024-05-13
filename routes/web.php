@@ -16,6 +16,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RiwayatController;
 use App\Models\Siswa;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,7 +53,12 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 Route::get('/', function () {
-    return view('home');
+    if (Auth::check() && Auth::user()->usertype === "admin") {
+        return redirect()->route('admin');
+    } else {
+        return redirect()->route('home');
+    }
+    // return view('home');
 })->name('home');
 
 // visi misi

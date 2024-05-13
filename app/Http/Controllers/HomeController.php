@@ -7,23 +7,28 @@ use App\Models\Pembayaran;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        if (auth::id()) {
+        if (Auth::check()) {
             $usertype = Auth()->user()->usertype;
-
+        
             if ($usertype == 'user') {
-                return view('home');
+                return redirect()->route('home');
             } else if ($usertype == 'admin') {
-                return view('admin.index');
+                return redirect()->route('admin');
             } else {
                 return redirect()->back();
             }
+        } else {
+            // Jika user belum login, redirect ke halaman login
+            return redirect()->route('login');
         }
     }
+    
     public function adminindex()
     {
         $jumlahSiswa = Siswa::count();
@@ -36,4 +41,6 @@ class HomeController extends Controller
             'jumlahPembayaranDiterima' => $jumlahPembayaranDiterima
         ]);
     }
+
+    
 }

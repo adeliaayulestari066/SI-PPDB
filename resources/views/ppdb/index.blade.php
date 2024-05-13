@@ -4,8 +4,10 @@
         <div class="container">
             <div class="text-center mx-auto mb-2 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                 <h1 class="mb-3">PPDB Online TK Al-Muchlis</h1>
-                <p>Sekarang, mendaftarkan anak Anda ke TK Al-Muchlis Kota Bengkulu menjadi lebih mudah dan efisien dengan menggunakan PPDB online!<br>
-                    Dengan beberapa klik saja, Anda sudah bisa melakukan proses pendaftaran dengan mudah. PPDB online memberikan kemudahan tanpa harus datang ke sekolah.</p>                    
+                <p>Sekarang, mendaftarkan anak Anda ke TK Al-Muchlis Kota Bengkulu menjadi lebih mudah dan efisien dengan
+                    menggunakan PPDB online!<br>
+                    Dengan beberapa klik saja, Anda sudah bisa melakukan proses pendaftaran dengan mudah. PPDB online
+                    memberikan kemudahan tanpa harus datang ke sekolah.</p>
             </div>
         </div>
     </div>
@@ -49,7 +51,7 @@
                         <span class="text-primary">PPDB Online</span>
                     </h3>
                     <ul class="my-4"style="list-style-type: none;">
-                        <li class="my-8" >
+                        <li class="my-8">
                             <div class="row items-center justify-content-center">
                                 <div class="col-2 items-center text-center rounded-full bg-orange-100 text-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -61,11 +63,12 @@
                                 </div>
                                 <div class="col-10">
                                     <div class="text-2xl"><strong>Pengisian Formulir Online Mudah</strong></div>
-                                    <p>Orang tua dapat mengisi formulir pendaftaran secara online melalui situs web resmi sekolah.</p>
+                                    <p>Orang tua dapat mengisi formulir pendaftaran secara online melalui situs web resmi
+                                        sekolah.</p>
                                 </div>
                             </div>
                         </li>
-                        <li class="my-8" >
+                        <li class="my-8">
                             <div class="row items-center justify-content-center">
                                 <div class="col-2 items-center text-center rounded-full bg-orange-100 text-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -82,7 +85,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="my-8" >
+                        <li class="my-8">
                             <div class="row items-center justify-content-center">
                                 <div class="col-2 items-center text-center rounded-full bg-orange-100 text-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -94,19 +97,34 @@
                                 </div>
                                 <div class="col-10">
                                     <div class="text-2xl"><strong>Konfirmasi Pembayaran Langsung di Website</strong></div>
-                                    <p>Orang tua dapat menunggu konfirmasi pembayaran langsung melalui situs web sekolah.</p>
+                                    <p>Orang tua dapat menunggu konfirmasi pembayaran langsung melalui situs web sekolah.
+                                    </p>
                                 </div>
                             </div>
                         </li>
                     </ul>
                     <br>
                     <div style="text-align: center;">
-                        <a href="/formulir" class="btn btn-primary btn-lg" style="display: inline-block; width: 400px;">Daftar</a>
+                        <a href="/formulir" class="btn btn-primary btn-lg"
+                            style="display: inline-block; width: 400px;">Daftar</a>
+                    </div>
+                    <div style="text-align: center; padding-top:20px;">
+                        @if (Auth::check())
+                            @php
+                                $siswa = \App\Models\Siswa::where('user_id', Auth::id())->first();
+                            @endphp
+
+                            @if ($siswa)
+                                <a href="{{ route('bayar') }}" class="btn btn-primary btn-lg"
+                                    style="display: inline-block; width: 400px;">Bayar Sekarang</a>
+                            @endif
+                        @endif
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     {{-- hhh --}}
 @endsection

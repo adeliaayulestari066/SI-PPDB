@@ -18,14 +18,14 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="nama_guru" type="text" class="form-control" id="floatingInput"
-                                placeholder="Nama Guru" aria-describedby="floatingInputHelp" />
+                                placeholder="Nama Guru" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Nama Guru</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="jabatan" type="text" class="form-control" id="floatingInput"
-                                placeholder="Jabatan" aria-describedby="floatingInputHelp" />
+                                placeholder="Jabatan" aria-describedby="floatingInputHelp" required/>
                             <label for="floatingInput">Jabatan</label>
                         </div>
                     </div>
@@ -40,28 +40,28 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="alamat" type="text" class="form-control" id="floatingInput"
-                                placeholder="Alamat" aria-describedby="floatingInputHelp" />
+                                placeholder="Alamat" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Alamat</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="no_hp" type="text" class="form-control" id="no_hp" placeholder="Nomor HP"
-                                aria-describedby="floatingInputHelp" minlength="10" maxlength="13" />
+                                aria-describedby="floatingInputHelp" minlength="10" maxlength="13" required />
                             <label for="floatingInput">Nomor HP</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="status_kepegawaian" type="text" class="form-control" id="floatingInput"
-                                placeholder="Status Kepegawaian" aria-describedby="floatingInputHelp" />
+                                placeholder="Status Kepegawaian" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Status Kepegawaian</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="gambar" type="file" class="form-control" id="floatingInput"
-                                placeholder="Foto Guru" aria-describedby="floatingInputHelp" accept=".jpg, .jpeg, .png" />
+                                placeholder="Foto Guru" aria-describedby="floatingInputHelp" accept=".jpg, .jpeg, .png" required />
                             <label for="floatingInput">Foto Guru</label>
                         </div>
                     </div>
