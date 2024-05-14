@@ -17,15 +17,15 @@
                     @method('POST')
                     <div class="mb-3">
                         <div class="form-floating">
-                            <input name="nama_guru" type="text" class="form-control" id="floatingInput"
+                            <input name="nama_guru" type="text" class="form-control" id="nama_guru"
                                 placeholder="Nama Guru" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Nama Guru</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
-                            <input name="jabatan" type="text" class="form-control" id="floatingInput"
-                                placeholder="Jabatan" aria-describedby="floatingInputHelp" required/>
+                            <input name="jabatan" type="text" class="form-control" id="jabatan"
+                                placeholder="Jabatan" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Jabatan</label>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
-                            <input name="status_kepegawaian" type="text" class="form-control" id="floatingInput"
+                            <input name="status_kepegawaian" type="text" class="form-control" id="status_kepegawaian"
                                 placeholder="Status Kepegawaian" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Status Kepegawaian</label>
                         </div>
@@ -61,7 +61,8 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="gambar" type="file" class="form-control" id="floatingInput"
-                                placeholder="Foto Guru" aria-describedby="floatingInputHelp" accept=".jpg, .jpeg, .png" required />
+                                placeholder="Foto Guru" aria-describedby="floatingInputHelp" accept=".jpg, .jpeg, .png"
+                                required />
                             <label for="floatingInput">Foto Guru</label>
                         </div>
                     </div>
@@ -78,6 +79,16 @@
             this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
         });
     </script>
+
+    <script>
+        document.getElementById("nama_guru").addEventListener("input", function(event) {
+            let value = this.value;
+            // Mengizinkan huruf, spasi, dan titik
+            let validValue = value.replace(/[^a-zA-Z\s.]/g, "");
+            this.value = validValue; // Mengatur nilai input hanya dengan karakter yang diizinkan
+        });
+    </script>
+
     <script>
         document.getElementById("no_hp").addEventListener("input", function(event) {
             let value = this.value;
@@ -86,26 +97,79 @@
         });
     </script>
 
-    {{-- <script>
-        function validateForm(event) {
-            let inputs = document.querySelectorAll('.form-control');
+    <script>
+        document.getElementById("jabatan").addEventListener("input", function(event) {
+            let value = this.value;
+            let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
+            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+        });
+    </script>
+
+    <script>
+        document.getElementById("status_kepegawaian").addEventListener("input", function(event) {
+            let value = this.value;
+            let validValue = value.replace(/[^a-zA-Z\s()]/g, ""); // Mengizinkan huruf, spasi, dan tanda kurung
+            this.value = validValue; // Mengatur nilai input hanya dengan karakter yang diizinkan
+        });
+    </script>
+
+    <script>
+        document.getElementById("simpan").addEventListener("click", function(event) {
+            // Mendapatkan semua input dalam form
+            let inputs = document.querySelectorAll("#form input[type='text']");
             let isValid = true;
-            inputs.forEach(input => {
-                if (!input.value && input.getAttribute('name') !== 'nip_nuptk') {
-                    input.classList.add('is-invalid');
+            let messages = [];
+
+            // Memeriksa setiap input kecuali nip_nuptk
+            inputs.forEach(function(input) {
+                if (input.id !== "nip_nuptk" && input.value.trim() === "") {
                     isValid = false;
-                } else {
-                    input.classList.remove('is-invalid');
+                    messages.push(input.placeholder + " tidak boleh kosong");
                 }
             });
+
+            // Menampilkan pesan jika ada input yang kosong
             if (!isValid) {
-                event.preventDefault(); // Mencegah pengiriman formulir jika ada input yang kosong
-                alert('Mohon lengkapi semua data yang kosong');
+                alert(messages.join("\n"));
+            } else {
+                // Lakukan penyimpanan data di sini
+                alert("Data berhasil disimpan!");
             }
-        }
+        });
+    </script>
 
-        document.getElementById('formTambahDataGuru').addEventListener('submit', validateForm);
+    {{-- <script>
+        document.getElementById("simpan").addEventListener("click", function(event) {
+            event.preventDefault(); // Mencegah pengiriman form default
+
+            // Mendapatkan semua input dalam form
+            let inputs = document.querySelectorAll("#form input[type='text']");
+            let isValid = true;
+
+            // Reset pesan error
+            document.querySelectorAll(".error").forEach(function(errorSpan) {
+                errorSpan.style.display = 'none';
+            });
+
+            // Memeriksa setiap input kecuali nip_nuptk
+            inputs.forEach(function(input) {
+                if (input.id !== "nip_nuptk" && input.value.trim() === "") {
+                    isValid = false;
+                    let errorSpan = document.getElementById(input.id + "_error");
+                    if (errorSpan) {
+                        errorSpan.style.display = 'inline';
+                    }
+                }
+            });
+
+            // Menampilkan pesan jika ada input yang kosong
+            if (!isValid) {
+                alert("Harap isi semua field yang wajib.");
+            } else {
+                // Lakukan penyimpanan data di sini
+                alert("Data berhasil disimpan!");
+            }
+        });
     </script> --}}
-
 
 @endsection

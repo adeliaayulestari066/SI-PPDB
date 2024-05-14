@@ -119,7 +119,7 @@
                     <li class="menu-item">
                         <a href="/data-guru" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                            <div data-i18n="Basic">Manajemen Data Pengurus dan Guru</div>
+                            <div data-i18n="Basic">Manajemen Data Guru</div>
                         </a>
                     </li>
                     <li class="menu-item">

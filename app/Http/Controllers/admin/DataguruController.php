@@ -71,17 +71,20 @@ if ($gambar) {
     public function update(Request $request, $id)
 {
     $guru = Guru::findOrFail($id);
+    // dd($request);
 
     // Validasi data formulir
     $validatedData = $request->validate([
         'nama_guru' => 'required|string',
         'jabatan' => 'required|string',
-        'nip_nuptk' => 'required|integer',
+        'nip_nuptk' => 'nullable|integer',
         'alamat' => 'required|string',
         'no_hp' => 'required|string',
         'status_kepegawaian' => 'required|string',
         'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ubah sesuai kebutuhan
     ]);
+
+    // dd($validatedData);
 
     // Proses penyimpanan gambar jika ada
     if ($request->hasFile('gambar')) {
@@ -96,6 +99,8 @@ if ($gambar) {
         // Jika tidak ada file gambar dikirim, gunakan gambar yang sudah ada sebelumnya
         $validatedData['gambar'] = $guru->gambar;
     }
+     
+    // dd($validatedData);
 
     // Update data guru dengan data yang sudah divalidasi
     $guru->update($validatedData);

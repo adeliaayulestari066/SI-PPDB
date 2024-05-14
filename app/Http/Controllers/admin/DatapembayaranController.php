@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Pembayaran;
+use App\Models\Siswa;
 
 class DatapembayaranController extends Controller
 {
@@ -17,12 +18,16 @@ class DatapembayaranController extends Controller
 
     public function tambah()
     {
-        return view('admin.manajemen_data_pembayaran.create');
+        $siswa = Siswa::all();
+
+        // Meneruskan data siswa ke view
+        return view('admin.manajemen_data_pembayaran.create', compact('siswa'));
     }
 
     public function store(Request $request)
     {
         // Validasi data formulir
+        // dd($request);
         $validatedData = $request->validate([
             'tgl_pembayaran' => 'required|date',
             'status' => 'required|string',
@@ -30,21 +35,24 @@ class DatapembayaranController extends Controller
             'bukti' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi gambar
         ]);
 
+        $siswaId = $request->siswa_id;
+        $namaSiswa = Siswa::findOrFail($siswaId)->nama_siswa;
         // Upload bukti pembayaran
         $bukti_pembayaran = $request->file('bukti');
         if ($bukti_pembayaran) {
             $bukti_ekstensi = $bukti_pembayaran->getClientOriginalExtension();
             $siswa_id = $validatedData['siswa_id'];
-            $bukti_nama = $siswa_id . "-BuktiPembayaran." . $bukti_ekstensi;
+            $bukti_nama = $namaSiswa . "-BuktiPembayaran." . $bukti_ekstensi;
             $bukti_pembayaran->move(public_path('bukti'), $bukti_nama);
             $validatedData['bukti'] = $bukti_nama;
         }
+        // dd($validatedData);
 
         // Buat entri pembayaran
         Pembayaran::create($validatedData);
 
         // Redirect ke halaman terima kasih
-        return redirect()->route('terimakasih');
+        return redirect()->route('data-pembayaran.index');
     }
 
     public function edit($id)

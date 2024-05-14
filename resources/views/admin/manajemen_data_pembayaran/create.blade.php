@@ -15,6 +15,17 @@
                 <form method="post" action="{{ route('data-pembayaran-simpan')}}" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
+
+                    <div class="mb-3">
+                        <label for="siswa_id">Nama Siswa</label>
+                        <select name="siswa_id" class="form-control">
+                            <option value="">Pilih Siswa</option>
+                            @foreach ($siswa as $s)
+                                <option value="{{ $s->id }}">{{ $s->nama_siswa }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="bukti" type="file" class="form-control" id="bukti" placeholder="Bukti Pembayaran"

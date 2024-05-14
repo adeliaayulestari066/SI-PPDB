@@ -30,8 +30,28 @@
                                             {{ ucwords($pembayaran->status) }}
                                         </span>
                                     </p>
-                                    @if ($pembayaran->status == 'ditolak')
+                                    {{-- @if ($pembayaran->status == 'ditolak')
                                         <a href="{{ route('bayar') }}" class="btn btn-primary">Lakukan Pembayaran Ulang</a>
+                                    @endif --}}
+
+                                    @php
+                                        // Cek apakah ada pembayaran lain dengan status 'menunggu konfirmasi' atau 'diterima' untuk siswa yang sama
+                                        $pembayaranLain = \App\Models\Pembayaran::where(
+                                            'siswa_id',
+                                            $pembayaran->siswa_id,
+                                        )
+                                            ->whereIn('status', ['menunggu konfirmasi', 'diterima'])
+                                            ->exists();
+                                    @endphp
+
+                                    @if ($pembayaran->status == 'ditolak')
+                                        @if ($pembayaranLain)
+                                            <a href="{{ route('bayar') }}" class="btn btn-primary disabled"
+                                                aria-disabled="true">Lakukan Pembayaran Ulang</a>
+                                        @else
+                                            <a href="{{ route('bayar') }}" class="btn btn-primary">Lakukan Pembayaran
+                                                Ulang</a>
+                                        @endif
                                     @endif
 
                                 </div>
