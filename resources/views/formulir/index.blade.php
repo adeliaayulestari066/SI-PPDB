@@ -93,6 +93,7 @@
             this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
         });
     </script>
+
     <script>
         document.getElementById("umur").addEventListener("input", function(event) {
             let value = this.value;
@@ -100,13 +101,16 @@
             this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
         });
     </script>
+
     <script>
         document.getElementById("nama_siswa").addEventListener("input", function(event) {
             let value = this.value;
-            let alphabeticValue = value.replace(/[^a-zA-Z\s]/g, ""); // Menghapus semua karakter non-huruf dan spasi
-            this.value = alphabeticValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+            // Mengizinkan huruf, spasi, dan titik
+            let validValue = value.replace(/[^a-zA-Z\s.]/g, "");
+            this.value = validValue; // Mengatur nilai input hanya dengan karakter yang diizinkan
         });
     </script>
+
     <script>
         document.getElementById("tmpt_lhr").addEventListener("input", function(event) {
             let value = this.value;
@@ -114,4 +118,53 @@
             this.value = alphabeticValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
         });
     </script>
+
+    <script>
+        document.getElementById("umur").addEventListener("input", function(event) {
+            if (this.value.length > 2) {
+                this.value = this.value.slice(0, 2); // Menghapus karakter yang melebihi dua digit
+            }
+        });
+    </script>
+
+    <script>
+        document.getElementById("agama").addEventListener("input", function(event) {
+            let value = this.value;
+            let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
+            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+        });
+    </script>
+
+    <script>
+        document.getElementById("nama_ayah").addEventListener("input", function(event) {
+            let value = this.value;
+            let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
+            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+        });
+    </script>
+
+    <script>
+        document.getElementById("pekerjaan_ayah").addEventListener("input", function(event) {
+            let value = this.value;
+            let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
+            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+        });
+    </script>
+
+    <script>
+        document.getElementById("nama_ibu").addEventListener("input", function(event) {
+            let value = this.value;
+            let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
+            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+        });
+    </script>
+
+    <script>
+        document.getElementById("pekerjaan_ibu").addEventListener("input", function(event) {
+            let value = this.value;
+            let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
+            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+        });
+    </script>
+
 @endsection

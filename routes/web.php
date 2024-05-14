@@ -164,3 +164,7 @@ Route::get('/data-pembayaran/tambah', [AdminDatapembayaranController::class, 'ta
 Route::post('/data-pembayaran/simpan', [AdminDatapembayaranController::class, 'store'])->name('data-pembayaran-simpan');
 Route::get('/data-pembayaran/{pembayaran}/lihat', [AdminDatapembayaranController::class, 'show'])->name('data-pembayaran.lihat');
 Route::get('/data-pembayaran/{pembayaran}/cetak', [AdminDatapembayaranController::class, 'cetak'])->name('data-pembayaran.cetak');
+
+Route::get('/siswa-user', [SiswaController::class, 'index2'])->name('siswa.index');
+Route::get('/siswa-user/{id}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
+Route::put('/siswa-user/{id}', [SiswaController::class, 'update'])->name('siswa.update');

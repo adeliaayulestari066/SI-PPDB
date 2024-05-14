@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Siswa;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -40,28 +41,28 @@ class SiswaController extends Controller
             'max' => ':attribute tidak boleh lebih dari :max kilobita.',
             'digits_between' => ':attribute harus terdiri dari 10 hingga 13 digit.',
         ]);
-        
+
         // Jika validasi gagal, kembalikan ke halaman sebelumnya dengan notifikasi error
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors())->withInput();
         }
-        
+
         $userId = Auth::id();
-        
+
         // Menambahkan ID pengguna ke dalam data yang akan disimpan
         $requestData = $request->all();
         $requestData['user_id'] = $userId;
-        
+
         // Periksa apakah ada data yang masih null
         $nullFields = array_filter($requestData, function ($value) {
             return $value === null;
         });
-        
+
         if (!empty($nullFields)) {
             // Tampilkan notifikasi bahwa ada data yang masih null
             return redirect()->back()->with('error', 'Mohon lengkapi semua data.');
         }
-        
+
         // Upload foto_kk dan foto_akte
         $foto_kk = $request->file('foto_kk');
         if ($foto_kk) {
@@ -69,27 +70,66 @@ class SiswaController extends Controller
             $namasiswa = Str::slug($requestData['nama_siswa']);
             $fotokk_nama = $namasiswa . "-KK." . $fotokk_ekstensi;
             $foto_kk->move(public_path('Foto KK'), $fotokk_nama);
-        
+
             $requestData['foto_kk'] = $fotokk_nama;
         } else {
             $requestData['foto_kk'] = null;
         }
-        
+
         $foto_akte = $request->file('foto_akte');
         if ($foto_akte) {
             $fotoakte_ekstensi = $foto_akte->getClientOriginalExtension();
             $namasiswa = Str::slug($requestData['nama_siswa']);
             $fotoakte_nama = $namasiswa . "-AKTE." . $fotoakte_ekstensi;
             $foto_akte->move(public_path('Foto Akte'), $fotoakte_nama);
-        
+
             $requestData['foto_akte'] = $fotoakte_nama;
         } else {
             $requestData['foto_akte'] = null;
         }
-        
+
         $newSiswa = Siswa::create($requestData);
-        
+
         // Redirect ke halaman pembayaran sukses
-        return redirect()->route('bayar');        
+        return redirect()->route('bayar');
+    }
+
+    public function index2()
+    {
+        $userId = Auth::id();
+
+        // Ambil siswa yang dimiliki oleh user
+        $siswas = User::find($userId)->siswas;
+        // dd($siswas);
+
+        return view('edit_formulir.index2', compact('siswas'));
+    }
+
+    public function edit($id)
+    {
+        $siswa = Siswa::findOrFail($id);
+        return view('edit_formulir.edit2', compact('siswa'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nama_siswa' => 'required|string|max:255',
+            'umur' => 'required|integer',
+            'tmpt_lhr' => 'required|string|max:255',
+            'tgl_lhr' => 'required|date',
+            'alamat' => 'required|string|max:255',
+            'agama' => 'required|string|max:255',
+            'nama_ayah' => 'required|string|max:255',
+            'pekerjaan_ayah' => 'required|string|max:255',
+            'nama_ibu' => 'required|string|max:255',
+            'pekerjaan_ibu' => 'required|string|max:255',
+            'no_hp_ortu' => 'required|string|max:255',
+        ]);
+
+        $siswa = Siswa::findOrFail($id);
+        $siswa->update($request->all());
+
+        return redirect()->route('siswa.index')->with('success', 'Data siswa berhasil diperbarui.');
     }
 }

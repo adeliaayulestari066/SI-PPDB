@@ -49,9 +49,7 @@
                     <div class="facility-item">
                         <div class="facility-icon bg-primary">
                             <span class="bg-primary"></span>
-                            <i class="fa fa-bus-alt fa-3x text-primary">
-                                {{-- <img src="{{ asset('assets/img/favicon/apel.png') }}" alt="Apel" style="font-size: 3em; color: primary;" /> --}}
-                            </i>                            
+                            <i class="fa fa-bus-alt fa-3x text-primary"></i>                            
                             <span class="bg-primary"></span>
                         </div>
                         <div class="facility-text bg-primary">
