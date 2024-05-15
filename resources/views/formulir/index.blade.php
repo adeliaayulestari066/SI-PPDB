@@ -3,7 +3,7 @@
     <div class="container">
         <h1 class="text-center">Pendaftaran Peserta Didik Baru TK</h1>
         {{-- ini bagian form --}}
-        <form action="{{ route('formulir.simpan') }}" method="POST" enctype="multipart/form-data">
+        <form id="pendaftaranForm" action="{{ route('formulir.simpan') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -82,89 +82,104 @@
             </div>
 
             <hr class="mb-4">
-            <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+            <button type="button" class="btn btn-primary btn-block" id="daftarButton">Daftar</button>
         </form>
+
+        <!-- Modal -->
+        <div class="modal fade" id="konfirmasiModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Pendaftaran</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Apakah anda yakin ingin mengirim formulir ini?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-primary" id="konfirmasiButton">Ya, Kirim</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
+        document.getElementById("daftarButton").addEventListener("click", function() {
+            let form = document.getElementById("pendaftaranForm");
+            if (form.checkValidity()) {
+                // Jika form valid, tampilkan modal konfirmasi
+                let konfirmasiModal = new bootstrap.Modal(document.getElementById('konfirmasiModal'));
+                konfirmasiModal.show();
+            } else {
+                // Jika form tidak valid, tampilkan pesan peringatan
+                form.reportValidity();
+            }
+        });
+
+        document.getElementById("konfirmasiButton").addEventListener("click", function() {
+            // Mengirimkan formulir
+            document.getElementById("pendaftaranForm").submit();
+        });
+
         document.getElementById("no_hp_ortu").addEventListener("input", function(event) {
             let value = this.value;
             let numericValue = value.replace(/\D/g, ""); // Menghapus semua karakter non-angka
             this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
         });
-    </script>
 
-    <script>
         document.getElementById("umur").addEventListener("input", function(event) {
             let value = this.value;
             let numericValue = value.replace(/\D/g, ""); // Menghapus semua karakter non-angka
             this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
+            if (this.value.length > 2) {
+                this.value = this.value.slice(0, 2); // Menghapus karakter yang melebihi dua digit
+            }
         });
-    </script>
 
-    <script>
         document.getElementById("nama_siswa").addEventListener("input", function(event) {
             let value = this.value;
             // Mengizinkan huruf, spasi, dan titik
             let validValue = value.replace(/[^a-zA-Z\s.]/g, "");
             this.value = validValue; // Mengatur nilai input hanya dengan karakter yang diizinkan
         });
-    </script>
 
-    <script>
         document.getElementById("tmpt_lhr").addEventListener("input", function(event) {
             let value = this.value;
             let alphabeticValue = value.replace(/[^a-zA-Z\s]/g, ""); // Menghapus semua karakter non-huruf dan spasi
             this.value = alphabeticValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
         });
-    </script>
 
-    <script>
-        document.getElementById("umur").addEventListener("input", function(event) {
-            if (this.value.length > 2) {
-                this.value = this.value.slice(0, 2); // Menghapus karakter yang melebihi dua digit
-            }
-        });
-    </script>
-
-    <script>
         document.getElementById("agama").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
             this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
         });
-    </script>
 
-    <script>
         document.getElementById("nama_ayah").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
             this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
         });
-    </script>
 
-    <script>
         document.getElementById("pekerjaan_ayah").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
             this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
         });
-    </script>
 
-    <script>
         document.getElementById("nama_ibu").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
             this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
         });
-    </script>
 
-    <script>
         document.getElementById("pekerjaan_ibu").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
             this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
         });
     </script>
-
 @endsection
