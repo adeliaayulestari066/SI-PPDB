@@ -20,31 +20,29 @@ class BayarController extends Controller
     {
         $userId = Auth::id();
 
-        // Ambil siswa yang dimiliki oleh user
+        // Retrieve students associated with the user
         $siswas = User::find($userId)->siswas;
 
-        // Ambil data pembayaran yang ditolak untuk setiap siswa
+        // Initialize an array to store students with rejected payments
         $pembayaranDitolak = [];
 
-        // Memeriksa siswa yang tidak memiliki entri pembayaran
+        // Check each student
         foreach ($siswas as $siswa) {
-            $pembayaran = Pembayaran::where('siswa_id', $siswa->id)->first();
+            // Retrieve all payments for the current student
+            $allPayments = Pembayaran::where('siswa_id', $siswa->id)->get();
 
-            // Jika siswa tidak memiliki entri pembayaran, tambahkan ke dalam array
-            if (!$pembayaran) {
+            // Check if the student has any payments
+            if ($allPayments->isEmpty()) {
+                // Student has no payment entries
                 $pembayaranDitolak[$siswa->id] = $siswa->nama_siswa . ' (belum melakukan pembayaran)';
-            }
-        }
+            } else {
+                // Filter payments to see if there are any 'diterima' or 'menunggu konfirmasi'
+                $acceptedPayments = $allPayments->whereIn('status', ['diterima', 'menunggu konfirmasi']);
 
-        // Memeriksa siswa yang memiliki entri pembayaran dengan status selain 'diterima', 'menunggu konfirmasi'
-        $pembayaranLainnya = Pembayaran::whereNotIn('status', ['diterima', 'menunggu konfirmasi'])->get();
-
-        foreach ($pembayaranLainnya as $pembayaran) {
-            $siswa = Siswa::find($pembayaran->siswa_id);
-
-            // Pastikan siswa belum ditambahkan sebelumnya
-            if (!isset($pembayaranDitolak[$siswa->id])) {
-                $pembayaranDitolak[$siswa->id] = $siswa->nama_siswa;
+                // If there are no accepted or pending payments, add the student to the rejected list
+                if ($acceptedPayments->isEmpty()) {
+                    $pembayaranDitolak[$siswa->id] = $siswa->nama_siswa;
+                }
             }
         }
 

@@ -5,7 +5,7 @@
     <div class="container-fluid p-0 mb-5">
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="/assets/img/favicon/paud.jpg" alt="" style="width: 100%;">
+                <img class="img-fluid" src="/assets/img/favicon/depan2.jpg" alt="" style="width: 100%;">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
                     <div class="container">
                         <div class="row justify-content-start">
@@ -49,7 +49,7 @@
                     <div class="facility-item">
                         <div class="facility-icon bg-primary">
                             <span class="bg-primary"></span>
-                            <i class="fa fa-bus-alt fa-3x text-primary"></i>                            
+                            <i class="fas fa-plus-square fa-3x text-primary"></i>                            
                             <span class="bg-primary"></span>
                         </div>
                         <div class="facility-text bg-primary">
@@ -75,12 +75,12 @@
                     <div class="facility-item">
                         <div class="facility-icon bg-warning">
                             <span class="bg-warning"></span>
-                            <i class="fa fa-home fa-3x text-warning"></i>
+                            <i class="fa fa-book fa-3x text-warning"></i>
                             <span class="bg-warning"></span>
                         </div>
                         <div class="facility-text bg-warning">
                             <h3 class="text-warning mb-3">Perpustakaan Mini</h3>
-                            <p class="mb-0">Perpustakaan Mini di TK Al-Muchlis tempat para siswa petualangan literasi dimulai untuk para penjelajah kecil</p>
+                            <p class="mb-0">Perpustakaan Mini di TK Al-Muchlis tempat para siswa melakukan petualangan</p>
                         </div>
                     </div>
                 </div>
@@ -88,12 +88,12 @@
                     <div class="facility-item">
                         <div class="facility-icon bg-info">
                             <span class="bg-info"></span>
-                            <i class="fa fa-chalkboard-teacher fa-3x text-info"></i>
+                            <i class="fas fa-theater-masks fa-3x text-info"></i>
                             <span class="bg-info"></span>
                         </div>
                         <div class="facility-text bg-info">
-                            <h3 class="text-info mb-3">Positive Learning</h3>
-                            <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
+                            <h3 class="text-info mb-3">Panggung Pentas</h3>
+                            <p class="mb-0">Panggung Pentas TK Al-Muchlis adalah tempat penuh kreativitas dan pembelajaran siswa</p>
                         </div>
                     </div>
                 </div>
@@ -139,243 +139,33 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="classes-item">
                         <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                            <img class="img-fluid rounded-circle" src="img/classes-1.jpg" alt="">
+                            <img class="img-fluid rounded-circle" src="img/gambar.jpg" alt="">
                         </div>
                         <div class="bg-light rounded p-4 pt-5 mt-n5">
-                            <a class="d-block text-center h3 mt-3 mb-4" href="">Gambar dan Menulis</a>
-                            {{-- <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                    <div class="ms-3">
-                                        <h6 class="text-primary mb-1">Jhon Doe</h6>
-                                        <small>Teacher</small>
-                                    </div>
-                                </div>
-                                <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
-                            </div>
-                            <div class="row g-1">
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-primary pt-2">
-                                        <h6 class="text-primary mb-1">Age:</h6>
-                                        <small>3-5 Years</small>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-success pt-2">
-                                        <h6 class="text-success mb-1">Time:</h6>
-                                        <small>9-10 AM</small>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-warning pt-2">
-                                        <h6 class="text-warning mb-1">Capacity:</h6>
-                                        <small>30 Kids</small>
-                                    </div>
-                                </div>
-                            </div> --}}
+                            <a class="d-block text-center h3 mt-3 mb-10" href="">Menggambar</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="classes-item">
                         <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                            <img class="img-fluid rounded-circle" src="img/classes-4.jpg" alt="">
+                            <img class="img-fluid rounded-circle" src="img/nulis.jpg" alt="">
                         </div>
                         <div class="bg-light rounded p-4 pt-5 mt-n5">
-                            <a class="d-block text-center h3 mt-3 mb-4" href="">Membaca</a>
-                            {{-- <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                    <div class="ms-3">
-                                        <h6 class="text-primary mb-1">Jhon Doe</h6>
-                                        <small>Teacher</small>
-                                    </div>
-                                </div>
-                                <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
-                            </div>
-                            <div class="row g-1">
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-primary pt-2">
-                                        <h6 class="text-primary mb-1">Age:</h6>
-                                        <small>3-5 Years</small>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-success pt-2">
-                                        <h6 class="text-success mb-1">Time:</h6>
-                                        <small>9-10 AM</small>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-warning pt-2">
-                                        <h6 class="text-warning mb-1">Capacity:</h6>
-                                        <small>30 Kids</small>
-                                    </div>
-                                </div>
-                            </div> --}}
+                            <a class="d-block text-center h3 mt-3 mb-10" href="">Menulis</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="classes-item">
                         <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                            <img class="img-fluid rounded-circle" src="img/classes-3.jpg" alt="">
+                            <img class="img-fluid rounded-circle" src="img/sholathome.jpg" alt="">
                         </div>
                         <div class="bg-light rounded p-4 pt-5 mt-n5">
-                            <a class="d-block text-center h3 mt-3 mb-4" href="">Hafalan Surah</a>
-                            {{-- <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                    <div class="ms-3">
-                                        <h6 class="text-primary mb-1">Jhon Doe</h6>
-                                        <small>Teacher</small>
-                                    </div>
-                                </div>
-                                <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
-                            </div>
-                            <div class="row g-1">
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-primary pt-2">
-                                        <h6 class="text-primary mb-1">Age:</h6>
-                                        <small>3-5 Years</small>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-success pt-2">
-                                        <h6 class="text-success mb-1">Time:</h6>
-                                        <small>9-10 AM</small>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-warning pt-2">
-                                        <h6 class="text-warning mb-1">Capacity:</h6>
-                                        <small>30 Kids</small>
-                                    </div>
-                                </div>
-                            </div> --}}
+                            <a class="d-block text-center h3 mt-3 mb-10" href="">Praktek Sholat</a>
                         </div>
                     </div>
                 </div>
-                {{-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="classes-item">
-                        <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                            <img class="img-fluid rounded-circle" src="img/classes-4.jpg" alt="">
-                        </div>
-                        <div class="bg-light rounded p-4 pt-5 mt-n5">
-                            <a class="d-block text-center h3 mt-3 mb-4" href="">Language & Speaking</a>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                    <div class="ms-3">
-                                        <h6 class="text-primary mb-1">Jhon Doe</h6>
-                                        <small>Teacher</small>
-                                    </div>
-                                </div>
-                                <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
-                            </div>
-                            <div class="row g-1">
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-primary pt-2">
-                                        <h6 class="text-primary mb-1">Age:</h6>
-                                        <small>3-5 Years</small>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-success pt-2">
-                                        <h6 class="text-success mb-1">Time:</h6>
-                                        <small>9-10 AM</small>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-warning pt-2">
-                                        <h6 class="text-warning mb-1">Capacity:</h6>
-                                        <small>30 Kids</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-                {{-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="classes-item">
-                        <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                            <img class="img-fluid rounded-circle" src="img/classes-5.jpg" alt="">
-                        </div>
-                        <div class="bg-light rounded p-4 pt-5 mt-n5">
-                            <a class="d-block text-center h3 mt-3 mb-4" href="">Religion & History</a>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                    <div class="ms-3">
-                                        <h6 class="text-primary mb-1">Jhon Doe</h6>
-                                        <small>Teacher</small>
-                                    </div>
-                                </div>
-                                <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
-                            </div>
-                            <div class="row g-1">
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-primary pt-2">
-                                        <h6 class="text-primary mb-1">Age:</h6>
-                                        <small>3-5 Years</small>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-success pt-2">
-                                        <h6 class="text-success mb-1">Time:</h6>
-                                        <small>9-10 AM</small>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-warning pt-2">
-                                        <h6 class="text-warning mb-1">Capacity:</h6>
-                                        <small>30 Kids</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-                {{-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="classes-item">
-                        <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                            <img class="img-fluid rounded-circle" src="img/classes-6.jpg" alt="">
-                        </div>
-                        <div class="bg-light rounded p-4 pt-5 mt-n5">
-                            <a class="d-block text-center h3 mt-3 mb-4" href="">General Knowledge</a>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                    <div class="ms-3">
-                                        <h6 class="text-primary mb-1">Jhon Doe</h6>
-                                        <small>Teacher</small>
-                                    </div>
-                                </div>
-                                <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
-                            </div>
-                            <div class="row g-1">
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-primary pt-2">
-                                        <h6 class="text-primary mb-1">Age:</h6>
-                                        <small>3-5 Years</small>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-success pt-2">
-                                        <h6 class="text-success mb-1">Time:</h6>
-                                        <small>9-10 AM</small>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="border-top border-3 border-warning pt-2">
-                                        <h6 class="text-warning mb-1">Capacity:</h6>
-                                        <small>30 Kids</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </div>
@@ -390,12 +180,12 @@
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
                 <div class="testimonial-item bg-light rounded p-5">
-                    <p class="fs-6">TK Al-Muchlis tidak hanya memberikan pendidikan yang berkualitas, tetapi juga menciptakan lingkungan yang hangat dan mendukung.</p>
+                    <p class="fs-6">TK Al-Muchlis memberikan pendidikan yang berkualitas bagi anak saya</p>
                     <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
-                        <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 90px; height: 90px;">
+                        <img class="img-fluid flex-shrink-0 rounded-circle" src="img/caca.png" style="width: 90px; height: 90px;">
                         <div class="ps-3">
-                            <h3 class="mb-1">Riana</h3>
-                            <span>Orang Tua Fakhri</span>
+                            <h3 class="mb-1">Rina</h3>
+                            <span>Orang Tua Caca</span>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
                     </div>
@@ -403,10 +193,10 @@
                 <div class="testimonial-item bg-light rounded p-5">
                     <p class="fs-6">Guru-guru di TK Al-Muchlis sangat peduli dan berdedikasi, mereka membantu anak saya tumbuh</p>
                     <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
-                        <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 90px; height: 90px;">
+                        <img class="img-fluid flex-shrink-0 rounded-circle" src="img/ibrahim.png" style="width: 90px; height: 90px;">
                         <div class="ps-3">
-                            <h3 class="mb-1">Budi</h3>
-                            <span>Orang Tua Alif</span>
+                            <h3 class="mb-1">Yeni</h3>
+                            <span>Orang Tua Ibrahim</span>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
                     </div>
@@ -414,10 +204,10 @@
                 <div class="testimonial-item bg-light rounded p-5">
                     <p class="fs-6">Saya sangat bersyukur telah memilih TK Al-Muchlis untuk pendidikan awal anak saya.</p>
                     <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
-                        <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg" style="width: 90px; height: 90px;">
+                        <img class="img-fluid flex-shrink-0 rounded-circle" src="img/syafiq.png" style="width: 90px; height: 90px;">
                         <div class="ps-3">
                             <h3 class="mb-1">Rudi</h3>
-                            <span>Orang Tua Keysa</span>
+                            <span>Orang Tua Syafiq</span>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
                     </div>

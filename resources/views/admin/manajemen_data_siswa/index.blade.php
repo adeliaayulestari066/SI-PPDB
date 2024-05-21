@@ -16,11 +16,14 @@
                 <h4 class="card-title mb-0">Data Siswa</h4>
             </div>
             <div class="d-flex ms-auto me-3">
-                <div class="input-group">
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="tf-icons bx bx-search"></i></span>
-                        <input type="text" wire:model.live="search" class="form-control" placeholder="Cari Siswa...">
-                    </div>
+                <div class="navbar-search">
+                    <form method="GET">
+                        <div class="input-group">
+                            <input type="text" name="cari" id="cari" class="form-control bg-light border-2"
+                                placeholder="Search for..." autofocus="true" value="{{ $cari }}">
+                            <button type="submit" class="btn btn-outline-info"><i class="bx bx-search"></i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="dt-action-buttons text-end pt-3 pt-md-0">

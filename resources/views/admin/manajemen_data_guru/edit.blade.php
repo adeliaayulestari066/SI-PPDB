@@ -27,14 +27,25 @@
                             <label for="floatingInput">Jabatan</label>
                         </div>
                     </div>
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <div class="form-floating">
-                            <input name="nip_nuptk" value="{{ $guru->nip_nuptk }}" type="number" class="form-control"
+                            <input name="nip_nuptk" value="{{ $guru->nip_nuptk }}" type="text" class="form-control"
                                 id="nip_nuptk" placeholder="NIP/NUPTK" aria-describedby="floatingInputHelp" minlength="16" maxlength="18"
                                 nullable />
                             <label for="floatingInput">NIP/NUPTK</label>
                         </div>
+                    </div> --}}
+
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input name="nip_nuptk" value="{{ $guru->nip_nuptk }}" type="text" class="form-control"
+                                id="nip_nuptk" placeholder="NIP/NUPTK" aria-describedby="floatingInputHelp" 
+                                minlength="16" maxlength="18" required />
+                            <label for="floatingInput">NIP/NUPTK</label>
+                        </div>
+                        <div id="nip_nuptk_error" class="text-danger mt-2"></div>
                     </div>
+
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="alamat" value="{{ $guru->alamat }}" type="text" class="form-control"
@@ -69,13 +80,35 @@
         </div>
     </div>
 
+    {{-- <script>
+        document.getElementById("nip_nuptk").addEventListener("input", function(event) {
+            let value = this.value;
+            let numericValue = value.replace(/\D/g, ""); // Menghapus semua karakter non-angka
+            this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
+        });
+    </script> --}}
+
     <script>
         document.getElementById("nip_nuptk").addEventListener("input", function(event) {
             let value = this.value;
             let numericValue = value.replace(/\D/g, ""); // Menghapus semua karakter non-angka
             this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
         });
-    </script>
+    
+        document.getElementById('guruForm').addEventListener('submit', function(event) {
+            const input = document.getElementById('nip_nuptk');
+            const value = input.value;
+            const errorDiv = document.getElementById('nip_nuptk_error');
+    
+            if (value.length < 16 || value.length > 18) {
+                event.preventDefault(); // Prevent form submission
+                errorDiv.textContent = "Nomor NIP/NUPTK harus antara 16 dan 18 digit angka.";
+                input.value = ''; // Reset the input field
+            } else {
+                errorDiv.textContent = "";
+            }
+        });
+        </script>
 
     <script>
         document.getElementById("nama_guru").addEventListener("input", function(event) {

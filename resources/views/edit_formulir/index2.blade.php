@@ -14,15 +14,8 @@
                         <tr>
                             <th>Nama Siswa</th>
                             <th>Umur</th>
-                            <th>Tempat Lahir</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Alamat</th>
-                            <th>Agama</th>
                             <th>Nama Ayah</th>
-                            <th>Pekerjaan Ayah</th>
                             <th>Nama Ibu</th>
-                            <th>Pekerjaan Ibu</th>
-                            <th>No HP Ortu</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -31,25 +24,62 @@
                             <tr>
                                 <td>{{ $data->nama_siswa }}</td>
                                 <td>{{ $data->umur }}</td>
-                                <td>{{ $data->tmpt_lhr }}</td>
-                                <td>{{ $data->tgl_lhr }}</td>
-                                <td>{{ $data->alamat }}</td>
-                                <td>{{ $data->agama }}</td>
                                 <td>{{ $data->nama_ayah }}</td>
-                                <td>{{ $data->pekerjaan_ayah }}</td>
                                 <td>{{ $data->nama_ibu }}</td>
-                                <td>{{ $data->pekerjaan_ibu }}</td>
-                                <td>{{ $data->no_hp_ortu }}</td>
                                 <td>
-                                    <a href="{{ route('siswa.edit', $data->id) }}" class="btn btn-primary">Edit Formulir</a>
+                                    <button class="btn btn-primary" onclick="window.location.href='{{ route('siswa.edit', $data->id) }}'">Lihat Formulir</button>
                                 </td>
                             </tr>
                         @empty
-                            <div class="alert alert-info">Tidak ada data formulir yang di isi.</div>
+                            <tr>
+                                <td colspan="5" class="text-center">Tidak ada data formulir yang diisi.</td>
+                            </tr>
                         @endforelse
                     </tbody>
                 </table>
+
+                <!-- Detail Siswa -->
+                <div id="siswa-detail" class="mt-4" style="display: none;">
+                    <h3>Detail Siswa</h3>
+                    <p><strong>Nama Siswa:</strong> <span id="detail-nama"></span></p>
+                    <p><strong>Umur:</strong> <span id="detail-umur"></span></p>
+                    <p><strong>Tempat Lahir:</strong> <span id="detail-tmpt_lhr"></span></p>
+                    <p><strong>Tanggal Lahir:</strong> <span id="detail-tgl_lhr"></span></p>
+                    <p><strong>Alamat:</strong> <span id="detail-alamat"></span></p>
+                    <p><strong>Agama:</strong> <span id="detail-agama"></span></p>
+                    <p><strong>Nama Ayah:</strong> <span id="detail-nama_ayah"></span></p>
+                    <p><strong>Pekerjaan Ayah:</strong> <span id="detail-pekerjaan_ayah"></span></p>
+                    <p><strong>Nama Ibu:</strong> <span id="detail-nama_ibu"></span></p>
+                    <p><strong>Pekerjaan Ibu:</strong> <span id="detail-pekerjaan_ibu"></span></p>
+                    <p><strong>No HP Ortu:</strong> <span id="detail-no_hp_ortu"></span></p>
+                </div>
             </div>
         </section>
     </main>
+
+    <script>
+        function lihatFormulir(id) {
+            // Fetch the student data using AJAX
+            fetch(`/siswa/${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Populate the detail section with data
+                    document.getElementById('detail-nama').innerText = data.nama_siswa;
+                    document.getElementById('detail-umur').innerText = data.umur;
+                    document.getElementById('detail-tmpt_lhr').innerText = data.tmpt_lhr;
+                    document.getElementById('detail-tgl_lhr').innerText = data.tgl_lhr;
+                    document.getElementById('detail-alamat').innerText = data.alamat;
+                    document.getElementById('detail-agama').innerText = data.agama;
+                    document.getElementById('detail-nama_ayah').innerText = data.nama_ayah;
+                    document.getElementById('detail-pekerjaan_ayah').innerText = data.pekerjaan_ayah;
+                    document.getElementById('detail-nama_ibu').innerText = data.nama_ibu;
+                    document.getElementById('detail-pekerjaan_ibu').innerText = data.pekerjaan_ibu;
+                    document.getElementById('detail-no_hp_ortu').innerText = data.no_hp_ortu;
+
+                    // Show the detail section
+                    document.getElementById('siswa-detail').style.display = 'block';
+                })
+                .catch(error => console.error('Error fetching student data:', error));
+        }
+    </script>
 @endsection

@@ -16,12 +16,7 @@
                 <h4 class="card-title mb-0">Data Galeri</h4>
             </div>
             <div class="d-flex ms-auto me-3">
-                <div class="input-group">
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="tf-icons bx bx-search"></i></span>
-                        <input type="text" wire:model.live="search" class="form-control" placeholder="Cari Galeri...">
-                    </div>
-                </div>
+               
             </div>
             <div class="dt-action-buttons text-end pt-3 pt-md-0">
                 <div class="dt-buttons">

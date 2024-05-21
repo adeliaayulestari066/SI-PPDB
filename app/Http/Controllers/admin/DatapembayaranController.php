@@ -10,15 +10,55 @@ use App\Models\Siswa;
 
 class DatapembayaranController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $pembayarans = Pembayaran::all(); // Perbaikan variabel $gurus menjadi $pembayarans
-        return view('admin.manajemen_data_pembayaran.index', compact('pembayarans'));
+        $cari = $request->query('cari');
+
+        if (!empty($cari)) {
+            $pembayarans = Pembayaran::join('siswa', 'pembayaran.siswa_id', '=', 'siswa.id')
+                ->select('pembayaran.*', 'siswa.nama_siswa')
+                ->where('nama_siswa', 'LIKE', '%' . $cari . '%')
+                ->orWhere('status', 'LIKE', '%' . $cari . '%')
+                ->get();
+        } else {
+            $pembayarans = Pembayaran::all();
+        }
+
+        return view('admin.manajemen_data_pembayaran.index')->with([
+            'pembayarans' => $pembayarans,
+            'cari' => $cari
+        ]);
     }
 
     public function tambah()
     {
-        $siswa = Siswa::all();
+        // Mengambil pembayaran terbaru yang memiliki status 'ditolak' untuk setiap siswa
+        $ditolakSiswaIds = Pembayaran::where('status', 'ditolak')
+            ->whereIn('id', function ($query) {
+                $query->selectRaw('MAX(id)')
+                    ->from('pembayaran')
+                    ->groupBy('siswa_id');
+            })
+            ->pluck('siswa_id');
+
+        // Mengambil siswa yang ditolak pembayarannya
+        $siswaDitolak = Siswa::whereIn('id', $ditolakSiswaIds)
+            ->get(['id', 'nama_siswa']);
+
+        // Mengambil siswa yang ditambahkan oleh admin dan tidak memiliki pembayaran diterima
+        $adminUserId = 1; // Anda dapat mengubah ini sesuai dengan user_id admin
+        $siswaAdmin = Siswa::where('user_id', $adminUserId)
+            ->whereNotIn('id', function ($query) {
+                $query->select('siswa_id')
+                    ->from('pembayaran')
+                    ->where('status', 'diterima');
+            })
+            ->get(['id', 'nama_siswa']);
+
+        // Menggabungkan kedua hasil query
+        $siswa = $siswaDitolak->merge($siswaAdmin)
+            ->unique('id')
+            ->pluck('nama_siswa', 'id');
 
         // Meneruskan data siswa ke view
         return view('admin.manajemen_data_pembayaran.create', compact('siswa'));

@@ -45,7 +45,7 @@ Route::get('/formulir/', function () {
 })->middleware(['auth', 'verified']);
 Route::post('/formulir/store', [\App\Http\Controllers\SiswaController::class, 'store'])->name('formulir.simpan');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // user
 // beranda
@@ -69,7 +69,7 @@ Route::get('/visimisi', function () {
 // kontak
 Route::get('/kontak', function () {
     return view('kontak.index');
-});
+})->name('kontak.index');
 
 // route pengurus dan guru
 Route::get('/pengurus', function () {
@@ -107,23 +107,32 @@ Route::get('/ppdb', function () {
 // Route::post('/pembayaran/store',[PembayaranController::class, 'store'])->name('pembayaran.simpan');
 
 // route bayar
-Route::get('/bayar',[BayarController::class, 'index'])->name('bayar');
-Route::post('/bayar/store',[BayarController::class, 'store'])->name('bayar.simpan');
+// Rute untuk menampilkan halaman pembayaran dengan middleware auth
+Route::get('/bayar', [BayarController::class, 'index'])
+    ->middleware('auth')
+    ->name('bayar');
+
+// Rute untuk menyimpan data pembayaran dengan middleware auth
+Route::post('/bayar/store', [BayarController::class, 'store'])
+    ->middleware('auth')
+    ->name('bayar.simpan');
 
 // route terima kasih
 Route::get('/terimakasih', function () {
     return view('terimakasih.index');
-})->name('terimakasih');
+})->middleware('auth')->name('terimakasih');
 
-// route Riwayat Transakasi
-Route::get('/riwayat-transaksi', [RiwayatController::class, 'index'])->name('riwayat-transaksi');
+// Rute untuk menampilkan riwayat transaksi dengan middleware auth
+Route::get('/riwayat-transaksi', [RiwayatController::class, 'index'])
+    ->middleware('auth')
+    ->name('riwayat-transaksi');
 
 // route admin
 // route dashboard
 // Route::get('/admin', function () {
 //     return view('admin.index');
 //     })->middleware(['auth', 'verified']);   
-    
+
 Route::get('/admin', [HomeController::class, 'adminindex'])->name('admin')->middleware(['auth', 'verified']);
 
 // route manajemen data siswa
@@ -133,7 +142,7 @@ Route::put('/siswa/{id}', [\App\Http\Controllers\Admin\DatasiswaController::clas
 Route::get('/data-siswa/tambah', [DatasiswaController::class, 'tambah']);
 Route::post('/data-siswa/simpan', [DatasiswaController::class, 'store'])->name('data-siswa-simpan');
 Route::delete('/data-siswa/{siswa}/hapus', [DatasiswaController::class, 'hapus'])
-        ->name('data-siswa.hapus');
+    ->name('data-siswa.hapus');
 Route::get('/data-siswa/{siswa_id}/cetak', [DatasiswaController::class, 'cetak'])->name('data-siswa.cetak');
 Route::get('/data-siswa/{siswa}/lihat', [DatasiswaController::class, 'show'])->name('data-siswa.lihat');
 
@@ -165,6 +174,22 @@ Route::post('/data-pembayaran/simpan', [AdminDatapembayaranController::class, 's
 Route::get('/data-pembayaran/{pembayaran}/lihat', [AdminDatapembayaranController::class, 'show'])->name('data-pembayaran.lihat');
 Route::get('/data-pembayaran/{pembayaran}/cetak', [AdminDatapembayaranController::class, 'cetak'])->name('data-pembayaran.cetak');
 
-Route::get('/siswa-user', [SiswaController::class, 'index2'])->name('siswa.index');
-Route::get('/siswa-user/{id}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
-Route::put('/siswa-user/{id}', [SiswaController::class, 'update'])->name('siswa.update');
+// // route edit formulit
+// Route::get('/siswa-user', [SiswaController::class, 'index2'])->name('siswa.index');
+// Route::get('/siswa-user/{id}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
+// Route::put('/siswa-user/{id}', [SiswaController::class, 'update'])->name('siswa.update');
+
+// Rute untuk menampilkan daftar siswa dengan middleware auth
+Route::get('/siswa-user', [SiswaController::class, 'index2'])
+    ->middleware('auth')
+    ->name('siswa.index');
+
+// Rute untuk menampilkan form siswa dengan middleware auth
+Route::get('/siswa-user/{id}/edit', [SiswaController::class, 'edit'])
+    ->middleware('auth')
+    ->name('siswa.edit');
+
+// // Rute untuk memperbarui data siswa dengan middleware auth
+// Route::put('/siswa-user/{id}', [SiswaController::class, 'update'])
+//     ->middleware('auth')
+//     ->name('siswa.update');

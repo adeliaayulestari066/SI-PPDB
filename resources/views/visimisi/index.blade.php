@@ -26,7 +26,7 @@
                             <img class="img-fluid w-75 rounded-circle bg-light p-3" src="/assets/img/favicon/anak.jpg" alt="Gambar Anak">
                         </div>
                         <div class="col-6 text-end" style="margin-top: -150px;">
-                            <img class="img-fluid w-85 rounded-circle bg-light p-3" src="/assets/img/favicon/kegiatan.jpg" alt="Gambar Kegiatan">
+                            <img class="img-fluid w-85 rounded-circle bg-light p-3" src="/assets/img/favicon/kunjungan.jpg" alt="Gambar Kegiatan">
                         </div>
                     </div>
                 </div>

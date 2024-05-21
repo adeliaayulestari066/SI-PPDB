@@ -99,7 +99,7 @@
                                 <a href="#" class="nav-link dropdown-toggle"
                                     data-bs-toggle="dropdown">{{ Auth::user()->name }}</a>
                                 <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-                                    <a href="/siswa-user" class="dropdown-item">Edit Formulir</a>
+                                    <a href="/siswa-user" class="dropdown-item">Riwayat Formulir</a>
                                     <a href="/riwayat-transaksi" class="dropdown-item">Riwayat Transaksi</a>
                                     <form id="logoutForm" method="POST" action="{{ route('logout') }}">
                                         @csrf

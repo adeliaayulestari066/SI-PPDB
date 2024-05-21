@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="text-center mx-auto mb-2 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+            <div class="text-center mx-auto mb-2 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 1000px;">
                 <h1 class="mb-3">PPDB Online TK Al-Muchlis</h1>
                 <p>Sekarang, mendaftarkan anak Anda ke TK Al-Muchlis Kota Bengkulu menjadi lebih mudah dan efisien dengan
                     menggunakan PPDB online!<br>

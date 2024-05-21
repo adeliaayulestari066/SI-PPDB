@@ -20,8 +20,8 @@
                         <label for="siswa_id">Nama Siswa</label>
                         <select name="siswa_id" class="form-control">
                             <option value="">Pilih Siswa</option>
-                            @foreach ($siswa as $s)
-                                <option value="{{ $s->id }}">{{ $s->nama_siswa }}</option>
+                            @foreach ($siswa as $id => $nama_siswa)
+                                <option value="{{ $id }}">{{ $nama_siswa }}</option>
                             @endforeach
                         </select>
                     </div>
