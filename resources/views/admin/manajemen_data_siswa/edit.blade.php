@@ -99,8 +99,8 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="no_hp_ortu" value="{{ $siswa->no_hp_ortu }}" type="text"
-                                class="form-control" id="np__hp_ortu" placeholder="Nomor HP Orang Tua"
-                                aria-describedby="floatingInputHelp" required/>
+                                class="form-control" id="np_hp_ortu" placeholder="Nomor HP Orang Tua"
+                                aria-describedby="floatingInputHelp" minlength="10" maxlength="13" required/>
                             <label for="floatingInput">Nomor HP Orang Tua</label>
                         </div>
                     </div>

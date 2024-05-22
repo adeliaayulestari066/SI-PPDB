@@ -154,7 +154,7 @@ class DatasiswaController extends Controller
     {
         $siswa = Siswa::findOrFail($siswa_id);
 
-        // return view('admin.manajemen_data_siswa.print', compact('siswa'));
+        return view('admin.manajemen_data_siswa.print', compact('siswa'));
 
         // // Mengatur flash message
         // session()->flash('info', 'Data cetak telah dilihat');

@@ -27,14 +27,6 @@
                             <label for="floatingInput">Jabatan</label>
                         </div>
                     </div>
-                    {{-- <div class="mb-3">
-                        <div class="form-floating">
-                            <input name="nip_nuptk" value="{{ $guru->nip_nuptk }}" type="text" class="form-control"
-                                id="nip_nuptk" placeholder="NIP/NUPTK" aria-describedby="floatingInputHelp" minlength="16" maxlength="18"
-                                nullable />
-                            <label for="floatingInput">NIP/NUPTK</label>
-                        </div>
-                    </div> --}}
 
                     <div class="mb-3">
                         <div class="form-floating">

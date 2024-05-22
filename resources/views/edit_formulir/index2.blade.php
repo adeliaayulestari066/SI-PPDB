@@ -2,9 +2,9 @@
 
 @section('content')
     <main id="main">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h1 class="mb-3">Daftar Siswa</h1>
-            <p class="text-center">Edit profil yang anda lakukan</p>
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px;">
+            <h1 class="mb-3">Riwayat Formulir</h1>
+            <p class="text-center">Anda dapat dengan mudah meninjau kembali data yang telah dimasukkan, memastikan bahwa informasi tersebut akurat dan sesuai</p>
         </div>
 
         <section id="riwayat-transaksi" class="p-4">

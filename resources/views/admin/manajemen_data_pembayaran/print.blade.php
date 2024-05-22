@@ -101,8 +101,7 @@
             var tanggal = document.getElementById('tanggal').textContent;
 
             var printContent =
-                `<div class="title">Cetak Data Siswa Baru</div>` +
-                `<div class="subtitle">TK Al-Muchlis</div>` +
+                `<div class="title">Cetak Data Pembayaran Siswa Baru</div>` +
                 `<div class="data-item"><label>Nama Siswa:</label><span>${siswa}</span></div>` +
                 `<div class="data-item"><label>Bukti Pembayaran:</label><img class="photo" src="{{ asset('bukti/' . $pembayaran->bukti) }}" alt="Bukti Pembayaran"></div>`+
                 `<div class="data-item"><label>Tanggal Pembayaran:</label><span>${tanggal}</span></div>` ;

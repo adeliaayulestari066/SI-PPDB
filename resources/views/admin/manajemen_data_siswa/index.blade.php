@@ -65,16 +65,16 @@
                 @foreach ($siswas as $index => $siswa)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td>{{ $siswa->nama_siswa }}</td>
+                        <td>{{ Str::limit($siswa->nama_siswa, 20) }}</td>
                         <td>{{ $siswa->umur }}</td>
-                        <td>{{ $siswa->tmpt_lhr }}</td>
+                        <td>{{ Str::limit($siswa->tmpt_lhr, 20) }}</td>
                         <td>{{ $siswa->tgl_lhr }}</td>
-                        <td>{{ $siswa->alamat }}</td>
+                        <td>{{ Str::limit($siswa->alamat, 30) }}</td>
                         <td>{{ $siswa->agama }}</td>
-                        <td>{{ $siswa->nama_ayah }}</td>
-                        <td>{{ $siswa->pekerjaan_ayah }}</td>
-                        <td>{{ $siswa->nama_ibu }}</td>
-                        <td>{{ $siswa->pekerjaan_ibu }}</td>
+                        <td>{{ Str::limit($siswa->nama_ayah, 20) }}</td>
+                        <td>{{ Str::limit($siswa->pekerjaan_ayah, 20) }}</td>
+                        <td>{{ Str::limit($siswa->nama_ibu, 20) }}</td>
+                        <td>{{ Str::limit($siswa->pekerjaan_ibu, 20) }}</td>
                         <td>{{ $siswa->no_hp_ortu }}</td>
                         <td>{{ $siswa->foto_kk }}</td>
                         <td>{{ $siswa->foto_akte }}</td>
