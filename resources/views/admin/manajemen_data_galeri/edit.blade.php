@@ -16,14 +16,14 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="gambar" value="{{ $galeri->gambar }}" type="file" class="form-control" id="gambar"
-                                accept=".jpg, .jpeg, .png" />
+                                accept=".jpg, .jpeg, .png" required />
                             <label for="gambar" class="form-label">Gambar</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="deskripsi" value="{{ $galeri->deskripsi }}" type="text" class="form-control"
-                                id="deskripsi" placeholder="Deskripsi" aria-describedby="floatingInputHelp" />
+                                id="deskripsi" placeholder="Deskripsi" aria-describedby="floatingInputHelp" required />
                             <label for="deskripsi">Deskripsi</label>
                         </div>
                     </div>

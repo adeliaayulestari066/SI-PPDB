@@ -29,14 +29,14 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="bukti" type="file" class="form-control" id="bukti" placeholder="Bukti Pembayaran"
-                                aria-describedby="floatingInputHelp" />
+                                aria-describedby="floatingInputHelp" required />
                             <label for="bukti">Bukti Pembayaran</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="tgl_pembayaran" type="date" class="form-control" id="tgl_pembayaran" placeholder="Tanggal Pembayaran"
-                                aria-describedby="floatingInputHelp" />
+                                aria-describedby="floatingInputHelp" required />
                             <label for="tgl_pembayaran">Tanggal Pembayaran</label>
                         </div>
                     </div>
