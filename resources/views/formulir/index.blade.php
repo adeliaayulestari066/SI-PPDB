@@ -66,6 +66,7 @@
                     <label for="no_hp_ortu">No HP Orang Tua</label>
                     <input type="text" class="form-control" name="no_hp_ortu" id="no_hp_ortu"
                         placeholder="No HP Orang Tua" required minlength="10" maxlength="13">
+                    <small id="no_hp_ortu_error" class="text-danger"></small>
                 </div>
                 <div class="mb-3">
                     <label for="foto_kk">Foto Kartu Keluarga</label>
@@ -105,18 +106,27 @@
     <script>
         document.getElementById("daftarButton").addEventListener("click", function() {
             let form = document.getElementById("pendaftaranForm");
-            if (form.checkValidity()) {
-                // Jika form valid, tampilkan modal konfirmasi
-                let konfirmasiModal = new bootstrap.Modal(document.getElementById('konfirmasiModal'));
-                konfirmasiModal.show();
+            let noHp = document.getElementById("no_hp_ortu").value;
+            let noHpError = document.getElementById("no_hp_ortu_error");
+
+            // Reset error message
+            noHpError.textContent = "";
+
+            if (/^\d{10,13}$/.test(noHp)) {
+                // Jika nomor HP valid, tampilkan modal konfirmasi
+                if (form.checkValidity()) {
+                    let konfirmasiModal = new bootstrap.Modal(document.getElementById('konfirmasiModal'));
+                    konfirmasiModal.show();
+                } else {
+                    form.reportValidity();
+                }
             } else {
-                // Jika form tidak valid, tampilkan pesan peringatan
-                form.reportValidity();
+                // Jika nomor HP tidak valid, tampilkan pesan error
+                noHpError.textContent = "Nomor HP harus berupa angka dan berjumlah antara 10 sampai 13 digit.";
             }
         });
 
         document.getElementById("konfirmasiButton").addEventListener("click", function() {
-            // Mengirimkan formulir
             document.getElementById("pendaftaranForm").submit();
         });
 
@@ -130,57 +140,68 @@
             let value = this.value;
             let numericValue = value.replace(/\D/g, ""); // Menghapus semua karakter non-angka
             this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
-            if (this.value.length > 2) {
-                this.value = this.value.slice(0, 2); // Menghapus karakter yang melebihi dua digit
+            if (this.value.length > 1) {
+                this.value = this.value.slice(0, 1); // Menghapus karakter yang melebihi satu digit
             }
         });
 
         document.getElementById("nama_siswa").addEventListener("input", function(event) {
             let value = this.value;
-            // Mengizinkan huruf, spasi, dan titik
-            let validValue = value.replace(/[^a-zA-Z\s.]/g, "");
-            this.value = validValue; // Mengatur nilai input hanya dengan karakter yang diizinkan
+            let validValue = value.replace(/[^a-zA-Z\s.]/g, ""); // Mengizinkan huruf, spasi, dan titik
+            this.value = validValue;
         });
 
         document.getElementById("tmpt_lhr").addEventListener("input", function(event) {
             let value = this.value;
             let alphabeticValue = value.replace(/[^a-zA-Z\s]/g, ""); // Menghapus semua karakter non-huruf dan spasi
-            this.value = alphabeticValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+            this.value = alphabeticValue;
         });
 
         document.getElementById("agama").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
-            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+            this.value = lettersOnlyValue;
         });
 
         document.getElementById("nama_ayah").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
-            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+            this.value = lettersOnlyValue;
         });
 
         document.getElementById("pekerjaan_ayah").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
-            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+            this.value = lettersOnlyValue;
         });
 
         document.getElementById("nama_ibu").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
-            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+            this.value = lettersOnlyValue;
         });
 
         document.getElementById("pekerjaan_ibu").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
-            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+            this.value = lettersOnlyValue;
         });
 
         document.addEventListener("DOMContentLoaded", function() {
             let today = new Date().toISOString().split('T')[0];
             document.getElementById("tgl_lhr").setAttribute('max', today);
+        });
+
+        document.getElementById("pendaftaranForm").addEventListener("submit", function(e) {
+            let noHp = document.getElementById("no_hp_ortu").value;
+            let noHpError = document.getElementById("no_hp_ortu_error");
+
+            if (!(/^\d+$/.test(noHp)) || noHp.length < 10 || noHp.length > 13) {
+                e.preventDefault(); // Mencegah pengiriman formulir
+                noHpError.textContent = "Nomor HP harus berupa angka dan berjumlah antara 10 sampai 13 digit.";
+            } else {
+                noHpError.textContent = ""; // Menghapus pesan error jika valid
+            }
         });
     </script>
 @endsection
