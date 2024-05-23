@@ -38,9 +38,9 @@ class DataguruController extends Controller
         $validatedData = $request->validate([
             'nama_guru' => 'required|string',
             'jabatan' => 'required|string',
-            'nip_nuptk' => 'nullable|string',
+            'nip_nuptk' => 'nullable|string|min:16|max:18',
             'alamat' => 'required|string',
-            'no_hp' => 'required|string',
+            'no_hp' => 'required|string|min:10|max:13',
             'status_kepegawaian' => 'required|string',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi gambar
         ]);
@@ -88,9 +88,9 @@ class DataguruController extends Controller
         $validatedData = $request->validate([
             'nama_guru' => 'required|string',
             'jabatan' => 'required|string',
-            'nip_nuptk' => 'nullable|integer',
+            'nip_nuptk' => 'nullable|string|min:16|max:18',
             'alamat' => 'required|string',
-            'no_hp' => 'required|string',
+            'no_hp' => 'required|string|min:10|max:13',
             'status_kepegawaian' => 'required|string',
             'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ubah sesuai kebutuhan
         ]);

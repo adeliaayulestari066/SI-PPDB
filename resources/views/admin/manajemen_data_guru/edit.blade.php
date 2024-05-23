@@ -10,13 +10,14 @@
                 <h5 class="mb-0">Form Edit Data Guru</h5>
             </div>
             <div class="card-body">
-                <form action="/guru/{{ $guru->id }}" method="POST" enctype="multipart/form-data">
+                <form id="guruForm" action="/guru/{{ $guru->id }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
                         <div class="form-floating">
-                            <input required name="nama_guru" value="{{ $guru->nama_guru }}" type="text" class="form-control"
-                                id="nama_guru" placeholder="Nama Guru" aria-describedby="floatingInputHelp" />
+                            <input required name="nama_guru" value="{{ $guru->nama_guru }}" type="text"
+                                class="form-control" id="nama_guru" placeholder="Nama Guru"
+                                aria-describedby="floatingInputHelp" />
                             <label for="floatingInput">Nama Guru</label>
                         </div>
                     </div>
@@ -31,8 +32,8 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="nip_nuptk" value="{{ $guru->nip_nuptk }}" type="text" class="form-control"
-                                id="nip_nuptk" placeholder="NIP/NUPTK" aria-describedby="floatingInputHelp" 
-                                minlength="16" maxlength="18" required />
+                                id="nip_nuptk" placeholder="NIP/NUPTK" aria-describedby="floatingInputHelp" minlength="16"
+                                maxlength="18" />
                             <label for="floatingInput">NIP/NUPTK</label>
                         </div>
                         <div id="nip_nuptk_error" class="text-danger mt-2"></div>
@@ -48,8 +49,10 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="no_hp" value="{{ $guru->no_hp }}" type="text" class="form-control"
-                                id="no_hp" placeholder="Nomor HP" aria-describedby="floatingInputHelp" minlength="10" maxlength="13" required />
+                                id="no_hp" placeholder="Nomor HP" aria-describedby="floatingInputHelp" minlength="10"
+                                maxlength="13" required />
                             <label for="floatingInput">Nomor HP</label>
+                            <div id="no_hp_error" class="text-danger mt-2"></div>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -72,35 +75,37 @@
         </div>
     </div>
 
-    {{-- <script>
-        document.getElementById("nip_nuptk").addEventListener("input", function(event) {
-            let value = this.value;
-            let numericValue = value.replace(/\D/g, ""); // Menghapus semua karakter non-angka
-            this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
-        });
-    </script> --}}
-
     <script>
-        document.getElementById("nip_nuptk").addEventListener("input", function(event) {
-            let value = this.value;
-            let numericValue = value.replace(/\D/g, ""); // Menghapus semua karakter non-angka
-            this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
-        });
-    
-        document.getElementById('guruForm').addEventListener('submit', function(event) {
-            const input = document.getElementById('nip_nuptk');
-            const value = input.value;
-            const errorDiv = document.getElementById('nip_nuptk_error');
-    
-            if (value.length < 16 || value.length > 18) {
-                event.preventDefault(); // Prevent form submission
-                errorDiv.textContent = "Nomor NIP/NUPTK harus antara 16 dan 18 digit angka.";
-                input.value = ''; // Reset the input field
+        document.getElementById("guruForm").addEventListener("submit", function(e) {
+            // Memeriksa panjang nomor HP
+            let noHp = document.getElementById("no_hp").value;
+            if (!(/^\d+$/.test(noHp)) || noHp.length < 10 || noHp.length > 13) {
+                e.preventDefault(); // Mencegah pengiriman formulir
+                document.getElementById("no_hp_error").innerText =
+                    "Nomor HP harus berupa angka dan berjumlah antara 10 sampai 13 digit.";
             } else {
-                errorDiv.textContent = "";
+                document.getElementById("no_hp_error").innerText = ""; // Menghapus pesan error jika valid
+            }
+
+            // Memeriksa panjang NIP/NUPTK jika tidak kosong
+            let nipNuptk = document.getElementById("nip_nuptk").value;
+            if (nipNuptk && (!(/^\d+$/.test(nipNuptk)) || nipNuptk.length < 16 || nipNuptk.length > 18)) {
+                e.preventDefault(); // Mencegah pengiriman formulir
+                document.getElementById("nip_nuptk_error").innerText =
+                    "NIP/NUPTK harus berupa angka dan berjumlah antara 16 sampai 18 digit.";
+            } else {
+                document.getElementById("nip_nuptk_error").innerText = ""; // Menghapus pesan error jika valid
+            }
+
+            // Menambahkan modal untuk konfirmasi ulang jika NIP/NUPTK awalnya terisi dan sekarang menjadi kosong
+            let nipNuptkBefore = "{{ $guru->nip_nuptk }}"; // Nilai NIP/NUPTK sebelumnya
+            if (nipNuptkBefore && !nipNuptk) {
+                // Tampilkan modal konfirmasi jika NIP/NUPTK awalnya terisi dan sekarang menjadi kosong
+                $('#confirmationModal').modal('show');
+                e.preventDefault(); // Mencegah pengiriman formulir
             }
         });
-        </script>
+    </script>
 
     <script>
         document.getElementById("nama_guru").addEventListener("input", function(event) {
@@ -113,6 +118,13 @@
 
     <script>
         document.getElementById("no_hp").addEventListener("input", function(event) {
+            let value = this.value;
+            let numericValue = value.replace(/\D/g, "");
+            this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
+        });
+
+        // Memastikan hanya angka yang diterima untuk input NIP/NUPTK
+        document.getElementById("nip_nuptk").addEventListener("input", function(event) {
             let value = this.value;
             let numericValue = value.replace(/\D/g, "");
             this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
@@ -135,38 +147,51 @@
         });
     </script>
 
-{{-- <script>
-    document.getElementById("simpan").addEventListener("click", function(event) {
-        validateAndSaveData();
-    });
+    <!-- Modal -->
+    <div id="confirmationModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Konfirmasi</h5>
+                </div>
+                <div class="modal-body">
+                    Data NIP/NUPTK yang sebelumnya ada isi akan kosong, apakah anda yakin akan memperbarui data ini?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnNo">Tidak</button>
+                    <button type="button" class="btn btn-primary" id="btnYes">Ya</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    document.getElementById("perbarui").addEventListener("click", function(event) {
-        validateAndSaveData();
-    });
+    <script>
+        // Ambil tombol "Tidak" pada modal
+        var btnNo = document.getElementById("btnNo");
 
-    function validateAndSaveData() {
-        // Mendapatkan semua input dalam form
-        let inputs = document.querySelectorAll("#form input[type='text']");
-        let isValid = true;
-        let messages = [];
-
-        // Memeriksa setiap input kecuali nip_nuptk dan kolom gambar
-        inputs.forEach(function(input) {
-            if (input.id !== "nip_nuptk" && input.id !== "gambar" && input.value.trim() === "") {
-                isValid = false;
-                messages.push(input.placeholder + " tidak boleh kosong");
-            }
+        // Tambahkan event listener untuk tombol "Tidak"
+        btnNo.addEventListener("click", function() {
+            // Sembunyikan modal
+            $('#confirmationModal').modal('hide');
+            // Kembali ke halaman sebelumnya
+            window.location.href = previousPageURL;
         });
 
-        // Menampilkan pesan jika ada input yang kosong
-        if (!isValid) {
-            alert(messages.join("\n"));
-        } else {
-            // Lakukan penyimpanan data di sini
-            alert("Data berhasil disimpan/perbarui!");
-        }
-    }
-</script> --}}
+        // Ambil tombol "Ya" pada modal
+        var btnYes = document.getElementById("btnYes");
 
+        // Tambahkan event listener untuk tombol "Ya"
+        btnYes.addEventListener("click", function() {
+            // Lakukan tindakan yang diperlukan saat pengguna menekan tombol "Ya"
+            // Contoh: Kirimkan formulir atau jalankan fungsi untuk menyimpan perubahan
+            // Setelah itu, sembunyikan modal
+            document.getElementById("guruForm").submit(); // contoh: mengirimkan formulir
+            $('#confirmationModal').modal('hide'); // sembunyikan modal
+            // Hapus modal dari DOM setelah ditutup
+            $('#confirmationModal').on('hidden.bs.modal', function(e) {
+                $(this).remove();
+            });
+        });
+    </script>
 
 @endsection
