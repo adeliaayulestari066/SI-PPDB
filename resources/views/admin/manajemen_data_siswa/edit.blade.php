@@ -10,7 +10,7 @@
                 <h5 class="mb-0">Form Edit Data Siswa</h5>
             </div>
             <div class="card-body">
-                <form action="/siswa/{{ $siswa->id }}" method="POST" enctype="multipart/form-data">
+                <form id="editForm" action="/siswa/{{ $siswa->id }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="mb-3">
@@ -101,6 +101,7 @@
                                 class="form-control" id="no_hp_ortu" placeholder="Nomor HP Orang Tua"
                                 aria-describedby="floatingInputHelp" minlength="10" maxlength="13" required />
                             <label for="floatingInput">Nomor HP Orang Tua</label>
+                            <small id="no_hp_ortu_error" class="text-danger"></small>
                         </div>
                     </div>
                     <!-- Tambahkan input untuk atribut lainnya sesuai dengan skema tabel -->
@@ -111,85 +112,75 @@
     </div>
 
     <script>
-        document.getElementById("nama_siswa").addEventListener("input", function(event) {
-            let value = this.value;
-            // Mengizinkan huruf, spasi, dan titik
-            let validValue = value.replace(/[^a-zA-Z\s.]/g, "");
-            this.value = validValue; // Mengatur nilai input hanya dengan karakter yang diizinkan
-        });
-    </script>
+        document.getElementById("editForm").addEventListener("submit", function(e) {
+            let noHp = document.getElementById("no_hp_ortu").value;
+            let noHpError = document.getElementById("no_hp_ortu_error");
 
-    <script>
-        document.querySelector("form").addEventListener("submit", function(event) {
-            let noHpOrtu = document.getElementById("no_hp_ortu").value;
-            if (noHpOrtu.length < 10 || noHpOrtu.length > 13) {
-                event.preventDefault(); // Mencegah pengiriman formulir
-                alert("Nomor HP Orang Tua harus berjumlah antara 10 sampai 13 digit.");
+            if (!(/^\d+$/.test(noHp)) || noHp.length < 10 || noHp.length > 13) {
+                e.preventDefault(); // Mencegah pengiriman formulir
+                noHpError.textContent = "Nomor HP harus berupa angka dan berjumlah antara 10 sampai 13 digit.";
+            } else {
+                noHpError.textContent = ""; // Menghapus pesan error jika valid
             }
         });
-    </script>
 
-    <script>
+        document.getElementById("no_hp_ortu").addEventListener("input", function(event) {
+            let value = this.value;
+            let numericValue = value.replace(/\D/g, ""); // Menghapus semua karakter non-angka
+            this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
+        });
+
+        document.getElementById("nama_siswa").addEventListener("input", function(event) {
+            let value = this.value;
+            let validValue = value.replace(/[^a-zA-Z\s.]/g, ""); // Mengizinkan huruf, spasi, dan titik
+            this.value = validValue;
+        });
+
         document.getElementById("tmpt_lhr").addEventListener("input", function(event) {
             let value = this.value;
-            let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
-            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+            let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Menghapus semua karakter non-huruf dan spasi
+            this.value = lettersOnlyValue;
         });
-    </script>
 
-    <script>
         document.getElementById("agama").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
-            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+            this.value = lettersOnlyValue;
         });
-    </script>
 
-    <script>
         document.getElementById("nama_ayah").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
-            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+            this.value = lettersOnlyValue;
         });
-    </script>
 
-    <script>
         document.getElementById("pekerjaan_ayah").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
-            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+            this.value = lettersOnlyValue;
         });
-    </script>
 
-    <script>
         document.getElementById("nama_ibu").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
-            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+            this.value = lettersOnlyValue;
         });
-    </script>
 
-    <script>
         document.getElementById("pekerjaan_ibu").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
-            this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+            this.value = lettersOnlyValue;
         });
-    </script>
 
-    <script>
         document.getElementById("umur").addEventListener("input", function(event) {
             if (this.value.length > 1) {
-                this.value = this.value.slice(0, 1); // Menghapus karakter yang melebihi dua digit
+                this.value = this.value.slice(0, 1); // Mengatur input untuk maksimal dua digit
             }
         });
-    </script>
 
-    <script>
         document.addEventListener("DOMContentLoaded", function() {
             let today = new Date().toISOString().split('T')[0];
             document.getElementById("tgl_lhr").setAttribute('max', today);
         });
     </script>
-
 @endsection

@@ -16,7 +16,7 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="gambar" value="{{ $galeri->gambar }}" type="file" class="form-control" id="gambar"
-                                accept=".jpg, .jpeg, .png" required />
+                                accept=".jpg, .jpeg, .png" />
                             <label for="gambar" class="form-label">Gambar</label>
                         </div>
                     </div>
