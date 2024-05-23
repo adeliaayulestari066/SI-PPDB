@@ -12,7 +12,7 @@
                 <h5 class="mb-0">Form Pengisian Data Guru</h5>
             </div>
             <div class="card-body">
-                <form method="post" action="{{ route('data-guru-simpan') }}" enctype="multipart/form-data">
+                <form id="guruForm" method="post" action="{{ route('data-guru-simpan') }}" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
                     <div class="mb-3">
@@ -35,6 +35,7 @@
                                 placeholder="NIP/NUPTK" aria-describedby="floatingInputHelp" minlength="16" maxlength="18"
                                 nullable />
                             <label for="floatingInput">NIP/NUPTK</label>
+                            <small id="nip_nuptk_error" class="text-danger"></small>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -49,6 +50,7 @@
                             <input name="no_hp" type="text" class="form-control" id="no_hp" placeholder="Nomor HP"
                                 aria-describedby="floatingInputHelp" minlength="10" maxlength="13" required />
                             <label for="floatingInput">Nomor HP</label>
+                            <small id="no_hp_error" class="text-danger"></small>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -73,47 +75,67 @@
     </div>
 
     <script>
+        document.getElementById("guruForm").addEventListener("submit", function(e) {
+            let isValid = true;
+
+            // Validasi Nomor HP
+            let noHp = document.getElementById("no_hp").value;
+            if (!(/^\d+$/.test(noHp)) || noHp.length < 10 || noHp.length > 13) {
+                e.preventDefault(); // Mencegah pengiriman formulir
+                document.getElementById("no_hp_error").innerText =
+                    "Nomor HP harus berupa angka dan berjumlah antara 10 sampai 13 digit.";
+                isValid = false;
+            } else {
+                document.getElementById("no_hp_error").innerText = ""; // Menghapus pesan error jika valid
+            }
+
+            // Validasi NIP/NUPTK
+            let nipNuptk = document.getElementById("nip_nuptk").value;
+            if (nipNuptk && (!(/^\d+$/.test(nipNuptk)) || nipNuptk.length < 16 || nipNuptk.length > 18)) {
+                e.preventDefault(); // Mencegah pengiriman formulir
+                document.getElementById("nip_nuptk_error").innerText =
+                    "NIP/NUPTK harus berupa angka dan berjumlah antara 16 sampai 18 digit.";
+                isValid = false;
+            } else {
+                document.getElementById("nip_nuptk_error").innerText = ""; // Menghapus pesan error jika valid
+            }
+
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+
         document.getElementById("nip_nuptk").addEventListener("input", function(event) {
             let value = this.value;
             let numericValue = value.replace(/\D/g, ""); // Menghapus semua karakter non-angka
             this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
         });
-    </script>
 
-    <script>
+        document.getElementById("no_hp").addEventListener("input", function(event) {
+            let value = this.value;
+            let numericValue = value.replace(/\D/g, "");
+            this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
+        });
+
         document.getElementById("nama_guru").addEventListener("input", function(event) {
             let value = this.value;
             // Mengizinkan huruf, spasi, dan titik
             let validValue = value.replace(/[^a-zA-Z\s.]/g, "");
             this.value = validValue; // Mengatur nilai input hanya dengan karakter yang diizinkan
         });
-    </script>
 
-    <script>
-        document.getElementById("no_hp").addEventListener("input", function(event) {
-            let value = this.value;
-            let numericValue = value.replace(/\D/g, "");
-            this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
-        });
-    </script>
-
-    <script>
         document.getElementById("jabatan").addEventListener("input", function(event) {
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
             this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
         });
-    </script>
 
-    <script>
         document.getElementById("status_kepegawaian").addEventListener("input", function(event) {
             let value = this.value;
             let validValue = value.replace(/[^a-zA-Z\s()]/g, ""); // Mengizinkan huruf, spasi, dan tanda kurung
             this.value = validValue; // Mengatur nilai input hanya dengan karakter yang diizinkan
         });
-    </script>
 
-    <script>
         document.getElementById("simpan").addEventListener("click", function(event) {
             // Mendapatkan semua input dalam form
             let inputs = document.querySelectorAll("#form input[type='text']");
@@ -137,39 +159,4 @@
             }
         });
     </script>
-
-    {{-- <script>
-        document.getElementById("simpan").addEventListener("click", function(event) {
-            event.preventDefault(); // Mencegah pengiriman form default
-
-            // Mendapatkan semua input dalam form
-            let inputs = document.querySelectorAll("#form input[type='text']");
-            let isValid = true;
-
-            // Reset pesan error
-            document.querySelectorAll(".error").forEach(function(errorSpan) {
-                errorSpan.style.display = 'none';
-            });
-
-            // Memeriksa setiap input kecuali nip_nuptk
-            inputs.forEach(function(input) {
-                if (input.id !== "nip_nuptk" && input.value.trim() === "") {
-                    isValid = false;
-                    let errorSpan = document.getElementById(input.id + "_error");
-                    if (errorSpan) {
-                        errorSpan.style.display = 'inline';
-                    }
-                }
-            });
-
-            // Menampilkan pesan jika ada input yang kosong
-            if (!isValid) {
-                alert("Harap isi semua field yang wajib.");
-            } else {
-                // Lakukan penyimpanan data di sini
-                alert("Data berhasil disimpan!");
-            }
-        });
-    </script> --}}
-
 @endsection
