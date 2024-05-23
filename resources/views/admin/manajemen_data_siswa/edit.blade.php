@@ -178,7 +178,7 @@
     <script>
         document.getElementById("umur").addEventListener("input", function(event) {
             if (this.value.length > 1) {
-                this.value = this.value.slice(0, 1); // Menghapus karakter yang melebihi satu digit
+                this.value = this.value.slice(0, 1); // Menghapus karakter yang melebihi dua digit
             }
         });
     </script>
