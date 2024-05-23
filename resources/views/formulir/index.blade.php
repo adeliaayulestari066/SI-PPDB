@@ -15,10 +15,6 @@
                 </div>
             @endif
             <div class="row">
-                {{-- <div class="mb-3">
-                  <label for="user_id">Pendaftaran ID</label>
-                  <input type="number" class="form-control" name="user_id" id="user_id" placeholder="Pendaftaran" required>
-                </div> --}}
                 <div class="mb-3">
                     <label for="nama_siswa">Nama Siswa</label>
                     <input type="text" class="form-control" name="nama_siswa" id="nama_siswa" placeholder="Nama Siswa"
@@ -180,6 +176,11 @@
             let value = this.value;
             let lettersOnlyValue = value.replace(/[^a-zA-Z\s]/g, ""); // Mengizinkan hanya huruf dan spasi
             this.value = lettersOnlyValue; // Mengatur nilai input hanya dengan karakter huruf dan spasi
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let today = new Date().toISOString().split('T')[0];
+            document.getElementById("tgl_lhr").setAttribute('max', today);
         });
     </script>
 @endsection
