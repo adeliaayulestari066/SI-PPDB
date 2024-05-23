@@ -29,8 +29,6 @@
                             <label for="floatingInput">Umur</label>
                         </div>
                     </div>
-                    {{-- <input type="hidden" name="user_id" value="{{$user = $request->user();}}"> --}}
-                    {{-- <input type="hidden" name="user_id" value="{{ $request->user()->id }}"> --}}
                     <input type="hidden" name="user_id" value="{{ Auth::id() }}">
 
                     <div class="mb-3">
@@ -42,7 +40,7 @@
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
-                            <input name="tgl_lhr" type="date" class="form-control" id="floatingInput"
+                            <input name="tgl_lhr" type="date" class="form-control" id="tgl_lhr"
                                 placeholder="Tanggal Lahir" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Tanggal Lahir</label>
                         </div>
@@ -98,19 +96,20 @@
                         </div>
                     </div>
                     <div class="mb-3">
+                        <div class="form
                         <div class="form-floating">
-                            <input name="foto_kk" type="file" class="form-control" id="floatingInput"
+                            <input name="foto_kk" type="file" class="form-control" id="foto_kk"
                                 placeholder="Foto KK" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Foto KK</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
-                            <input name="foto_akte" type="file" class="form-control" id="floatingInput"
+                            <input name="foto_akte" type="file" class="form-control" id="foto_akte"
                                 placeholder="Foto Akte" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Foto Akte</label>
                         </div>
-                    </div> 
+                    </div>
                     <div class="mb-3">
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
@@ -186,9 +185,16 @@
 
     <script>
         document.getElementById("umur").addEventListener("input", function(event) {
-            if (this.value.length > 2) {
-                this.value = this.value.slice(0, 2); // Menghapus karakter yang melebihi dua digit
+            if (this.value.length > 1) {
+                this.value = this.value.slice(0, 1); // Menghapus karakter yang melebihi satu digit
             }
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let today = new Date().toISOString().split('T')[0];
+            document.getElementById("tgl_lhr").setAttribute('max', today);
         });
     </script>
 
