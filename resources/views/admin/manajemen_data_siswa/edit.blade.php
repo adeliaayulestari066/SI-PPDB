@@ -10,8 +10,7 @@
                 <h5 class="mb-0">Form Edit Data Siswa</h5>
             </div>
             <div class="card-body">
-                <form action="/siswa/{{ $siswa->id }}" method="POST""
-                    enctype="multipart/form-data">
+                <form action="/siswa/{{ $siswa->id }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="mb-3">
@@ -38,14 +37,14 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="tgl_lhr" value="{{ $siswa->tgl_lhr }}" type="date" class="form-control"
-                                id="floatingInput" placeholder="Tanggal Lahir" aria-describedby="floatingInputHelp" required/>
+                                id="tgl_lhr" placeholder="Tanggal Lahir" aria-describedby="floatingInputHelp" required/>
                             <label for="floatingInput">Tanggal Lahir</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="alamat" value="{{ $siswa->alamat }}" type="text" class="form-control"
-                                id="floatingInput" placeholder="Alamat" aria-describedby="floatingInputHelp" required/>
+                                id="alamat" placeholder="Alamat" aria-describedby="floatingInputHelp" required/>
                             <label for="floatingInput">Alamat</label>
                         </div>
                     </div>
@@ -99,7 +98,7 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="no_hp_ortu" value="{{ $siswa->no_hp_ortu }}" type="text"
-                                class="form-control" id="np_hp_ortu" placeholder="Nomor HP Orang Tua"
+                                class="form-control" id="no_hp_ortu" placeholder="Nomor HP Orang Tua"
                                 aria-describedby="floatingInputHelp" minlength="10" maxlength="13" required/>
                             <label for="floatingInput">Nomor HP Orang Tua</label>
                         </div>
@@ -178,9 +177,16 @@
 
     <script>
         document.getElementById("umur").addEventListener("input", function(event) {
-            if (this.value.length > 2) {
-                this.value = this.value.slice(0, 2); // Menghapus karakter yang melebihi dua digit
+            if (this.value.length > 1) {
+                this.value = this.value.slice(0, 1); // Menghapus karakter yang melebihi satu digit
             }
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let today = new Date().toISOString().split('T')[0];
+            document.getElementById("tgl_lhr").setAttribute('max', today);
         });
     </script>
 
