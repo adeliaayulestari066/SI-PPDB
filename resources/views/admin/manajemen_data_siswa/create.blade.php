@@ -128,10 +128,12 @@
     </script>
 
     <script>
-        document.getElementById("no_hp_ortu").addEventListener("input", function(event) {
-            let value = this.value;
-            let numericValue = value.replace(/\D/g, "");
-            this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
+        document.querySelector("form").addEventListener("submit", function(event) {
+            let noHpOrtu = document.getElementById("no_hp_ortu").value;
+            if (noHpOrtu.length < 10 || noHpOrtu.length > 13) {
+                event.preventDefault(); // Mencegah pengiriman formulir
+                alert("Nomor HP Orang Tua harus berjumlah antara 10 sampai 13 digit.");
+            }
         });
     </script>
 

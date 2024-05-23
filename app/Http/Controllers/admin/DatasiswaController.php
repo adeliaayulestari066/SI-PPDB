@@ -47,7 +47,7 @@ class DatasiswaController extends Controller
             'pekerjaan_ayah' => 'required|string',
             'nama_ibu' => 'required|string',
             'pekerjaan_ibu' => 'required|string',
-            'no_hp_ortu' => 'required|string',
+            'no_hp_ortu' => 'required|string|min:10|max:13',
             'foto_kk' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ubah sesuai kebutuhan
             'foto_akte' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ubah sesuai kebutuhan
         ]);
@@ -108,7 +108,7 @@ class DatasiswaController extends Controller
             'pekerjaan_ayah' => 'required|string',
             'nama_ibu' => 'required|string',
             'pekerjaan_ibu' => 'required|string',
-            'no_hp_ortu' => 'required|string',
+            'no_hp_ortu' => 'required|string|min:10|max:13',
             'foto_kk' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ubah sesuai kebutuhan
             'foto_akte' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ubah sesuai kebutuhan
         ]);

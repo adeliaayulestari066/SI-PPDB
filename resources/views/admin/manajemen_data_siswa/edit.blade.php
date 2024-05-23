@@ -16,49 +16,49 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="nama_siswa" value="{{ $siswa->nama_siswa }}" type="text" class="form-control"
-                                id="nama_siswa" placeholder="Nama Siswa" aria-describedby="floatingInputHelp" required/>
+                                id="nama_siswa" placeholder="Nama Siswa" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Nama Siswa</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="umur" value="{{ $siswa->umur }}" type="number" class="form-control"
-                                id="umur" placeholder="Umur" aria-describedby="floatingInputHelp" required/>
+                                id="umur" placeholder="Umur" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Umur</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="tmpt_lhr" value="{{ $siswa->tmpt_lhr }}" type="text" class="form-control"
-                                id="tmpt_lhr" placeholder="Tempat Lahir" aria-describedby="floatingInputHelp" required/>
+                                id="tmpt_lhr" placeholder="Tempat Lahir" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Tempat Lahir</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="tgl_lhr" value="{{ $siswa->tgl_lhr }}" type="date" class="form-control"
-                                id="tgl_lhr" placeholder="Tanggal Lahir" aria-describedby="floatingInputHelp" required/>
+                                id="tgl_lhr" placeholder="Tanggal Lahir" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Tanggal Lahir</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="alamat" value="{{ $siswa->alamat }}" type="text" class="form-control"
-                                id="alamat" placeholder="Alamat" aria-describedby="floatingInputHelp" required/>
+                                id="alamat" placeholder="Alamat" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Alamat</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="agama" value="{{ $siswa->agama }}" type="text" class="form-control"
-                                id="agama" placeholder="Agama" aria-describedby="floatingInputHelp" required/>
+                                id="agama" placeholder="Agama" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Agama</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="nama_ayah" value="{{ $siswa->nama_ayah }}" type="text" class="form-control"
-                                id="nama_ayah" placeholder="Nama Ayah" aria-describedby="floatingInputHelp" required/>
+                                id="nama_ayah" placeholder="Nama Ayah" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Nama Ayah</label>
                         </div>
                     </div>
@@ -66,14 +66,14 @@
                         <div class="form-floating">
                             <input name="pekerjaan_ayah" value="{{ $siswa->pekerjaan_ayah }}" type="text"
                                 class="form-control" id="pekerjaan_ayah" placeholder="Pekerjaan Ayah"
-                                aria-describedby="floatingInputHelp" required/>
+                                aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Pekerjaan Ayah</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="nama_ibu" value="{{ $siswa->nama_ibu }}" type="text" class="form-control"
-                                id="nama_ibu" placeholder="Nama Ibu" aria-describedby="floatingInputHelp" required/>
+                                id="nama_ibu" placeholder="Nama Ibu" aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Nama Ibu</label>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                         <div class="form-floating">
                             <input name="pekerjaan_ibu" value="{{ $siswa->pekerjaan_ibu }}" type="text"
                                 class="form-control" id="pekerjaan_ibu" placeholder="Pekerjaan Ibu"
-                                aria-describedby="floatingInputHelp" required/>
+                                aria-describedby="floatingInputHelp" required />
                             <label for="floatingInput">Pekerjaan Ibu</label>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                         <div class="form-floating">
                             <input name="no_hp_ortu" value="{{ $siswa->no_hp_ortu }}" type="text"
                                 class="form-control" id="no_hp_ortu" placeholder="Nomor HP Orang Tua"
-                                aria-describedby="floatingInputHelp" minlength="10" maxlength="13" required/>
+                                aria-describedby="floatingInputHelp" minlength="10" maxlength="13" required />
                             <label for="floatingInput">Nomor HP Orang Tua</label>
                         </div>
                     </div>
@@ -120,10 +120,12 @@
     </script>
 
     <script>
-        document.getElementById("no_hp_ortu").addEventListener("input", function(event) {
-            let value = this.value;
-            let numericValue = value.replace(/\D/g, "");
-            this.value = numericValue; // Mengatur nilai input hanya dengan karakter angka
+        document.querySelector("form").addEventListener("submit", function(event) {
+            let noHpOrtu = document.getElementById("no_hp_ortu").value;
+            if (noHpOrtu.length < 10 || noHpOrtu.length > 13) {
+                event.preventDefault(); // Mencegah pengiriman formulir
+                alert("Nomor HP Orang Tua harus berjumlah antara 10 sampai 13 digit.");
+            }
         });
     </script>
 
