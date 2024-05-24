@@ -57,28 +57,25 @@
                         <tr>
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $pembayaran->siswa->nama_siswa }}</td>
-                            <td><img src="{{ asset('bukti/' . $pembayaran->bukti) }}" alt="{{ $pembayaran->bukti }}"
-                                    style="max-width: 30px;"></td>
+                            <td><img src="{{ asset('bukti/' . $pembayaran->bukti) }}" alt="{{ $pembayaran->bukti }}" style="max-width: 30px;"></td>
                             <td>{{ $pembayaran->tgl_pembayaran }}</td>
                             <td>{{ ucwords($pembayaran->status) }}</td>
                             <td>
                                 <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                         <i class="bx bx-dots-vertical-rounded"></i>
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item"
-                                            href="{{ route('data-pembayaran.lihat', $pembayaran->id) }}">
+                                        <a class="dropdown-item" href="{{ route('data-pembayaran.lihat', $pembayaran->id) }}">
                                             <i class="bx bx-show me-1"></i> Detail Pembayaran
                                         </a>
-                                        <a class="dropdown-item" href="/pembayaran/{{ $pembayaran->id }}/edit">
-                                            <i class="bx bx-edit-alt me-1"></i> Edit
-                                        </a>
+                                        @if ($pembayaran->status != 'diterima' && $pembayaran->status != 'ditolak')
+                                            <a class="dropdown-item" href="/pembayaran/{{ $pembayaran->id }}/edit">
+                                                <i class="bx bx-edit-alt me-1"></i> Edit
+                                            </a>
+                                        @endif
                                         @if ($pembayaran->status == 'diterima')
-                                            <!-- Menambahkan kondisi untuk menampilkan tombol cetak hanya jika status pembayaran adalah 'diterima' -->
-                                            <a class="dropdown-item"
-                                                href="{{ route('data-pembayaran.cetak', $pembayaran->id) }}">
+                                            <a class="dropdown-item" href="{{ route('data-pembayaran.cetak', $pembayaran->id) }}">
                                                 <i class="bx bx-printer me-1"></i> Cetak
                                             </a>
                                         @endif
@@ -87,7 +84,7 @@
                             </td>
                         </tr>
                     @endforeach
-                </tbody>
+                </tbody>                
             </table>
         </div>
     </div>

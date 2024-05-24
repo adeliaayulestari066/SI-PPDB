@@ -36,7 +36,7 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="tgl_pembayaran" type="date" class="form-control" id="tgl_pembayaran" placeholder="Tanggal Pembayaran"
-                                aria-describedby="floatingInputHelp" required />
+                                aria-describedby="floatingInputHelp" required max="{{ date('Y-m-d') }}" />
                             <label for="tgl_pembayaran">Tanggal Pembayaran</label>
                         </div>
                     </div>
@@ -55,4 +55,11 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var today = new Date().toISOString().split('T')[0];
+            document.getElementById('tgl_pembayaran').setAttribute('max', today);
+        });
+    </script>
 @endsection
