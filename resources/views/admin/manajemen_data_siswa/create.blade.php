@@ -99,14 +99,14 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="foto_kk" type="file" class="form-control" id="foto_kk"
-                                placeholder="Foto KK" aria-describedby="floatingInputHelp" required />
+                                placeholder="Foto KK" aria-describedby="floatingInputHelp" accept=".jpg, .jpeg, .png" required />
                             <label for="floatingInput">Foto KK</label>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="foto_akte" type="file" class="form-control" id="foto_akte"
-                                placeholder="Foto Akte" aria-describedby="floatingInputHelp" required />
+                                placeholder="Foto Akte" aria-describedby="floatingInputHelp" accept=".jpg, .jpeg, .png" required />
                             <label for="floatingInput">Foto Akte</label>
                         </div>
                     </div>

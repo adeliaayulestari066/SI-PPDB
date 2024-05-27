@@ -18,7 +18,7 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="gambar" type="file" class="form-control" id="gambar" placeholder="Gambar"
-                                aria-describedby="floatingInputHelp" required />
+                                aria-describedby="floatingInputHelp" accept=".jpg, .jpeg, .png" required />
                             <label for="gambar">Gambar</label>
                         </div>
                     </div>

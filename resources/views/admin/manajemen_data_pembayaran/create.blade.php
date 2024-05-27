@@ -29,7 +29,7 @@
                     <div class="mb-3">
                         <div class="form-floating">
                             <input name="bukti" type="file" class="form-control" id="bukti" placeholder="Bukti Pembayaran"
-                                aria-describedby="floatingInputHelp" required />
+                                aria-describedby="floatingInputHelp" accept=".jpg, .jpeg, .png" required />
                             <label for="bukti">Bukti Pembayaran</label>
                         </div>
                     </div>
