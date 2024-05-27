@@ -27,7 +27,7 @@
                 <div class="row">
 
                     <div class="mb-3">
-                        <input type="file" class="form-control" name="bukti" id="bukti">
+                        <input type="file" class="form-control" name="bukti" id="bukti" accept=".jpg, .jpeg, .png" required>
                         <span id="bukti_error" style="color:red;"></span>
                     </div>
 
