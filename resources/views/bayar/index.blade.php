@@ -22,11 +22,13 @@
             <p class="mb-4"><strong>Rizki Adrian Putra (BRI): 6781 0101 3674 540</strong></p>
 
             {{-- ini bagian form --}}
-            <form action="{{ route('bayar.simpan') }}" method="POST" enctype="multipart/form-data">
+            <form id="payment-form" action="{{ route('bayar.simpan') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
+
                     <div class="mb-3">
                         <input type="file" class="form-control" name="bukti" id="bukti">
+                        <span id="bukti_error" style="color:red;"></span>
                     </div>
 
                     {{-- <div class="mb-3">
@@ -47,7 +49,7 @@
                         <label for="siswa_id">Nama Siswa</label>
                         <!-- bayar.index.blade.php -->
                         {{-- <input type="text" class="form-control" readonly
-                            value="@foreach ($pembayaranDitolak as $siswaId => $namaSiswa)
+                            value="@foreach ($pembayaranDitolak sebagai $siswaId => $namaSiswa)
                     {{ $namaSiswa }} @endforeach"> --}}
                         <select name="siswa_id" class="form-control">
                             <option value="">Pilih Siswa</option>
@@ -61,7 +63,7 @@
                         <label for="siswa_id">Nama Siswa</label>
                         <select name="siswa_id" class="form-control">
                             <option value="">Pilih Siswa</option>
-                            @foreach ($pembayaranDitolak as $siswaId => $namaSiswa)
+                            @foreach ($pembayaranDitolak sebagai $siswaId => $namaSiswa)
                                 <option value="{{ $siswaId }}">{{ $namaSiswa }}</option>
                             @endforeach
                         </select>
@@ -73,4 +75,26 @@
             </form>
         </div>
     </div>
+
+    <script>
+        document.getElementById("payment-form").addEventListener("submit", function(e) {
+            let isValid = true;
+
+            // Validasi bukti pembayaran
+            const buktiInput = document.getElementById("bukti");
+            const buktiError = document.getElementById("bukti_error");
+            if (!buktiInput.value) {
+                isValid = false;
+                buktiError.textContent = "Silakan unggah bukti pembayaran terlebih dahulu.";
+            } else {
+                buktiError.textContent = "";
+            }
+
+            // Mencegah pengiriman formulir jika ada yang tidak valid
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+    </script>
+
 @endsection

@@ -70,11 +70,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="foto_kk">Foto Kartu Keluarga</label>
-                    <input type="file" class="form-control" name="foto_kk" id="foto_kk" required>
+                    <input type="file" class="form-control" name="foto_kk" id="foto_kk" accept=".jpg, .jpeg, .png" required>
                 </div>
                 <div class="mb-3">
                     <label for="foto_akte">Foto Akte Kelahiran</label>
-                    <input type="file" class="form-control" name="foto_akte" id="foto_akte" required>
+                    <input type="file" class="form-control" name="foto_akte" id="foto_akte" accept=".jpg, .jpeg, .png" required>
                 </div>
             </div>
 
