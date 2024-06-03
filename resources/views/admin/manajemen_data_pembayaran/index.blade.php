@@ -75,7 +75,7 @@
                                             </a>
                                         @endif
                                         @if ($pembayaran->status == 'diterima')
-                                            <a class="dropdown-item" href="{{ route('data-pembayaran.cetak', $pembayaran->id) }}">
+                                            <a class="dropdown-item" href="{{ route('data-pembayaran.cetak', $pembayaran->id) }}" target="_blank">
                                                 <i class="bx bx-printer me-1"></i> Cetak
                                             </a>
                                         @endif

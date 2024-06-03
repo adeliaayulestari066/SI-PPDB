@@ -82,7 +82,7 @@
                                     <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#hapusModal{{ $index }}">
                                         <i class="bx bx-trash me-1"></i> Hapus
                                     </button>
-                                    <a class="dropdown-item" href="{{ route('data-guru.cetak', $guru->id) }}">
+                                    <a class="dropdown-item" href="{{ route('data-guru.cetak', $guru->id) }}" target="_blank" >
                                         <i class="bx bx-printer me-1"></i> Cetak
                                     </a>
                                 </div>
