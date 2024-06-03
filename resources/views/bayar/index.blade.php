@@ -17,9 +17,9 @@
                 <img src="/assets/img/favicon/Bayar Disini.gif" alt="GIF" width="300" height="300">
             </div>
 
-            <p class="mb-4">Silakan lakukan pembayaran ke nomor rekening berikut untuk menyelesaikan proses pendaftaran
+            <p class="mb-4">Silakan lakukan pembayaran sebesar Rp.100.000,00 ke nomor rekening berikut untuk menyelesaikan proses pendaftaran
                 Anda lalu kirim bukti pembayaran ke form di bawah ini:</p>
-            <p class="mb-4"><strong>Rizki Adrian Putra (BRI): 6781 0101 3674 540</strong></p>
+            <p class="mb-4"><strong>Reni Arista (BRI): 6781 0101 3674 540</strong></p>
 
             {{-- ini bagian form --}}
             <form id="payment-form" action="{{ route('bayar.simpan') }}" method="POST" enctype="multipart/form-data">
@@ -74,6 +74,7 @@
                 <button type="submit" class="btn btn-primary btn-block">Kirim Bukti</button>
             </form>
         </div>
+        <p class="m-5"> Jika anda belum ingin melakukan pembayaran, silahkan lakukan pembayaran dengan memilih button "Bayar Sekarang" di halaman <a href="{{ route('ppdb.index')}}">PPDB</a>.</p>
     </div>
 
     <script>

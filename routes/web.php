@@ -98,7 +98,7 @@ Route::get('/sejarah', function () {
 // route ppdb
 Route::get('/ppdb', function () {
     return view('ppdb.index');
-});
+})->name('ppdb.index');
 
 // route pembayaran
 // Route::get('/pembayaran', function () {

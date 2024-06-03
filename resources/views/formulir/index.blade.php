@@ -79,7 +79,10 @@
             </div>
 
             <hr class="mb-4">
-            <button type="button" class="btn btn-primary btn-block" id="daftarButton">Daftar</button>
+            {{-- <button type="button" class="btn btn-primary btn-block" id="daftarButton">Daftar</button> --}}
+            <div class="d-flex justify-content-center align-items-center full-height">
+                <button type="button" class="btn btn-primary" id="daftarButton">Daftar</button>
+            </div>
         </form>
 
         <!-- Modal -->
