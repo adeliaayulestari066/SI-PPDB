@@ -46,7 +46,7 @@ class DatapembayaranController extends Controller
             ->get(['id', 'nama_siswa']);
 
         // Mengambil siswa yang ditambahkan oleh admin dan tidak memiliki pembayaran diterima
-        $adminUserId = 1; // Anda dapat mengubah ini sesuai dengan user_id admin
+        $adminUserId = 2; // Anda dapat mengubah ini sesuai dengan user_id admin
         $siswaAdmin = Siswa::where('user_id', $adminUserId)
             ->whereNotIn('id', function ($query) {
                 $query->select('siswa_id')
