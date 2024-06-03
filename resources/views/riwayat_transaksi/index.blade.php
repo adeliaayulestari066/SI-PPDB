@@ -4,7 +4,7 @@
     <main id="main">
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <h1 class="mb-3">Riwayat Transaksi</h1>
-            <p class="text-center">Cek riwayat transaksi yang anda lakukan</p><!-- Modified line -->
+            <p class="text-center"> Silakan cek detail riwayat transaksi untuk melihat semua aktivitas transaksi yang telah terjadi.</p><!-- Modified line -->
         </div>
 
         <!-- ======= Riwayat Transaksi Section ======= -->

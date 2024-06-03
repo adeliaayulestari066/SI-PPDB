@@ -191,8 +191,16 @@
         });
 
         document.addEventListener("DOMContentLoaded", function() {
-            let today = new Date().toISOString().split('T')[0];
-            document.getElementById("tgl_lhr").setAttribute('max', today);
+            let today = new Date();
+            let currentYear = today.getFullYear();
+            let maxYear = currentYear;
+            let minYear = currentYear - 7;
+            
+            let minDate = new Date(minYear, 0, 1).toISOString().split('T')[0];
+            let maxDate = new Date(maxYear, 11, 31).toISOString().split('T')[0];
+            
+            document.getElementById("tgl_lhr").setAttribute('min', minDate);
+            document.getElementById("tgl_lhr").setAttribute('max', maxDate);
         });
 
         document.getElementById("pendaftaranForm").addEventListener("submit", function(e) {
