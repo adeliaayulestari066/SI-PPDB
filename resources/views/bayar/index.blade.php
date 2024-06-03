@@ -51,7 +51,7 @@
                         {{-- <input type="text" class="form-control" readonly
                             value="@foreach ($pembayaranDitolak sebagai $siswaId => $namaSiswa)
                     {{ $namaSiswa }} @endforeach"> --}}
-                        <select name="siswa_id" class="form-control">
+                        <select name="siswa_id" class="form-control" required>
                             <option value="">Pilih Siswa</option>
                             @foreach ($pembayaranDitolak as $siswaId => $namaSiswa)
                                 <option value="{{ $siswaId }}">{{ $namaSiswa }}</option>
