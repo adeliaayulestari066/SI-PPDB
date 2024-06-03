@@ -55,8 +55,14 @@ class DatapembayaranController extends Controller
             })
             ->get(['id', 'nama_siswa']);
 
-        // Menggabungkan kedua hasil query
-        $siswa = $siswaDitolak->merge($siswaAdmin)
+        // Mengambil siswa yang telah melakukan pendaftaran tetapi belum melakukan proses pembayaran
+        $siswaBelumBayar = Siswa::whereNotIn('id', function ($query) {
+            $query->select('siswa_id')
+                ->from('pembayaran');
+        })->get(['id', 'nama_siswa']);
+
+        // Menggabungkan ketiga hasil query
+        $siswa = $siswaDitolak->merge($siswaAdmin)->merge($siswaBelumBayar)
             ->unique('id')
             ->pluck('nama_siswa', 'id');
 
